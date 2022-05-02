@@ -134,7 +134,6 @@ dmypy.json
 =======
 # CakePHP 3
 
-/vendor/*
 /config/app.php
 
 /tmp/cache/models/*
@@ -156,5 +155,5 @@ dmypy.json
 /app/tmp/*
 /app/Config/core.php
 /app/Config/database.php
-/vendors/*
+
 >>>>>>> remotes/origin/main
