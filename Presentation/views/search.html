@@ -1,0 +1,45 @@
+<!--
+Stephan Moncavage
+CST-236
+eCommerce Site Milestone Project
+Milestone 1
+27 February 2021
+-->
+
+<html xmlns="" lang="">
+
+<head>
+	<meta charset="UTF-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#ffffff">
+	
+	<link rel = "stylesheet" href = "../css/style.css" type="text/css">
+	
+	<title>Search Form</title>
+	<nav>
+		<a href="./Home.php">Home</a>
+		<a href="./About.php">About</a>
+		<a href="./Contact.php">Contact</a>
+		<a href="./Store.php">Store</a>
+		<a href="./search.html">Search</a>
+	</nav>
+	<!--suppress HtmlUnknownTag -->
+	<h3 class = "home-title" >Welcome to ABC Carwash!</h3>
+</head>
+
+<body id = "text-align" >
+<form class = "form3" action = "../handlers/searchHandlerPeople.php" method = "post">
+<br>
+<p><label for="searchPerson">Search database for user data by: </label><input value="text" id = "searchPerson" name = "searchPerson"/></p>
+<input type = "submit" name = "search" value = "Search Users" />
+</form>
+<form class = "form3" action = "../handlers/searchHandlerProducts.php" method = "post">
+<p><label for="searchProduct">Search Product's by: </label><input value="text" id = "searchProduct" name = "searchProduct"/></p>
+<input type = "submit" name = "srch" value = "Search Products" />
+</form>
+</body>
+<footer>
+	<h3> Coded by Stephan Moncavage for CST-236 @ Grand Canyon University </h3>
+</footer>
+</html>

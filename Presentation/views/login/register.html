@@ -1,0 +1,137 @@
+<!--
+Stephan Moncavage
+CST-236
+eCommerce Site Milestone Project
+Milestone 1
+27 February 2021
+Form handler for Registration Module in HTML
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#ffffff">
+	
+	<link rel = "stylesheet" href = "../../css/style.css">
+	<?php include '../navigation.php'; ?>
+	<title>Search Form</title>
+	<--!<nav>
+		<a href="./home.php">Home</a>
+		<a href="./About.php">About</a>
+		<a href="./Contact.php">Contact</a>
+		<a href="./Store.php">Store</a>
+		<a href="./search.html">Search</a>
+	</nav>--!>
+	<h3 class = "home-title" >Welcome to ABC Carwash!</h3>
+
+</head>
+
+<body id = "text-align">
+
+	<article id = "registration" >
+	<form class ="form2" action = "./register.php" method = "POST" >
+	<p>
+	<h3 class = "login-title"> <b>Please Enter Your Information Below.</b></h3>
+	<br>
+	<b>First Name:</b> <input class = "login-input" type = "text" name = "firstname"  />
+	<b>Last Name:</b> <input class = "login-input" type = "text" name = "lastname" />
+	<b>Username:</b> <input class = "login-input" type = "text" name = "username"  />
+	<b>Password:</b> <input class = "login-input" type = "password" name = "pass1" />
+	<b>Repeat Password:</b> <input class = "login-input" type = "password" name = "pass2"  />
+	<b>Email:</b> <input class = "login-input" type = "email" name = "email" placeholder="email@host.com" />
+	<b>Address Line 1:</b> <input class = "login-input" type = "text" name = "address1" placeholder="123 East Ave" />
+	<b>Address Line 2:</b> <input class = "login-input" type = "text" name = "address2" placeholder = "optional"/>
+	<b>City:</b> <input class = "login-input" type = "text" name = "city"   />
+	<b>State:</b> <select id="state" name="state">
+	<option value="Not Selected" selected>Not Selected</option>
+	<option value="AL">AL</option>
+	<option value="AK">AK</option>
+	<option value="AR">AR</option>	
+	<option value="AZ">AZ</option>
+	<option value="CA">CA</option>
+	<option value="CO">CO</option>
+	<option value="CT">CT</option>
+	<option value="DC">DC</option>
+	<option value="DE">DE</option>
+	<option value="FL">FL</option>
+	<option value="GA">GA</option>
+	<option value="HI">HI</option>
+	<option value="IA">IA</option>	
+	<option value="ID">ID</option>
+	<option value="IL">IL</option>
+	<option value="IN">IN</option>
+	<option value="KS">KS</option>
+	<option value="KY">KY</option>
+	<option value="LA">LA</option>
+	<option value="MA">MA</option>
+	<option value="MD">MD</option>
+	<option value="ME">ME</option>
+	<option value="MI">MI</option>
+	<option value="MN">MN</option>
+	<option value="MO">MO</option>	
+	<option value="MS">MS</option>
+	<option value="MT">MT</option>
+	<option value="NC">NC</option>	
+	<option value="NE">NE</option>
+	<option value="NH">NH</option>
+	<option value="NJ">NJ</option>
+	<option value="NM">NM</option>			
+	<option value="NV">NV</option>
+	<option value="NY">NY</option>
+	<option value="ND">ND</option>
+	<option value="OH">OH</option>
+	<option value="OK">OK</option>
+	<option value="OR">OR</option>
+	<option value="PA">PA</option>
+	<option value="RI">RI</option>
+	<option value="SC">SC</option>
+	<option value="SD">SD</option>
+	<option value="TN">TN</option>
+	<option value="TX">TX</option>
+	<option value="UT">UT</option>
+	<option value="VT">VT</option>
+	<option value="VA">VA</option>
+	<option value="WA">WA</option>
+	<option value="WI">WI</option>	
+	<option value="WV">WV</option>
+	<option value="WY">WY</option>
+	<option value="AS">AS</option>
+	<option value="GU">GU</option>
+	<option value="MP">MP</option>
+	<option value="PR">PR</option>
+	<option value="UM">UM</option>
+	<option value="VI">VI</option>
+	<option value="AA">AA</option>
+	<option value="AP">AP</option>
+	<option value="AE">AE</option>
+	</select>
+	<br>
+	<b>Zipcode:</b> <input class = "login-input" type = "text" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" name = "zipcode" placeholder="12345" />
+	<b>Country:</b> <select id="country" name = "country"> 
+	<option value="Not Selected">Not Selected</option>
+	<option value="US">United States</option>
+	<option value="UM">United States Minor Outlying Islands</option>
+	</select>
+	<br>
+	* Must be within the United States or it's territories to use this product. *
+	<br>
+	<b>Account Type:</b> <select id="role" name = "role" >
+    <option value = "General" selected>General</option>
+    <option value = "Admin">Admin</option>
+    <option value = "SuperAdmin">SuperAdmin</option>
+	</select>
+	<br>
+	<input class = "login-button" type = "submit" name = "submit" value = "Submit" />
+	<a href = "../home.php"> <h1><b>Cancel</b></h1> </a>
+	</form>
+	</article>
+</body>
+<footer>
+	<h3> Coded by Stephan Moncavage for CST-236 @ Grand Canyon University </h3>
+</footer>
+</html>
