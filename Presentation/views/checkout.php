@@ -1,11 +1,9 @@
 <!--
 Stephan Moncavage
-CST-236
-eCommerce Site Milestone Project
-Milestone 4
-21 March 2021
+CST-451
+Capstone Project
+07 May 2022
 Checkout from Cart
-Some portions based on code found on: https://codeofaninja.com/2015/08/simple-php-mysql-shopping-cart-tutorial.html
 -->
 <?php
 include('../../../autoloader.php');
