@@ -1,14 +1,11 @@
-<!--
-Stephan Moncavage
-CST-451
-Capstone Project
-02 May 2022
-css Based on code by: Imran Hossain from https://imransdesign.com/
+<!--/*Stephan Moncavage
+ * CST-451
+ * Capstone Project
+ * 08 May 2022
+ * Hardware Sensor Business Logic and Output
+ */
 -->
-<?php
-header("Location: https://cst451-capstone.herokuapp.com/Presentation/views/index.php");
-die();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +49,7 @@ die();
 </div>
 <!--PreLoader Ends-->
 
-<?php include '../views/layout_head.php'; ?>
+<?php include './layout_head.php'; ?>
 
 <!-- search area -->
 <div class="search-area">
@@ -80,12 +77,42 @@ die();
             <div class="col-lg-9 offset-lg-2 text-center">
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
-                        <p class="subtitle">Please Login or Register to Continue.</p>
-                        <h1>Welcome to Automated Garden Watering!</h1>
-                        <div class="hero-btns">
-                            <a href="./login.php" class="boxed-btn">Log In</a>
-                            <a href="./register.html" class="bordered-btn">Register With Us</a>
-                        </div>
+                        <form metho="POST"action="">
+<input type="submit" name="rlyTgl" value="Toggle Relay"><br/>
+</form>
+
+<?php
+	//shell_exec("/usr/local/bin/gpio mode 21 out");
+
+	$val = intval($_POST['rlyTgl']);
+	echo $val;
+
+	if(isset($val)){
+		$read=intval(shell_exec("gpio read 21"));
+
+		if($read == 1){
+			$rReturn = 1;
+			$write=shell_exec("gpio write 21 0");
+		}
+		else{
+			$rReturn = 0;
+			$write=shell_exec("gpio write 21 1");
+		}
+		$write;
+	}
+	$read2=shell_exec("gpio read 21");
+	echo $read2;
+	if($rReturn==0){
+?>
+	Pin 21:<input type="text" name="pin21" value= "ON" />
+<?php
+	}
+	else{
+?>
+	Pin 21:<input type="text" name="pin21" value= "OFF" />
+<?php
+	}
+?>
                     </div>
                 </div>
             </div>
@@ -115,5 +142,5 @@ die();
 <!-- main js -->
 <script src="../css/assets/js/main.js"></script>
 
-<?php include '../views/layout_foot.php'; ?>
+<?php include './layout_foot.php'; ?>
 </html>

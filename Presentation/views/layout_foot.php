@@ -80,7 +80,7 @@ $(document).ready(function(){
                     <div class="footer-box subscribe">
                         <h2 class="widget-title">Subscribe</h2>
                         <p>Subscribe to our mailing list to get the latest updates.</p>
-                        <form action="index.html">
+                        <form action="mail.php">
                             <input type="email" placeholder="Email">
                             <button type="submit"><i class="fas fa-paper-plane"></i></button>
                         </form>

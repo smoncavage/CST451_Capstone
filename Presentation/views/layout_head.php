@@ -78,7 +78,7 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
                                 </ul>
                             </li>
                             -->
-                            <li><a href="../css/news.html">News</a></li>
+                            <li><a href="sensor.php">Sensor</a></li>
                             <li><a href="Contact.php">Contact</a></li>
                             <li><a href="Store.php">Shop</a>
                                 <ul class="sub-menu">

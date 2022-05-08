@@ -49,7 +49,7 @@ css Based on code by: Imran Hossain from https://imransdesign.com/
 </div>
 <!--PreLoader Ends-->
 
-<?php include '../views/layout_head.php'; ?>
+<?php include './layout_head.php'; ?>
 
 <!-- search area -->
 <div class="search-area">
@@ -112,5 +112,5 @@ css Based on code by: Imran Hossain from https://imransdesign.com/
 <!-- main js -->
 <script src="../css/assets/js/main.js"></script>
 
-<?php include '../views/layout_foot.php'; ?>
+<?php include './layout_foot.php'; ?>
 </html>

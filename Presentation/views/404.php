@@ -73,26 +73,39 @@ die();
 </div>
 <!-- end search area -->
 
-<!-- hero area -->
-<div class="hero-area hero-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9 offset-lg-2 text-center">
-                <div class="hero-text">
-                    <div class="hero-text-tablecell">
-                        <p class="subtitle">Please Login or Register to Continue.</p>
-                        <h1>Welcome to Automated Garden Watering!</h1>
-                        <div class="hero-btns">
-                            <a href="./login.php" class="boxed-btn">Log In</a>
-                            <a href="./register.html" class="bordered-btn">Register With Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<p>Fresh adn Organic</p>
+					<h1>404 - Not Found</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<!-- end hero area -->
+<!-- end breadcrumb section -->
+<!-- error section -->
+<div class="full-height-section error-section">
+	<div class="full-height-tablecell">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="error-text">
+						<i class="far fa-sad-cry"></i>
+						<h1>Oops! Not Found.</h1>
+						<p>The page you requested for is not found.</p>
+						<a href="index.html" class="boxed-btn">Back to Home</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end error section -->
+
 
 <!-- jquery -->
 <script src="../css/assets/js/jquery-1.11.3.min.js"></script>
