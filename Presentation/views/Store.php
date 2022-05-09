@@ -59,7 +59,7 @@ Capstone Project
 error_reporting(E_ALL);
 ini_set('display_errors',1);
 include '../views/layout_head.php';
-//include('./_displayAllProducts.php');
+include('./_displayAllProducts.php');
 include('../../autoloader.php');
 //displayAllProducts();
 ?>
@@ -73,7 +73,7 @@ include('../../autoloader.php');
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
+                        <label><input type="text" placeholder="Keywords"></label>
                         <button type="submit">Search <i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -96,10 +96,10 @@ include('../../autoloader.php');
                 <table style="text-align:center" class="table table-striped table-condensed table-bordered table-rounded">
                         <thead style="text-align:center">
                                 <tr>
-                                <th width="20%">Product Name</th>
-                                <th width="30%">Product Description</th>
-                                <th width="10%">Price</th>
-                                <th width="20%">Image</th>
+                                <th>Product Name</th>
+                                <th>Product Description</th>
+                                <th>Price</th>
+                                <th>Image</th>
                         </tr>
                         </thead>
                         <tbody>

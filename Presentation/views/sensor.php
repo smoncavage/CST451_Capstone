@@ -60,7 +60,7 @@
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
+                        <label><input type="text" placeholder="Keywords"/></label>
                         <button type="submit">Search <i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -77,11 +77,16 @@
             <div class="col-lg-9 offset-lg-2 text-center">
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
-                        <form metho="POST"action="">
+                        <form method="POST" action="">
 <input type="submit" name="rlyTgl" value="Toggle Relay"><br/>
 </form>
 
 <?php
+
+    //TODO: Add Open Weather API Call in this "hero area" section of HTML as well
+
+
+
 	//shell_exec("/usr/local/bin/gpio mode 21 out");
 
 	$val = intval($_POST['rlyTgl']);
@@ -104,13 +109,17 @@
 	echo $read2;
 	if($rReturn==0){
 ?>
-	Pin 21:<input type="text" name="pin21" value= "ON" />
-<?php
+	Pin 21:<label>
+            <input type="text" name="pin21" value= "ON" />
+        </label>
+        <?php
 	}
 	else{
 ?>
-	Pin 21:<input type="text" name="pin21" value= "OFF" />
-<?php
+	Pin 21:<label>
+            <input type="text" name="pin21" value= "OFF" />
+        </label>
+        <?php
 	}
 ?>
                     </div>
@@ -120,6 +129,68 @@
     </div>
 </div>
 <!-- end hero area -->
+
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+//include('./_displayAllProducts.php');
+include('../../autoloader.php');
+//displayAllProducts();
+?>
+
+<body>
+    <div class="container">
+    <h2 style="text-align: center">Weather App</h2>
+        <table style="text-align:center" class="table table-striped table-condensed table-bordered table-rounded">
+            <thead style="text-align:center">
+                <tr>
+                    <th>Entry ID</th>
+                    <th>Date</th>
+                    <th>Temperature</th>
+                    <th>Humidity</th>
+                    <th>Pressure</th>
+                    <th>Calculated Altitude</th>
+                    <th>GPS Latitude</th>
+                    <th>GPS Longitude</th>
+                    <th>GPS Altitude</th>
+                    <th>GPS Connected Satellites</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#{data.sensorId}</td>
+                    <td>#{data.dtStamp}</td>
+                    <td>#{data.temperature}</td>
+                    <td>#{data.humidity}</td>
+                    <td>#{data.pressure}</td>
+                    <td>#{data.altitude}</td>
+                    <td>#{data.gpsLat}</td>
+                    <td>#{data.gpsLong}</td>
+                    <td>#{data.gpsAltitude}</td>
+                    <td>#{data.gpsNumSat}</td>
+
+                    <?php
+                    include '../../Database/db.php';
+                    include '../../Database/SensorDataService.php';
+                    if (isset($results)){
+                        while($row = mysqli_fetch_array($results)){?>
+                    <td><?php echo $row['sensorID']; ?></td>
+                    <td><?php echo $row['dtStamp']; ?></td>
+                    <td><?php echo $row['temperature']; ?></td>
+                    <td><?php echo $row['humidity']; ?></td>
+                    <td><?php echo $row['pressure']; ?></td>
+                    <td><?php echo $row['altitude']; ?></td>
+                    <td><?php echo $row['gpsLat']; ?></td>
+                    <td><?php echo $row['gpsLong']; ?></td>
+                    <td><?php echo $row['gpsAltitude']; ?></td>
+                    <td><?php echo $row['gpsNumSat']; ?></td>
+                    <?php }
+                    }//endfor; ?>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
 
 <!-- jquery -->
 <script src="../css/assets/js/jquery-1.11.3.min.js"></script>

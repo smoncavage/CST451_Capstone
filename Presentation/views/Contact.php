@@ -82,7 +82,7 @@ Capstone Project
                         <br/>
                         <a href="mailto: [smoncavage@my.gcu.edu]?subject= &body= " class = "boxed-btn"> Email me! </a>
                         <br/><br/>
-                        <a href="./login/logout.php"> <input type = "submit" name = "logout" value = "Logout"/></a>
+                        <a href="./logout.php"> <input type = "submit" name = "logout" value = "Logout"/></a>
                     </div>
                 </div>
             </div>

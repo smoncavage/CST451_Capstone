@@ -59,7 +59,7 @@ Form handler for Registration Module in HTML
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
+						<label><input type="text" placeholder="Keywords"></label>
                         <button type="submit">Search <i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -94,36 +94,36 @@ Form handler for Registration Module in HTML
 				</div>
 			 	<div id="form_status"></div>
 				<div class="contact-form">
-					<form action = "./register.php" method = "POST" style="width: 50vw; margin-center : 25vw;">
+					<form action = "./register.php" method = "POST" style="margin: 0 auto">
 						<p>
 						<div></div>
-						<input class = "login-input" type = "text" name = "firstname" placeholder = "First Name"/>
+						<label><input class = "login-input" type = "text" name = "firstname" placeholder = "First Name"/></label>
 						<div></div>
 						<br/>
-						<input class = "login-input" type = "text" name = "lastname" placeholder = "Last Name"/>
+						<label><input class = "login-input" type = "text" name = "lastname" placeholder = "Last Name"/></label>
 						<br/>
 						<br/>
-						<input class = "login-input" type = "text" name = "username"  placeholder = "Username"/>
+						<label><input class = "login-input" type = "text" name = "username"  placeholder = "Username"/></label>
 						<div style="opacity: 0.0;">...</div>
-						<input class = "login-input" type = "email" name = "email" placeholder="email@host.com" placeholder = "Email Address"/>
+						<label><input class = "login-input" type = "email" name = "email" placeholder="email@host.com" /></label>
 						<br/>
 						<br/>
-						<input class = "login-input" type = "password" name = "pass1" placeholder = "Select Password"/>
+						<label><input class = "login-input" type = "password" name = "pass1" placeholder = "Select Password"/></label>
 						<div style="opacity: 0.0;">....................</div>
-						<input class = "login-input" type = "password" name = "pass2"  placeholder = "Repeat Password"/>
+						<label><input class = "login-input" type = "password" name = "pass2"  placeholder = "Repeat Password"/></label>
 						<br/>
 						<br/>
-						<input class = "login-input" type = "text" name = "address1" placeholder="123 East Ave" />
+						<label><input class = "login-input" type = "text" name = "address1" placeholder="123 East Ave" /></label>
 						<div style="opacity: 0.0;">........</div>
-						<input class = "login-input" type = "text" name = "address2" placeholder = "optional line 2"/>
+						<label><input class = "login-input" type = "text" name = "address2" placeholder = "optional line 2"/></label>
 						<br/>
 						<br/>
-						<input class = "login-input" type = "text" name = "city"   placeholder = "City"/>
+						<label><input class = "login-input" type = "text" name = "city"   placeholder = "City"/></label>
 						<div style="opacity: 0.0;">........</div>
-						<input type = "text" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" name = "zipcode" placeholder="Parcel/Zip Code" />
+						<label><input type = "text" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" name = "zipcode" placeholder="Parcel/Zip Code" /></label>
 						<br/>
 						<br/>
-						<b>State:</b> <select id="state" name="state">
+						<b>State:</b> <label><select id="state" name="state">
 							<option value="Not Selected" selected>Not Selected</option>
 							<option value="AL">AL</option>
 							<option value="AK">AK</option>
@@ -185,31 +185,30 @@ Form handler for Registration Module in HTML
 							<option value="AA">AA</option>
 							<option value="AP">AP</option>
 							<option value="AE">AE</option>
-					</select>
+					</select></label>
 					<div style="opacity: 0.0;">............</div>
-					<b>Country:</b> <select id="country" name = "country">
+					<b>Country:</b> <label><select id="country" name = "country">
 						<option value="Not Selected">Not Selected</option>
 						<option value="US">United States</option>
 						<option value="UM">United States Minor Outlying Islands</option>
-					</select>
+					</select></label>
 					<br/>
 					<br/>
 					* Must be within the United States or it's territories to use this product. *
 					<br/>
 					<br/>
-					<b>Account Type:</b> <select id="role" name = "role" >
+					<b>Account Type:</b> <label><select id="role" name = "role" >
 						<option value = "General" selected>General</option>
 						<option value = "Admin">Admin</option>
 						<option value = "SuperAdmin">SuperAdmin</option>
-					</select>
+					</select></label>
 					<br/>
 					<br/>
 					<br/>
-					<input class = "login-button" type = "submit" name = "submit" value = "Submit" />
-					<input href = "../home.php" class = "login-button" type = "submit" name = "cancel" value = "Cancel"/>
+						<label><input class = "login-button" type = "submit" name = "submit" value = "Submit" /></label>
+						<label><a href = "./index.php"><input class = "login-button" type = "submit" name = "cancel" value = "Cancel"/></a></label>
 					</form>
-				</article>
-			</div>
+				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="contact-form-wrap">

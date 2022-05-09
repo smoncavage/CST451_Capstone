@@ -115,7 +115,7 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords"/>
+                        <label></label><input type="text" id="search" placeholder="Keywords"/>
                         <button type="submit">Search <i class="fas fa-search"></i></button>
                     </div>
                 </div>

@@ -6,14 +6,16 @@ Milestone 2
 -->
 <?php
 include('../../autoloader.php');
+include './db.php';
 class ProductDataService{
     function findByProductName($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.products Where First_Name like '%$search%'";
+        $query = " SELECT * FROM products Where Product_Name like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -31,12 +33,13 @@ class ProductDataService{
     }
     
     function findByProductPrice($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.products Where Last_Name like '%$search%'";
+        $query = " SELECT * FROM products Where Product_Price like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -53,13 +56,14 @@ class ProductDataService{
     }
     
     function findByProductID($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         $serch=intval($search);
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.products Where ID like '%$search%'";
+        $query = " SELECT * FROM products Where Product_ID like '%$serch%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));

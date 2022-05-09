@@ -5,15 +5,17 @@ Milestone 2
 06 March 2021
 -->
 <?php
-include('../../autoloader.php');
+include '../../autoloader.php';
+include './db.php';
 class UserDataService{
     function findByFirstName($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.users Where First_Name like '%$search%'";
+        $query = "SELECT * FROM users Where First_Name like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -31,12 +33,13 @@ class UserDataService{
     }
     
     function findByLastName($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.users Where Last_Name like '%$search%'";
+        $query = " SELECT * FROM users Where Last_Name like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -53,13 +56,14 @@ class UserDataService{
     }
     
     function findByID($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         $serch=intval($search);
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.users Where ID like '%$search%'";
+        $query = " SELECT * FROM users Where ID like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -76,12 +80,13 @@ class UserDataService{
     }
 	
     function findByUsername($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.users Where Username like '%$search%'";
+        $query = " SELECT * FROM users Where Username like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -98,7 +103,8 @@ class UserDataService{
     }
     
     function findByRole($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
@@ -120,7 +126,8 @@ class UserDataService{
     }
     
     function findByAddressID($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
@@ -142,7 +149,8 @@ class UserDataService{
     }
     
     function findByCreditID($search){
-        $conn = dbConnect();
+        $db = new Database();
+        $conn = $db->dbConnect();
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
@@ -173,14 +181,15 @@ class UserDataService{
 	
 	function findByFirstNameWithAddress($n){
 			//$n = search string
-			$conn= dbConnect();
-			$qry = $conn->prepare("SELECT USERS.ID, ISDEFAULT, First_Name, Last_Name, STREET, CITY, STATE, POSTALCODE
+        $db = new Database();
+        $conn = $db->dbConnect();
+			$qry = $conn->prepare("UNION USERS.ID, ISDEFAULT, First_Name, Last_Name, STREET, CITY, STATE, POSTALCODE
 				FROM USERS
 				JOIN ADDRESSES
 				ON USERS.id = ADDRESSES.USERS_id
 				WHERE First_Name LIKE ?");
 			if(!$qry){
-				echo "Could not bind tables together." .mysqli_error;
+				echo "Could not bind tables together." .$conn->error;
 				exit;
 			}
 			
@@ -192,7 +201,7 @@ class UserDataService{
 			$result = $qry->get_result();
 			
 			if(!$result){
-				echo "Current query has an error of: " .mysqli_error;
+				echo "Current query has an error of: " .$conn->error;
 				return null;
 				exit;
 			}
