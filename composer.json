@@ -1,6 +1,7 @@
 {
 	
 	"description": "Capstone Project Build for Class CST-451 @ Grand Canyon University",
+	"name": "cst451/2_grand_canyon_univeristy_capstone_project",
 	"version": "1.0.0",
 	"type": "group-project",
 	"license": "GPL-3.0-or-later",
