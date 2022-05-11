@@ -1,6 +1,6 @@
 {
 	
-	"description": "eCommerce Page Build for Class CST-326 @ Grand Canyon University",
+	"description": "Capstone Project Build for Class CST-451 @ Grand Canyon University",
 	"version": "1.0.0",
 	"type": "group-project",
 	"license": "GPL-3.0-or-later",
@@ -8,19 +8,7 @@
         {
             "name": "Stephan Moncavage",
             "role": "Developer"
-		},
-		{
-			"name": "Matt Seviers",
-			"role": "Developer"
-		},
-		{
-			"name": "Nathan Ramey",
-			"role": "Developer"
-		},
-		{
-			"name": "Ridcardo Monreal Rubio",
-			"role": "Developer"
-        }
+		}
     ],
     "require": {  
 		"php": ">=8.0.0",
@@ -34,7 +22,9 @@
 	},
 	"autoload": {
         "psr-4": {
-            "App\\": "cst326-clc/"
+            "App\\": "cst451-capstone/",
+			"Vendor\\": "src/vendor",
+			"CST451_Capstone\\Utility\\": "Logger.php"
         }
     },
 	"scripts": {
