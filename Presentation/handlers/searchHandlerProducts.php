@@ -1,9 +1,8 @@
 <!--
 Stephan Moncavage
-CST-236
-eCommerce Site Milestone Project
-Milestone 1
-27 February 2021
+CST-451
+Capstone Project
+11 May 2022
 -->
 <?php
 //include auth_session.php file on all user panel pages
@@ -14,7 +13,7 @@ include '../views/layout_head.php';
 	header("Location: ../views/login.php");
 } */
 ?>
-<?php include('../../autoloader.php');; ?>
+<?php //include('../../autoloader.php');; ?>
 <body class = "body">
 
 <form class = "form3" method = "post" >  
@@ -23,12 +22,13 @@ include '../views/layout_head.php';
 //include "myfuncs.php";
 
 function getAllProducts(){
-	$conn = dbConnect(); 
+    $db = new Database();
+	$conn = $db->dbConnect();
 	if (mysqli_connect_errno()) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 		exit();
 	}
-	$query = " SELECT * FROM ecommerce.products ";
+	$query = " SELECT * FROM products ";
 	$result = mysqli_query($conn, $query);
 	if(!$result){
 		die("Could not retrieve data: " . mysqli_error($conn));
@@ -54,7 +54,8 @@ function getAllProducts(){
 }
 
 function getUsersByFirstName($search){
-	$conn = dbConnect(); 
+    $db = new Database();
+    $conn = $db->dbConnect();
 	if (mysqli_connect_errno()) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 		exit();
@@ -105,9 +106,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 }
 ?>
-<br>
-<a href = "../views/search.html">Go Back</a>
-</form>
-</body>
-<?php include 'layout_foot.php'; ?>
-</html>
+

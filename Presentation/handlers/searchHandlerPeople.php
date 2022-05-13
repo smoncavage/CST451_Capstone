@@ -21,12 +21,13 @@ if($_SESSION["valid"] != 1){
  
 <?php
 function getAllUsers(){
-    $conn = dbConnect();
+    $db = new Database();
+    $conn = $db->dbConnect();
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         exit();
     }
-    $query = " SELECT * FROM ecommerce.users ";
+    $query = " SELECT * FROM users ";
     $result = mysqli_query($conn, $query);
     if(!$result){
         die("Could not retrieve data: " . mysqli_error($conn));
@@ -65,9 +66,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 }
 ?>
-<br>
-<a href = "../views/search.html">Go Back</a>
-</form>
-</body>
-<?php include '../views/layout_foot.php'; ?>
-</html>
+
