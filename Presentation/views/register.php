@@ -1,26 +1,87 @@
 <!--
 Stephan Moncavage
-CST-236
-eCommerce Site Milestone Project
-Milestone 1
-27 February 2021
+CST-451
+Capstone Project
+08 May 2022
 PHP Form handler for HTML Registration Module
 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- title -->
+    <title>GCU-CST451</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="../css/assets/img/favicon.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="../css/assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../css/assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="../css/assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="../css/assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="../css/assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="../css/assets/css/meanmenu.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="../css/assets/css/main.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="../css/assets/css/responsive.css">
+
+</head>
+
+
+<!--PreLoader-->
+<div class="loader">
+    <div class="loader-inner">
+        <div class="circle"></div>
+    </div>
+</div>
+<!--PreLoader Ends-->
+
+<?php include './layout_head.php'; ?>
+
+<!-- search area -->
+<div class="search-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <span class="close-btn"><i class="fas fa-window-close"></i></span>
+                <div class="search-bar">
+                    <div class="search-bar-tablecell">
+                        <h3>Search For:</h3>
+                        <label><input type="text" placeholder="Keywords"></label>
+                        <button type="submit">Search <i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end search area -->
+
 <?php
-//error_reporting(E_ALL);
-//ini_set('display_errors',1);
 include_once'../../../autoloader.php';
-include '../layout_head.php';
-include '../../../Database/db.php';
+include './layout_head.php';
+include '../../Database/db.php';
 //include '../navigation.php';
 $db = new Database();
-$conn=$db->getConnection();
+$conn=$db->dbConnect();
 $firstname = $lastname = $username = $pass = $email = $address1 = $city = $state = $zipcode = $country = "";
 $address2 = $_REQUEST["address2"];
 $role = $_REQUEST["role"];
 $firstnameErr = $lastnameErr = $usernameErr = $passErr = $emailErr = $addressErr = $cityErr = $stateErr = $zipcodeErr = $countryErr = NULL;
 
-//Test Inpute Values from HTML Form. Found on https://www.w3schools.com/php/php_form_required.asp
+//Test Input Values from HTML Form. Found on https://www.w3schools.com/php/php_form_required.asp
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	$firstname = $_REQUEST["firstname"];
@@ -119,13 +180,13 @@ function test_input($data) {
 $password = password_hash($pass, PASSWORD_DEFAULT);
 
 //Create MSQLI Statement for User Insertion
-$sql = "INSERT INTO kirnyw4ar361d8qd.user (FIRST_NAME, LAST_NAME, USERNAME, PASSWORD)
-VALUES ('$firstname','$lastname','$username', '$password')";
+$sql = "INSERT INTO users (FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, EMAIL)
+VALUES ('$firstname','$lastname','$username', '$password', '$email')";
 
 try{
 	//Validate Statement and execute
-	if($firstname && $lastname && $username && $pass != NULL){
-		if ($conn.query($sql) == TRUE) {
+	if($firstname && $lastname && $username && $pass && $email != NULL){
+		if ($conn($sql) == TRUE) {
 			echo "Thank you for registering with us";
 			//check errors
 			if($firstnameErr && $lastnameErr && $usernameErr && $passErr && $emailErr && $addressErr && $cityErr && $stateErr && $zipcodeErr && $countryErr == NULL){	
@@ -142,14 +203,18 @@ try{
 		echo $passErr . " ";
 		//Database Connection OR Insertion errors used in Development
 			
-		echo " Error: " . $sql . "" . $conn.error ;
+		echo " Error: " . $sql . "" . $conn->error ;
 		echo "Error: " . $sql . "" . mysqli_error($conn);	
 		throw new Exception("User Registration Failed: " . ' ' . mysqli_error($conn), 200);
 
-		header("Location: loginFailed.php/");
-		die();
+		//header("Location: loginFailed.php/");
+
 		return "../loginFailed.php";
-		<a href = './register.html'><?php echo "Return "?></a><?php echo " to Registration Page, or use Browser 'Back' Button to enter missing information.";
+        //die();
+        ?>
+		<a href = './register.html'>
+        <?php echo "Return "?></a>
+        <?php echo " to Registration Page, or use Browser 'Back' Button to enter missing information.";
 	}
 	}catch (Exception $e){
 		$datetime = new DateTime();
@@ -159,12 +224,33 @@ try{
 		//log to default error_log destination
 		error_log($logentry);
 	}
-$conn.close();
+$conn->close;
 ?>
-<link rel="stylesheet" href="../css/style.css"/>
-Click <a href = "../../home.php"> here </a> to return to the Main page, or 
-	<a href = "../login.php"> here </a> to go to the Login page.
 
-</body>
-<?php include '../layout_foot.php'; ?>
+<link rel="stylesheet" href="../css/style.css"/>
+Click <a href = "./index.php"> here </a> to return to the Main page, or
+	<a href = "./login.php"> here </a> to go to the Login page.
+
+<!-- jquery -->
+<script src="../css/assets/js/jquery-1.11.3.min.js"></script>
+<!-- bootstrap -->
+<script src="../css/assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- count down -->
+<script src="../css/assets/js/jquery.countdown.js"></script>
+<!-- isotope -->
+<script src="../css/assets/js/jquery.isotope-3.0.6.min.js"></script>
+<!-- waypoints -->
+<script src="../css/assets/js/waypoints.js"></script>
+<!-- owl carousel -->
+<script src="../css/assets/js/owl.carousel.min.js"></script>
+<!-- magnific popup -->
+<script src="../css/assets/js/jquery.magnific-popup.min.js"></script>
+<!-- mean menu -->
+<script src="../css/assets/js/jquery.meanmenu.min.js"></script>
+<!-- sticker js -->
+<script src="../css/assets/js/sticker.js"></script>
+<!-- main js -->
+<script src="../css/assets/js/main.js"></script>
+
+<?php include './layout_foot.php'; ?>
 </html>

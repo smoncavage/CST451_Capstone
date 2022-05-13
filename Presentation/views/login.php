@@ -59,7 +59,7 @@ Milestone 1
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
+                        <label><input type="text" placeholder="Keywords"></label>
                         <button type="submit">Search <i class="fas fa-search"></i></button>
                     </div>
                 </div>
