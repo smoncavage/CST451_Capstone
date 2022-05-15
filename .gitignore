@@ -157,3 +157,6 @@ dmypy.json
 /app/Config/database.php
 
 >>>>>>> remotes/origin/main
+/.idea/dataSources.xml
+/.idea/deployment.xml
+/.idea/sqldialects.xml
