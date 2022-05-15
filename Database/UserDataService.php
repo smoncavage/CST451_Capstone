@@ -1,13 +1,66 @@
 <!--
+/*
 Stephan Moncavage
-CST-236
-Milestone 2
-06 March 2021
+CST-451
+Capstone Project
+06 May 2022
+*/
 -->
 <?php
-include '../../autoloader.php';
-include './db.php';
+
+include 'db.php';
 class UserDataService{
+    function getAllSensorsData(){
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = "Select * from sensor";
+        $result = mysqli_query($conn, $query);
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit();
+        }
+        $sensors = [];
+        $index = 0;
+        while($row = mysqli_fetch_assoc($result)){
+            $sensors[$index] = array(
+                $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"], $row["Altitude"], $row["GPSTimeStamp"],
+                $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
+            );
+            ++$index;
+        }
+        if(!$sensors){
+            echo "No Results Found.";
+        }
+        else{
+            echo "<table>";
+            echo "<tr>";
+            echo "<th> ID </th>";
+            echo "<th> Time Stamp </th>";
+            echo "<th> Temperature </th>";
+            echo "<th> Humidity </th>";
+            echo "<th> Pressure </th>";
+            echo "<th> Altitude </th>";
+            echo "<th> GPS Time Stamp </th>";
+            echo "<th> GPS Latitude </th>";
+            echo "<th> GPS Longitude </th>";
+            echo "<th> GPS Altitude </th>";
+            echo "<th> GPS Connected Satellites </th>";
+            echo "</tr>";
+            for($x=0; $x< count($sensors);$x++){
+                echo "<tr>";
+                echo "<td>" .$sensors[$x][0]. " </td>" . "<td>" . $sensors[$x][1] . " </td>" . "<td>" . $sensors[$x][2] . " </td>" .
+                    "<td>" . $sensors[$x][3] . " </td>" . "<td>" . $sensors[$x][4] . " </td>" . "<td>" . $sensors[$x][5] . " </td>" .
+                    "<td>" . $sensors[$x][6] . " </td>" . "<td>" . $sensors[$x][7] . " </td>" . "<td>" . $sensors[$x][8] . " </td>" .
+                    "<td>" . $sensors[$x][9] . " </td>" . "<td>" . $sensors[$x][10] . " </td>" . "<td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        }
+        mysqli_close($conn);
+        //displayAllUsers($users);
+        return $sensors;
+    }
+
     function findByFirstName($search){
         $db = new Database();
         $conn = $db->dbConnect();
@@ -203,11 +256,11 @@ class UserDataService{
 			if(!$result){
 				echo "Current query has an error of: " .$conn->error;
 				return null;
-				exit;
+				//exit;
 			}
 			if($result->num_rows ==0){
 				return null;
-				exit;
+				//exit;
 			}
 	}
 }

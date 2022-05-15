@@ -3,9 +3,9 @@ class Database{
  
     // specify your own database credentials
     private string $host = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-    private string $db_name = "e0ugzn4gbm5rk7vn";
-    private string $username = "iil0c5udr9vv6qbk ";
-    private string $password = "g4asynvtu9x2oh4e";
+    private string $username = "e0ugzn4gbm5rk7vn";
+    private string $password = "iil0c5udr9vv6qbk ";
+    private string $db_name = "g4asynvtu9x2oh4e";
   /*
     private string $host = "127.0.0.1:3306";
     private string $db_name = "eCommerce";
@@ -33,16 +33,16 @@ class Database{
         //
         // Enter your host name, database username, password, and database name.
         // If you have not set database password on localhost then set empty.
-		/*
-        $servername = "localhost";
-        $user = "root";
-        $password = "root";
-        $databas = "ecommerce";
-		*/
+
+        //$servername = "localhost";
+        //$user = "root";
+        //$password = "root";
+        //$databas = "ecommerce";
+
 		$servername = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-		$user = "iil0c5udr9vv6qbk";
-		$password = "g4asynvtu9x2oh4e";
-		$databas = "e0ugzn4gbm5rk7vn";
+		$password = "iil0c5udr9vv6qbk";
+		$databas = "g4asynvtu9x2oh4e";
+		$user = "e0ugzn4gbm5rk7vn";
 
         //Create Connection
 
@@ -54,7 +54,7 @@ class Database{
         if (mysqli_connect_errno()){
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        return $this->conn;
+        return $conn;
     }
 }
 ?>

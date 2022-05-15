@@ -60,7 +60,7 @@ error_reporting(E_ALL);
 ini_set('display_errors',1);
 include '../views/layout_head.php';
 include('./_displayAllProducts.php');
-include('../../autoloader.php');
+//include('../../autoloader.php');
 //displayAllProducts();
 ?>
 
@@ -95,25 +95,25 @@ include('../../autoloader.php');
           <h1>Product Page</h1>
                 <table style="text-align:center" class="table table-striped table-condensed table-bordered table-rounded">
                         <thead style="text-align:center">
-                                <tr>
+                            <tr>
+                                <th>Product ID</th>
                                 <th>Product Name</th>
                                 <th>Product Description</th>
                                 <th>Price</th>
                                 <th>Image</th>
-                        </tr>
+                            </tr>
                         </thead>
                         <tbody>
                             <?php if (isset($results)){
                             for($i = 0; $i < count($results->data); $i++) ?>
                     		<tr>
-                            <td><?php
-                                } echo $results->data[$i]['Product ID']; ?></td>
+                            <td><?php echo $results->data[$i]['Product ID']; ?></td>
                             <td><?php echo $results->data[$i]['Product Name']; ?></td>
                             <td><?php echo $results->data[$i]['Product Description']; ?></td>
                             <td><?php echo $results->data[$i]['Price']; ?></td>
                             <td><?php echo $results->data[$i]['Image']; ?></td>
                     		</tr>
-            				<!<?php //endfor; ?>!>
+            				<?php }//endfor; ?>
                         </tbody>
                 </table>
         </div>

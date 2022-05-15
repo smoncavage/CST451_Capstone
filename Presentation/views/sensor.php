@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- title -->
@@ -39,7 +39,6 @@
     <link rel="stylesheet" href="../css/assets/css/responsive.css">
 
 </head>
-
 
 <!--PreLoader-->
 <div class="loader">
@@ -70,58 +69,149 @@
 </div>
 <!-- end search area -->
 
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+require_once('../../BusinessService/SensorBusinessService.php');
+?>
+
+<body>
 <!-- hero area -->
-<div class="hero-area hero-bg">
     <div class="container">
+                <div class="hero-text">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h2 style="text-align: center">Latest Local Sensor Data</h2>
+                    <!--  <form class = "form3" action = "../handlers/searchHandlerSensor.php" method = "POST">
+                        <input type = "submit" name = "sensorSearch" value = "Get Sensor Data" /> -->
+                    <table id = "sensors" style="text-align:center" class="table table-striped table-condensed table-bordered table-rounded" style="width: fit-content">
+                        <thead style="text-align:center">
+
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <?php
+                            $busserv = new SensorBusinessService();
+                            $sensors = $busserv->getAllSensorData();
+                            ?>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+    </div>
+<!-- end hero area -->
+  <div>
+
+    <div class="container" style="width: fit-content">
         <div class="row">
             <div class="col-lg-9 offset-lg-2 text-center">
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
-                        <form method="POST" action="">
-<input type="submit" name="rlyTgl" value="Toggle Relay"><br/>
-</form>
+                        <div>
+                            <br/>
+                            <h3>Latest Weather Forecast Data</h3>
+                        <?php
+                        error_reporting(E_ALL);
+                        ini_set('display_errors',1);
+                        //Open Weather API Call in this "hero area" section of HTML as well
+                        $curl = curl_init();
+                        $apiKey = "37d5482bf2d36047a822b19964843ac3";
+                        $lat = strval(($sensors[0][7]/1000));
+                        $lon = strval(($sensors[0][8]/1000));
 
-<?php
+                        curl_setopt_array($curl, [
+                            CURLOPT_URL => "https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=".$lat."&lon=".$lon."&appid=".$apiKey,
+                            CURLOPT_RETURNTRANSFER => true,
+                            CURLOPT_FOLLOWLOCATION => true,
+                            CURLOPT_ENCODING => "",
+                            CURLOPT_MAXREDIRS => 10,
+                            CURLOPT_TIMEOUT => 30,
+                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                            CURLOPT_CUSTOMREQUEST => "GET",
+                            //CURLOPT_HTTPHEADER => [
+                            //    "X-RapidAPI-Host: community-open-weather-map.p.rapidapi.com",
+                            //    "X-RapidAPI-Key: ec6eec344cmshc8af11bc0a722b9p1a8de0jsnaf8afaeb2b79"
+                            //],
+                        ]);
 
-    //TODO: Add Open Weather API Call in this "hero area" section of HTML as well
+                        $response = curl_exec($curl);
+                        $err = curl_error($curl);
 
+                        curl_close($curl);
 
+                        if ($err) {
+                            echo "cURL Error #:" . $err;
+                        } else {
+                            echo "<table table id = \"forecast\" style=\"text-align:left\" class=\"table table-striped table-bordered table-rounded\" style=\"width: fit-content\">";
+                            echo "<tr>";
+                            echo "<th> Description </th>";
+                            echo "<th> Forecast Time </th>";
+                            echo "<th> Temperature </th>";
+                            echo "<th> Humidity </th>";
+                            echo "<th> Pressure </th>";
+                            echo "<th> Wind Speed </th>";
+                            echo "<th> Wind Direction </th>";
+                            echo "<th> Precipitation </th>";
+                            echo "</tr>";
 
-	//shell_exec("/usr/local/bin/gpio mode 21 out");
+                            $jsonContents = file_get_contents("https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=".$lat."&lon=".$lon."&appid=".$apiKey."&cnt=24&units=imperial");
+                            $data = json_decode($jsonContents, true);
+                            foreach($data['list'] as $hour => $value) {
+                                echo "<tr>";
+                                echo "<td>" . $description = $value['weather'][0]['description'] . " </td>";
+                                echo "<td>" . $forecastTime = $value['dt_txt'] . "</td>";
+                                echo "<td>" . $actualTemp = $value['main']['temp'] . " F " . "</td>";
+                                echo "<td>" . $humidity = $value['main']['humidity']. " % " . "</td>";
+                                echo "<td>" . $pressure = $value['main']['pressure'] . " hPa" . "</td>";
+                                echo "<td>" . $windSpeed = $value['wind']['speed']. " MPH " . "</td>";
+                                echo "<td>" . $windDirection = $value['wind']['deg']. " Deg " . "</td>";
+                                if (isset($value['rain']['1h'])) {
+                                    echo "<td>" .$precipitation = $value['rain']['1h'] . " inches " . "</td>";
+                                }
+                                else{
+                                    echo "<td>" .$precipitation = 'None'. "</td>";
+                                }
+                                echo "</tr>";
+                            }
+                            echo"</table>";
+                        }
+                        ?>
+                            <form method="POST" action="">
+                                <input type="submit" name="getVal" value="Get I/O Values"><br/>
+                                <!-- <script>
+                                    const xmlhttp = new XMLHttpRequest();
+                                    xmlhttp.onload = function(){
+                                        const valStat = JSON.parse(this.responseText);
+                                        document.getElementById("testing").innerHTML = valStat;
+                                    }
+                                    xmlhttp.open("GET","testing.php",true);
+                                    xmlhttp.send();
+                                </script> -->
+                                <?php
+                                //$val = intval($_POST['getVal']);
+                                //echo $val;
 
-	$val = intval($_POST['rlyTgl']);
-	echo $val;
+                                if($_SERVER["REQUEST_METHOD"]=="POST") {
+                                    $jsonContents = file_get_contents("http://gardenpi.ddns.net/jsonGPIO.php");
+                                    $jsonData = json_decode($jsonContents);
+                                    $relayStatus1 = $jsonData->relays->relay_1;
+                                    $relayStatus2 = $jsonData->relays->relay_2;
+                                    $sensorStatus1 = $jsonData->sensors->sensor_1;
+                                    $sensorStatus2 = $jsonData->sensors->sensor_2;
 
-	if(isset($val)){
-		$read=intval(shell_exec("gpio read 21"));
+                                    echo "Relay 1 status is: " . $relayStatus1 . "<br/>";
+                                    echo "Relay 2 status is: " . $relayStatus2 . "<br/>";
+                                    echo "Sensor 1 status is: " . $sensorStatus1 . "<br/>";
+                                    echo "Sensor 2 status is: " . $sensorStatus2 . "<br/>";
+                                }
+                                ?>
+                            </form>
 
-		if($read == 1){
-			$rReturn = 1;
-			$write=shell_exec("gpio write 21 0");
-		}
-		else{
-			$rReturn = 0;
-			$write=shell_exec("gpio write 21 1");
-		}
-		$write;
-	}
-	$read2=shell_exec("gpio read 21");
-	echo $read2;
-	if($rReturn==0){
-?>
-	Pin 21:<label>
-            <input type="text" name="pin21" value= "ON" />
-        </label>
-        <?php
-	}
-	else{
-?>
-	Pin 21:<label>
-            <input type="text" name="pin21" value= "OFF" />
-        </label>
-        <?php
-	}
-?>
+                            <br/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,68 +219,6 @@
     </div>
 </div>
 <!-- end hero area -->
-
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors',1);
-//include('./_displayAllProducts.php');
-include('../../autoloader.php');
-//displayAllProducts();
-?>
-
-<body>
-    <div class="container">
-    <h2 style="text-align: center">Weather App</h2>
-        <table style="text-align:center" class="table table-striped table-condensed table-bordered table-rounded">
-            <thead style="text-align:center">
-                <tr>
-                    <th>Entry ID</th>
-                    <th>Date</th>
-                    <th>Temperature</th>
-                    <th>Humidity</th>
-                    <th>Pressure</th>
-                    <th>Calculated Altitude</th>
-                    <th>GPS Latitude</th>
-                    <th>GPS Longitude</th>
-                    <th>GPS Altitude</th>
-                    <th>GPS Connected Satellites</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>#{data.sensorId}</td>
-                    <td>#{data.dtStamp}</td>
-                    <td>#{data.temperature}</td>
-                    <td>#{data.humidity}</td>
-                    <td>#{data.pressure}</td>
-                    <td>#{data.altitude}</td>
-                    <td>#{data.gpsLat}</td>
-                    <td>#{data.gpsLong}</td>
-                    <td>#{data.gpsAltitude}</td>
-                    <td>#{data.gpsNumSat}</td>
-
-                    <?php
-                    include '../../Database/db.php';
-                    include '../../Database/SensorDataService.php';
-                    if (isset($results)){
-                        while($row = mysqli_fetch_array($results)){?>
-                    <td><?php echo $row['sensorID']; ?></td>
-                    <td><?php echo $row['dtStamp']; ?></td>
-                    <td><?php echo $row['temperature']; ?></td>
-                    <td><?php echo $row['humidity']; ?></td>
-                    <td><?php echo $row['pressure']; ?></td>
-                    <td><?php echo $row['altitude']; ?></td>
-                    <td><?php echo $row['gpsLat']; ?></td>
-                    <td><?php echo $row['gpsLong']; ?></td>
-                    <td><?php echo $row['gpsAltitude']; ?></td>
-                    <td><?php echo $row['gpsNumSat']; ?></td>
-                    <?php }
-                    }//endfor; ?>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</body>
 
 <!-- jquery -->
 <script src="../css/assets/js/jquery-1.11.3.min.js"></script>

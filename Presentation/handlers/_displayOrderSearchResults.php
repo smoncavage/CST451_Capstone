@@ -1,16 +1,37 @@
 
 <?php
-include('../../../autoloader.php');
+//include('../../../autoloader.php');
 
 
 ?>
-<head>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha256-3edrmyuQ0w665f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-	
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- title -->
+<title>GCU-CST451</title>
+
+<!-- favicon -->
+<link rel="shortcut icon" type="image/png" href="../css/assets/img/favicon.png">
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+<!-- fontawesome -->
+<link rel="stylesheet" href="../css/assets/css/all.min.css">
+<!-- bootstrap -->
+<link rel="stylesheet" href="../css/assets/bootstrap/css/bootstrap.min.css">
+<!-- owl carousel -->
+<link rel="stylesheet" href="../css/assets/css/owl.carousel.css">
+<!-- magnific popup -->
+<link rel="stylesheet" href="../css/assets/css/magnific-popup.css">
+<!-- animate css -->
+<link rel="stylesheet" href="../css/assets/css/animate.css">
+<!-- mean menu css -->
+<link rel="stylesheet" href="../css/assets/css/meanmenu.min.css">
+<!-- main style -->
+<link rel="stylesheet" href="../css/assets/css/main.css">
+<!-- responsive -->
+<link rel="stylesheet" href="../css/assets/css/responsive.css">
 	<style>
 	#orders {
 		font-family: "Trebuchet  MS", Arial, Helvetica, sans-serif;

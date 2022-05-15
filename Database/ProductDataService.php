@@ -1,13 +1,36 @@
-<!--
+<!--/*
 Stephan Moncavage
-CST-236
-Milestone 2
-06 March 2021
--->
+CST-451
+Capstone Project
+11 May 2022
+*/-->
 <?php
-include('../../autoloader.php');
-include './db.php';
+//include('../../autoloader.php');
+//
+require_once 'db.php';
 class ProductDataService{
+    function findAllProducts(){
+        $db = new Database();
+        $conn = $db->dbConnect();
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit();
+        }
+        $query = " SELECT * FROM products ";
+        $result = mysqli_query($conn, $query);
+        if(!$result){
+            die("Could not retrieve data: " . mysqli_error($conn));
+        }$products = [];
+        $index = 0;
+        while($row = mysqli_fetch_assoc($result)){
+            $products[$index] = array(
+                $row["Product_ID"], $row["Product_Name"], $row["Product_Description"], $row["Price"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        displayAllProducts($products);
+    }
     function findByProductName($search){
         $db = new Database();
         $conn = $db->dbConnect();
@@ -29,7 +52,7 @@ class ProductDataService{
             ++$index;
         }
         mysqli_close($conn);
-        displayAllUsers($products);
+        displayAllProducts($products);
     }
     
     function findByProductPrice($search){
@@ -52,7 +75,7 @@ class ProductDataService{
             ++$index;
         }
         mysqli_close($conn);
-        displayAllUsers($products);
+        displayAllProducts($products);
     }
     
     function findByProductID($search){
@@ -76,7 +99,7 @@ class ProductDataService{
             ++$index;
         }
         mysqli_close($conn);
-        displayAllUsers($products);
+        displayAllProducts($products);
     }
 }
 ?>

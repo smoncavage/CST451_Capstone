@@ -6,27 +6,30 @@ Milestone 2
 -->
 <?php
 
-include('../../autoloader.php');
+//include('../../autoloader.php');
+include '../../Database/productDataService.php';
+include '../../BusinessService/ProductBusinessService.php';
 
-function displayAllProducts($products){    
-    if(!$products){
-        echo "No Results Found.";   
-    }
-    else{
-        echo "<table>";
-        echo "<tr>";
-        echo "<th> ID </th>";
-        echo "<th> Product Name </th>";
-        echo "<th> Product Description </th>";
-        echo "<th> Price </th>";
-        echo "</tr>";
-        for($x=0; $x< count($products);$x++){
+
+    function displayAllProducts($products)
+    {
+        if (!$products) {
+            echo "No Results Found.";
+        } else {
+            echo "<table>";
             echo "<tr>";
-            echo "<td>" .$products[$x][0]. " </td>" . "<td>" . $products[$x][1] . " </td>" . "<td>" . $products[$x][2] . " </td>"."<td>".$products[$x][3];
+            echo "<th> ID </th>";
+            echo "<th> Product Name </th>";
+            echo "<th> Product Description </th>";
+            echo "<th> Price </th>";
             echo "</tr>";
+            for ($x = 0; $x < count($products); $x++) {
+                echo "<tr>";
+                echo "<td>" . $products[$x][0] . " </td>" . "<td>" . $products[$x][1] . " </td>" . "<td>" . $products[$x][2] . " </td>" . "<td>" . $products[$x][3];
+                echo "</tr>";
+            }
+            echo "</table>";
         }
-        echo "</table>";
-    }
-}
 
+}
 ?>

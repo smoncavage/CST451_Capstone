@@ -254,7 +254,7 @@ Cart Creation and Manipulation Page
                             <?php
                             $db = new Database();
                             $conn = $db->dbConnect();
-                            $query = "SELECT * FROM products ORDER BY id ASC";
+                            $query = "SELECT * FROM products ORDER BY 'id' ASC";
                             $result = mysqli_query($conn, $query);
                             if(mysqli_num_rows($result) > 0)
                             {

@@ -1,26 +1,26 @@
-!--
+<!--
 Stephan Moncavage
-CST-236
-Milestone 2
-06 March 2021
+CST-451
+Capstone
+06 May 2022
 -->
 
 <?php
-include('../../autoloader.php');
+//include('../../autoloader.php');
 class ProductBusinessService{
     function searchByName($pattern){
         $service = new ProductDataService();
-        return $service->findByProductName($pattern);
+        $service->findByProductName($pattern);
     }
 
     function searchByPrice($pattern){
         $service = new ProductDataService();
-        return $service->findByPrice($pattern);
+        $service->findByProductPrice($pattern);
     }
 
     function searchByID($pattern){
         $service = new ProductDataService();
-        return $service->findByProductID($pattern);
+        $service->findByProductID($pattern);
     }
 
 }
