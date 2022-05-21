@@ -27,7 +27,7 @@ function getAllUsers(){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         exit();
     }
-    $query = " SELECT * FROM users ";
+    $query = " SELECT * FROM user ";
     $result = mysqli_query($conn, $query);
     if(!$result){
         die("Could not retrieve data: " . mysqli_error($conn));

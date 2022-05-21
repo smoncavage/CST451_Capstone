@@ -81,7 +81,7 @@ $(document).ready(function(){
                         <h2 class="widget-title">Subscribe</h2>
                         <p>Subscribe to our mailing list to get the latest updates.</p>
                         <form action="mail.php">
-                            <input type="email" placeholder="Email">
+                            <label><input type="email" placeholder="Email"></label>
                             <button type="submit"><i class="fas fa-paper-plane"></i></button>
                         </form>
                     </div>
@@ -114,25 +114,25 @@ $(document).ready(function(){
     <!-- end copyright -->
 
     <!-- jquery -->
-    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../css/assets/js/jquery-1.11.3.min.js"></script>
     <!-- bootstrap -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../css/assets/bootstrap/js/bootstrap.min.js"></script>
     <!-- count down -->
-    <script src="assets/js/jquery.countdown.js"></script>
+    <script src="../css/assets/js/jquery.countdown.js"></script>
     <!-- isotope -->
-    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <script src="../css/assets/js/jquery.isotope-3.0.6.min.js"></script>
     <!-- waypoints -->
-    <script src="assets/js/waypoints.js"></script>
+    <script src="../css/assets/js/waypoints.js"></script>
     <!-- owl carousel -->
-    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="../css/assets/js/owl.carousel.min.js"></script>
     <!-- magnific popup -->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="../css/assets/js/jquery.magnific-popup.min.js"></script>
     <!-- mean menu -->
-    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="../css/assets/js/jquery.meanmenu.min.js"></script>
     <!-- sticker js -->
-    <script src="assets/js/sticker.js"></script>
+    <script src="../css/assets/js/sticker.js"></script>
     <!-- main js -->
-    <script src="assets/js/main.js"></script>
+    <script src="../css/assets/js/main.js"></script>
 </footer>
 </html>
 

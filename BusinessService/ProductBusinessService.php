@@ -6,21 +6,24 @@ Capstone
 -->
 
 <?php
-//include('../../autoloader.php');
+include '../Database/ProductDataService.php';
 class ProductBusinessService{
     function searchByName($pattern){
         $service = new ProductDataService();
-        $service->findByProductName($pattern);
+        $products = $service->findByProductName($pattern);
+        return $products;
     }
 
     function searchByPrice($pattern){
         $service = new ProductDataService();
-        $service->findByProductPrice($pattern);
+        $products = $service->findByProductPrice($pattern);
+        return $products;
     }
 
     function searchByID($pattern){
         $service = new ProductDataService();
-        $service->findByProductID($pattern);
+        $products = $service->findByProductID($pattern);
+        return $products;
     }
 
 }

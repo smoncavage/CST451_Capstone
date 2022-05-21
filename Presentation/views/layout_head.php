@@ -2,7 +2,6 @@
 Stephan Moncavage
 CST-451
 Capstone Project
-Milestone 3
 02 May 2022
 Header Update to separate file
 Some portions based on code by: Imran Hossain from https://imransdesign.com/
@@ -57,7 +56,7 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
                     <!-- logo -->
                     <div class="site-logo">
                         <a href="index.php">
-                            <img src="/Presentation/css/assets/img/logo.png" alt="">
+                            <img src="../css/assets/img/logo.png" alt="">
                         </a>
                     </div>
                     <!-- logo -->
@@ -115,7 +114,7 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Search For:</h3>
-                        <label></label><input type="text" id="search" placeholder="Keywords"/>
+                        <label><input type="text" id="search" placeholder="Keywords"/></label>
                         <button type="submit">Search <i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -125,25 +124,4 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
 </div>
 <!-- end search area -->
 
-<body class = "body">
-<?php //include 'navigation.php'; ?>
-<!-- jquery -->
-<script src="/Presentation/css/assets/js/jquery-1.11.3.min.js"></script>
-<!-- bootstrap -->
-<script src="/Presentation/css/assets/bootstrap/js/bootstrap.min.js"></script>
-<!-- count down -->
-<script src="/Presentation/css/assets/js/jquery.countdown.js"></script>
-<!-- isotope -->
-<script src="/Presentation/css/assets/js/jquery.isotope-3.0.6.min.js"></script>
-<!-- waypoints -->
-<script src="/Presentation/css/assets/js/waypoints.js"></script>
-<!-- owl carousel -->
-<script src="/Presentation/css/assets/js/owl.carousel.min.js"></script>
-<!-- magnific popup -->
-<script src="/Presentation/css/assets/js/jquery.magnific-popup.min.js"></script>
-<!-- mean menu -->
-<script src="/Presentation/css/assets/js/jquery.meanmenu.min.js"></script>
-<!-- sticker js -->
-<script src="/Presentation/css/assets/js/sticker.js"></script>
-<!-- main js -->
-<script src="/Presentation/css/assets/js/main.js"></script>
+

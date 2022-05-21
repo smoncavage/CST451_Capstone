@@ -15,39 +15,48 @@ class SensorBusinessService{
         $sensors = $service->getAllSensorsData();
         return $sensors;
     }
+    function getLatestWeatherData($sensors){
+        $service = new SensorDataService();
+        $service->getLatestWeatherForecast($sensors);
+    }
 
-    function searchByFirst($pattern){
+    function getSolenoidRelayStatus(){
+        $service = new SensorDataService();
+        $service->getRelayStatus();
+    }
+
+    function searchByTemp($pattern){
         $persons = Array();
-        $service = new UserDataService();
-        $persons = $service->findByFirstName($pattern);
+        $service = new SensorDataService();
+        $persons = $service->findByTemp($pattern);
         return $persons;
     }
 
-    function searchByLast($pattern){
+    function searchByLat($pattern){
         $persons = Array();
-        $service = new UserDataService();
-        $persons = $service->findByLastName($pattern);
+        $service = new SensorDataService();
+        $persons = $service->findByLat($pattern);
         return $persons;
     }
 
     function searchByID($pattern){
         $persons = Array();
-        $service = new UserDataService();
+        $service = new SensorDataService();
         $persons = $service->findByID($pattern);
         return $persons;
     }
 
-    function searchByUsername($pattern){
+    function searchByLong($pattern){
         $persons = Array();
-        $service = new UserDataService();
-        $persons = $service->findByUsername($pattern);
+        $service = new SensorDataService();
+        $persons = $service->findByLong($pattern);
         return $persons;
     }
 
-    function searchByRole($pattern){
+    function searchBySat($pattern){
         $persons = Array();
-        $service = new UserDataService();
-        $persons = $service->findByRole($pattern);
+        $service = new SensorDataService();
+        $persons = $service->findBySat($pattern);
         return $persons;
     }
 
@@ -63,6 +72,18 @@ class SensorBusinessService{
         $service = new UserDataService();
         $persons = $service->findByCreditID($pattern);
         return $persons;
+    }
+
+    function convertLat($lat){
+        $service = new SensorDataService();
+        $latitude = $service->convertLatitude($lat);
+        return $latitude;
+    }
+
+    function convertLon($lon){
+        $service = new SensorDataService();
+        $longitude = $service->convertLongitude($lon);
+        return $longitude;
     }
 }
 ?>

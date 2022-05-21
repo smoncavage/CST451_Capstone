@@ -3,9 +3,9 @@ class Database{
  
     // specify your own database credentials
     private string $host = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-    private string $username = "e0ugzn4gbm5rk7vn";
-    private string $password = "iil0c5udr9vv6qbk ";
-    private string $db_name = "g4asynvtu9x2oh4e";
+    private string $db_name = "e0ugzn4gbm5rk7vn";
+    private string $username = "iil0c5udr9vv6qbk ";
+    private string $password = "g4asynvtu9x2oh4e";
   /*
     private string $host = "127.0.0.1:3306";
     private string $db_name = "eCommerce";
@@ -40,9 +40,9 @@ class Database{
         //$databas = "ecommerce";
 
 		$servername = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-		$password = "iil0c5udr9vv6qbk";
-		$databas = "g4asynvtu9x2oh4e";
 		$user = "e0ugzn4gbm5rk7vn";
+		$password = "iil0c5udr9vv6qbk";
+		$databas = "g4asynvtu9x2oh4e"; 
 
         //Create Connection
 

@@ -1,9 +1,9 @@
 <!--
 Stephan Moncavage
-CST-236
-eCommerce Site Milestone Project
-Milestone 1
-27 February 2021
+CST-451
+Capstone Project
+07 May 2022
+Username Verification Checker
 -->
 <?php
  require_once 'myfuncs.php';
@@ -17,7 +17,7 @@ Milestone 1
 </head>
 
 <body>
- <h2>Hello My User ID Is: <?php echo " " . getUserId(); ?></h2><br>
+ <h2>Hello My User ID Is: <?php echo " " . $_SESSION['username']; ?></h2><br>
 </body>
 
 </html>

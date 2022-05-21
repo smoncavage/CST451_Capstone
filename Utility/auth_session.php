@@ -1,13 +1,13 @@
 <!--
 Stephan Moncavage
-CST-236
-eCommerce Site Milestone Project
-Milestone 1
-27 February 2021
+CST-451
+Capstone Project
+19 May 2022
+Session Authorization Functions
 -->
 <?php
 	include_once('myfuncs.php');
-	//$sessTime = $_SESSION['login_time'] + (15 * 60);
+	$sessTime = $_SESSION['login_time'] + (15 * 60);
 	//$now = strtotime(time());
 	if (isSessionStarted() === FALSE){
 		session_cache_expire(30);

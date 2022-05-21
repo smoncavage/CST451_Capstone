@@ -17,14 +17,12 @@ if($_SESSION['username'] == ""){
 	$message = "session has encountered an error, ";
 }
 ?>
-<?php include 'layout_head.php'; ?>
+<?php include './layout_head.php'; ?>
 <body class = "body">
     <div class="form">
-
 		<h2>We are sorry about this but your, <?php echo $message ?> please try again or create a new account!</h2>
 		<br>
 		<a href = "./login.php">Return</a>
     </div>
 </body>
 <?php include 'layout_foot.php'; ?>
-</html>

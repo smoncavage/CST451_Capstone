@@ -30,6 +30,7 @@ class ProductDataService{
         }
         mysqli_close($conn);
         displayAllProducts($products);
+        return $products;
     }
     function findByProductName($search){
         $db = new Database();
@@ -53,6 +54,7 @@ class ProductDataService{
         }
         mysqli_close($conn);
         displayAllProducts($products);
+        return $products;
     }
     
     function findByProductPrice($search){
@@ -76,6 +78,7 @@ class ProductDataService{
         }
         mysqli_close($conn);
         displayAllProducts($products);
+        return $products;
     }
     
     function findByProductID($search){
@@ -100,6 +103,7 @@ class ProductDataService{
         }
         mysqli_close($conn);
         displayAllProducts($products);
+        return $products;
     }
 }
 ?>

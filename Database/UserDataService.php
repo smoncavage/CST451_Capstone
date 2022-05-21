@@ -4,62 +4,13 @@ Stephan Moncavage
 CST-451
 Capstone Project
 06 May 2022
+User Data Service
 */
 -->
 <?php
 
 include 'db.php';
 class UserDataService{
-    function getAllSensorsData(){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        $query = "Select * from sensor";
-        $result = mysqli_query($conn, $query);
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $sensors = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $sensors[$index] = array(
-                $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"], $row["Altitude"], $row["GPSTimeStamp"],
-                $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
-            );
-            ++$index;
-        }
-        if(!$sensors){
-            echo "No Results Found.";
-        }
-        else{
-            echo "<table>";
-            echo "<tr>";
-            echo "<th> ID </th>";
-            echo "<th> Time Stamp </th>";
-            echo "<th> Temperature </th>";
-            echo "<th> Humidity </th>";
-            echo "<th> Pressure </th>";
-            echo "<th> Altitude </th>";
-            echo "<th> GPS Time Stamp </th>";
-            echo "<th> GPS Latitude </th>";
-            echo "<th> GPS Longitude </th>";
-            echo "<th> GPS Altitude </th>";
-            echo "<th> GPS Connected Satellites </th>";
-            echo "</tr>";
-            for($x=0; $x< count($sensors);$x++){
-                echo "<tr>";
-                echo "<td>" .$sensors[$x][0]. " </td>" . "<td>" . $sensors[$x][1] . " </td>" . "<td>" . $sensors[$x][2] . " </td>" .
-                    "<td>" . $sensors[$x][3] . " </td>" . "<td>" . $sensors[$x][4] . " </td>" . "<td>" . $sensors[$x][5] . " </td>" .
-                    "<td>" . $sensors[$x][6] . " </td>" . "<td>" . $sensors[$x][7] . " </td>" . "<td>" . $sensors[$x][8] . " </td>" .
-                    "<td>" . $sensors[$x][9] . " </td>" . "<td>" . $sensors[$x][10] . " </td>" . "<td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-        }
-        mysqli_close($conn);
-        //displayAllUsers($users);
-        return $sensors;
-    }
 
     function findByFirstName($search){
         $db = new Database();
@@ -68,7 +19,7 @@ class UserDataService{
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = "SELECT * FROM users Where First_Name like '%$search%'";
+        $query = "SELECT * FROM user Where First_Name like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -77,12 +28,12 @@ class UserDataService{
         $index = 0;
         while($row = mysqli_fetch_assoc($result)){
             $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"]
+                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
             );
             ++$index;
         }
         mysqli_close($conn);
-        displayAllUsers($users);
+        return $users;
     }
     
     function findByLastName($search){
@@ -92,7 +43,7 @@ class UserDataService{
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM users Where Last_Name like '%$search%'";
+        $query = " SELECT * FROM user Where Last_Name like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -106,6 +57,7 @@ class UserDataService{
         }
         mysqli_close($conn);
         displayAllUsers($users);
+        return $users;
     }
     
     function findByID($search){
@@ -116,7 +68,7 @@ class UserDataService{
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM users Where ID like '%$search%'";
+        $query = " SELECT * FROM user Where ID like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -130,6 +82,7 @@ class UserDataService{
         }
         mysqli_close($conn);
         displayAllUsers($users);
+        return $users;
     }
 	
     function findByUsername($search){
@@ -139,7 +92,7 @@ class UserDataService{
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM users Where Username like '%$search%'";
+        $query = " SELECT * FROM user Where Username like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -153,6 +106,7 @@ class UserDataService{
         }
         mysqli_close($conn);
         displayAllUsers($users);
+        return $users;
     }
     
     function findByRole($search){
@@ -162,7 +116,7 @@ class UserDataService{
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.users Where Username like '%$search%'";
+        $query = " SELECT * FROM user Where Username like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -176,6 +130,7 @@ class UserDataService{
         }
         mysqli_close($conn);
         displayAllUsers($users);
+        return $users;
     }
     
     function findByAddressID($search){
@@ -185,7 +140,7 @@ class UserDataService{
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.users Where Address_ID like '%$search%'";
+        $query = " SELECT * FROM user Where Address_ID like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -199,6 +154,7 @@ class UserDataService{
         }
         mysqli_close($conn);
         displayAllUsers($users);
+        return $users;
     }
     
     function findByCreditID($search){
@@ -208,7 +164,7 @@ class UserDataService{
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.users Where Credit_ID like '%$search%'";
+        $query = " SELECT * FROM user Where Credit_ID like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -222,14 +178,55 @@ class UserDataService{
         }
         mysqli_close($conn);
         displayAllUsers($users);
+        return $users;
     }
     
 	function deleteItem($id){
-		
+        $db = new Database();
+        $conn = $db->dbConnect();
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit();
+        }
+        $query = " DELETE * FROM user Where ID like '%$id%'";
+        $result = mysqli_query($conn, $query);
+        if(!$result){
+            die("Could not retrieve data: " . mysqli_error($conn));
+        }$users = [];
+        $index = 0;
+        while($row = mysqli_fetch_assoc($result)){
+            $users[$index] = array(
+                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        displayAllUsers($users);
+        return $users;
 	}
 	
 	function updateOne($id, $person){
-		
+        $db = new Database();
+        $conn = $db->dbConnect();
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit();
+        }
+        $query = " UPDATE". $person ." user Where ID like '%$id%'";
+        $result = mysqli_query($conn, $query);
+        if(!$result){
+            die("Could not retrieve data: " . mysqli_error($conn));
+        }$users = [];
+        $index = 0;
+        while($row = mysqli_fetch_assoc($result)){
+            $users[$index] = array(
+                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        displayAllUsers($users);
+        return $users;
 	}
 	
 	function findByFirstNameWithAddress($n){

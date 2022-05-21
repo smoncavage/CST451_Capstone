@@ -59,7 +59,7 @@ Cart Creation and Manipulation Page
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
+                        <label><input type="text" placeholder="Keywords"></label>
                         <button type="submit">Search <i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -77,8 +77,8 @@ Cart Creation and Manipulation Page
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
                         <?php
-                        include('../../Utility/auth_session.php');
-                        include('../../../autoloader.php');
+                        //include('../../Utility/auth_session.php');
+                        //include('../../../autoloader.php');
                         include '../../Database/db.php';
                         include_once 'cart_item.php';
 
@@ -137,18 +137,18 @@ Cart Creation and Manipulation Page
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                 extract($row);
 
-                                $sub_total=$price*$quantity;
+                                $sub_total=$row->Product_Price*$quantity;
 
                                 echo "<div class='cart-row'>";
                                 echo "<div class='col-md-8'>";
                                 // product name
                                 echo "<div class='product-name m-b-10px'>";
-                                echo "<h4>{$name}</h4>";
+                                echo "<h4>".$row->Product_Name."</h4>";
                                 echo "</div>";
 
                                 // update quantity
                                 echo "<form class='update-quantity-form'>";
-                                echo "<div class='product-id' style='display:none;'>{$id}</div>";
+                                echo "<div class='product-id' style='display:none;'>". $row->Product_ID."</div>";
                                 echo "<div class='input-group'>";
                                 echo "<input type='number' name='quantity' value='{$quantity}' class='form-control cart-quantity' min='1' />";
                                 echo "<span class='input-group-btn'>";
@@ -158,13 +158,13 @@ Cart Creation and Manipulation Page
                                 echo "</form>";
 
                                 // delete from cart
-                                echo "<a href='remove_from_cart.php?id={$id}' class='btn btn-default'>";
+                                echo "<a href='remove_from_cart.php?id=.".$row->Product_ID."' class='btn btn-default'>";
                                 echo "Delete";
                                 echo "</a>";
                                 echo "</div>";
 
                                 echo "<div class='col-md-4'>";
-                                echo "<h4>$" . number_format($price, 2, '.', ',') . "</h4>";
+                                echo "<h4>$" . number_format($row->Product_Price, 2, '.', ',') . "</h4>";
                                 echo "</div>";
                                 echo "</div>";
 
@@ -249,12 +249,12 @@ Cart Creation and Manipulation Page
                             <br />
                             <br />
                             <br />
-                            <h3 align="center">Shoping Cart</h3><br />
+                            <h3> Shopping Cart </h3><br />
                             <br /><br />
                             <?php
                             $db = new Database();
                             $conn = $db->dbConnect();
-                            $query = "SELECT * FROM products ORDER BY 'id' ASC";
+                            $query = "SELECT * FROM products ORDER BY Product_ID";
                             $result = mysqli_query($conn, $query);
                             if(mysqli_num_rows($result) > 0)
                             {
@@ -262,15 +262,15 @@ Cart Creation and Manipulation Page
                                 {
                                     ?>
                                     <div class="col-md-4">
-                                        <form method="post" action="add.php?action=add&id=<?php echo $row["id"]; ?>">
-                                            <div style="border:3px solid #5eb95d; background-color:grey; border-radius:5px; padding:16px;" align="center">
-                                                <img src="images/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
+                                        <form method="post" action="../handlers/add.php?action=add&id=<?php echo $row["id"]; ?>">
+                                            <div style="border:3px solid #5eb95d; background-color:grey; border-radius:5px; padding:16px;">
+                                                <img alt = "" src="images/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
 
                                                 <h4 class="text-info"><?php echo $row["Product_Name"]; ?></h4>
 
                                                 <h4 class="text-danger">$ <?php echo $row["Product_Price"]; ?></h4>
 
-                                                <input type="text" name="quantity" value="1" class="form-control" />
+                                               <label> <input type="text" name="quantity" value="1" class="form-control" /></label>
 
                                                 <input type="hidden" name="hidden_name" value="<?php echo $row["Product_Name"]; ?>" />
 
@@ -291,11 +291,11 @@ Cart Creation and Manipulation Page
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th width="40%">Item Name</th>
-                                        <th width="10%">Quantity</th>
-                                        <th width="20%">Price</th>
-                                        <th width="15%">Total</th>
-                                        <th width="5%">Action</th>
+                                        <th>Item Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
                                     </tr>
                                     <?php
                                     if(!empty($_SESSION["cart"]))
@@ -309,15 +309,15 @@ Cart Creation and Manipulation Page
                                                 <td><?php echo $values["Product_Qty"]; ?></td>
                                                 <td>$ <?php echo $values["Product_Price"]; ?></td>
                                                 <td>$ <?php echo number_format($values["Product_Qty"] * $values["Product_Price"], 2);?></td>
-                                                <td><a href="delete.php?action=delete&id=<?php echo $values["Product_ID"]; ?>"><span class="text-danger">Remove</span></a></td>
+                                                <td><a href="../handlers/delete.php?action=delete&id=<?php echo $values["Product_ID"]; ?>"><span class="text-danger">Remove</span></a></td>
                                             </tr>
                                             <?php
                                             $total = $total + ($values["Product_Qty"] * $values["Product_Price"]);
                                         }
                                         ?>
                                         <tr>
-                                            <td colspan="3" align="right">Total</td>
-                                            <td align="right">$ <?php echo number_format($total, 2); ?></td>
+                                            <td colspan="3" style="text-align='right'">Total</td>
+                                            <td>$ <?php echo number_format($total, 2); ?></td>
                                             <td></td>
                                         </tr>
                                         <?php

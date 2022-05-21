@@ -1,37 +1,34 @@
 <!--
 Stephan Moncavage
-CST-236
-eCommerce Site Milestone Project
-Milestone 1
-27 February 2021
+CST-451
+Capstone Project
+07 May 2022
+Login Response Page
 -->
 <?php
 //include auth_session.php file on all user panel pages
-include("../../../Utility/auth_session.php");
+//include("../../Utility/auth_session.php");
 
 ?>
 <?php
-include '../../views/layout_head.php';
-
+include './layout_head.php';
+include '../../Database/UserDataService.php';
 ?>
 <body class = "body">
     <div class="form">
-		<a href="../../../Utility/whoAmI.php">Who Am I</a>
+		<!-- <a href="../../Utility/whoAmI.php">Who Am I</a> -->
 		<h2>Thank You <?php
-                            include '../../../Database/db.php';
-                            $db = new Database();
                             $user = $_SESSION['username'];
+                            //$user = stripslashes($_REQUEST["username"]);
 							echo $user;
 							$_SESSION['username'] = $user;
-							include("myfuncs.php");
-							insertUsers();
-							$conn= $db->dbConnect();
-							$query = "SELECT * FROM users";
-							$result = mysqli_query($conn,$query);
-							if (mysqli_num_rows($result) > 0) {
+							$usrSvc = new UserDataService();
+                            $chkResult=$usrSvc->findByUsername($user);
+							if ($chkResult !== NULL) {
+                                echo $chkResult[3];
 						?>! You have Logged in Successfully!</h2>
 		
-		<table class = "table">
+	<!--	<table class = "table">
                        
 		<tr>
 		<th>User ID</th>
@@ -46,26 +43,26 @@ include '../../views/layout_head.php';
 		<th>Role</th>
 		</tr>
 		<?php
-		$i=0;
-		while($row = mysqli_fetch_array($result)) {
+		//$i=0;
+		//while($row = mysqli_fetch_array($result)) {
 		?>
 		<tr>
-		<td><?php echo $row['ID']; ?></td>
-		<td><?php echo $row["FIRST_NAME"]; ?></td>
-		<td><?php echo $row["LASTNAME"]; ?></td>
-		<td><?php echo $row["USERNAME"]; ?></td>
-		<td><?php echo $row["ADDRESS1"]; ?></td>
-		<td><?php echo $row["CITY"]; ?></td>
-		<td><?php echo $row["STATE"]; ?></td>
-		<td><?php echo $row["ZIP"]; ?></td>
-		<td><?php echo $row["COUNTRY"]; ?></td>
-		<td><?php echo $row["ROLE"]; ?></td>
+		<td><?php //echo $row['ID']; ?></td>
+		<td><?php //echo $row["FIRST_NAME"]; ?></td>
+		<td><?php //echo $row["LASTNAME"]; ?></td>
+		<td><?php //echo $row["USERNAME"]; ?></td>
+		<td><?php //echo $row["ADDRESS1"]; ?></td>
+		<td><?php //echo $row["CITY"]; ?></td>
+		<td><?php //echo $row["STATE"]; ?></td>
+		<td><?php //echo $row["ZIP"]; ?></td>
+		<td><?php //echo $row["COUNTRY"]; ?></td>
+		<td><?php //echo $row["ROLE"]; ?></td>
 		</tr>
 		<?php
-		$i++;
-		}
+		//$i++;
+		//}
 		?>
-		</table>
+		</table> -->
 		<?php
 		}
 		else{
@@ -73,8 +70,7 @@ include '../../views/layout_head.php';
 		}
 		?>				
 		<br>
-		<a href = "./dashboard.php">Continue</a>
+		<a href = "sensor.php">Continue</a>
     </div>
 </body>
 <?php include 'layout_foot.php';?>
-</html>
