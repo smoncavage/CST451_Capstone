@@ -51,11 +51,12 @@ require_once('../../BusinessService/SensorBusinessService.php');
             </div>
             <div class="col-lg-8 col-md-6">
                 <div class="single-latest-news">
-                    <script type = 'text/javascript' src = 'https://www.bing.com/api/maps/mapcontrol?key=AiXY78wQEUmf3HnoGua1X7x3VW5468j15GZyfCjyXnNKr4QnSLovHyy3P9kRYNO2'></script>
+                    <script type = 'text/javascript' src = 'https://www.bing.com/api/maps/mapcontrol?key=Av0TSxjqVSPgrCjL-6BY_-4hg7dm7TJou-ctyDAlpn3_rollYn53wE76jGDnbPE3'></script>
                     <script type = 'text/javascript'>
                         var map;
                         function loadMapScenario(){
                             map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                                credentials: 'Av0TSxjqVSPgrCjL-6BY_-4hg7dm7TJou-ctyDAlpn3_rollYn53wE76jGDnbPE3',
                                 center: new Microsoft.Maps.Location(<?php echo $lat ?> , <?php echo $lon ?>),
                                 zoom: 13
                             });
@@ -97,7 +98,7 @@ require_once('../../BusinessService/SensorBusinessService.php');
             </div>
         </div>
     </div>
-</div>
+
 <!-- end latest news -->
 </body>
 <?php include './layout_foot.php'; ?>

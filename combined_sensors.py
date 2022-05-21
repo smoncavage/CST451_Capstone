@@ -9,6 +9,10 @@ import digitalio
 import board
 from time import sleep
 import pymysql
+import json, requests
+import datetime
+
+key = '37d5482bf2d36047a822b19964843ac3'
 
 #Set Solid State Relay Output Pins
 relay1 = digitalio.DigitalInOut(board.D6)
@@ -84,8 +88,24 @@ file = open("output.txt", "a")
 def parseGPS(strg):
     if 'GNGGA' in strg:
         msg = pynmea2.parse(strg)
-        print ("GPS Timestamp: %s -- Lat: %s %s -- Lon: %s %s -- Altitude: %s %s --Satellites: %s" %(msg.timestamp, msg.lat, msg.lat_dir, msg.lon, msg.lon_dir, msg.altitude, msg.altitude_units, msg.num_sats))
-
+        gpsTime = msg.timestamp
+        #print(msg.lat,msg.lon)
+        cvrtLatD = math.floor(int(float(msg.lat))/100)
+        cvrtLonD = math.floor(int(float(msg.lon))/100)
+        cvrtLatM = math.floor(float(msg.lat))-(cvrtLatD*100)
+        cvrtLonM = math.floor(float(msg.lon))-(cvrtLonD*100)
+        cvrtLatS = (float(msg.lat)-((cvrtLatD*100)+cvrtLatM))*10
+        cvrtLonS = (float(msg.lon)-((cvrtLonD*100)+cvrtLonM))*10
+        #print(cvrtLatD, cvrtLonD, cvrtLatM, cvrtLonM, cvrtLatS, cvrtLonS)
+        cvrtLatDD = cvrtLatD + (cvrtLatM/60) + (cvrtLatS/3600)
+        cvrtLonDD = (cvrtLonD + (cvrtLonM/60) + (cvrtLonS/3600))*-1
+        #print(cvrtLatDD, cvrtLonDD)
+        gpsLat = str(cvrtLatDD)
+        gpsLon = str(cvrtLonDD)
+        gpsAlt = msg.altitude
+        gpsSat = msg.num_sats
+        print ("GPS Timestamp: %s -- Lat: %s -- Lon: %s -- Altitude: %s %s --Satellites: %s" %(gpsTime, gpsLat,  gpsLon, gpsAlt, msg.altitude_units, gpsSat))      
+        
         bme280_data = bme280.sample(bus,address)
         times = bme280_data.timestamp
         hum = bme280_data.humidity
@@ -97,6 +117,7 @@ def parseGPS(strg):
         val1 = (times, temp, hum, press, alt, str(msg.timestamp), str(msg.lat), str(msg.lon), str(msg.altitude), str(msg.num_sats))
         mycursor.execute(sql, val1)
         mydb.commit()
+        setRelayOutWeather(gpsLat,gpsLon)
         sleep(1800)
 
 def convertPressAlt(press):
@@ -108,38 +129,69 @@ def convertPressAlt(press):
 #    print (PA)
     return PA
 
-def setRelayOutputs():
+def setRelayOutputs():  
     if(sensordigital1.value == True):
         relay1.value = True
-        print("Relay 1 Value set to:")
-        print(relay1.value)
+        print("Relay 1 Value set to:" + relay1.value)
     else:
         relay1.value = False
-        print("Relay 1 Value set to:")
-        print(relay1.value)
+        print("Relay 1 Value set to:" + relay1.value)
     
     if(sensordigital2.value == True):
         relay2.value = True
-        print("Relay 1 Value set to:")
-        print(relay2.value)
+        print("Relay 1 Value set to:" + relay2.value)
+        
     else:
         relay2.value = False
-        print("Relay 1 Value set to:")
-        print(relay2.value)
+        print("Relay 1 Value set to:" + relay2.value)
+        
+def setRelayOutWeather(gpsLat, gpsLon):
+    units = 'imperial'
+    count = str(3);
+    url = requests.get('http://api.openweathermap.org/data/2.5/forecast?lat='+ gpsLat +'&lon='+ gpsLon +'&appid='+ key +'&cnt='+ count +'&units=imperial')
+    weather = json.loads(url.text)
+    #if(weather['list'][7] == "\'rain\'"):
+    #    rain=int(weather['list']['rain']['1h'])
+    #    print(str(rain))
+    #print(weather['city'])
+    inOfRain = []
+    timeRain = []
+    totalRain = 0
+    for i in weather['list']:
+        if 'rain' in i:
+            totalRain = totalRain + i['rain']['3h']
+            timeRain.append(i['dt'])
+            inOfRain.append(i['rain']['3h'])
+            #print(i['dt'], i['rain']['3h'], totalRain)
+    print(timeRain, inOfRain, totalRain)
+    if(sensordigital1.value == True and totalRain == 0):
+        relay1.value = True
+        print("Relay 1 Value set to: " + str(relay1.value))
+    else:
+        relay1.value = False
+        print("Relay 1 Value set to: " + str(relay1.value))
+    
+    if(sensordigital2.value == True and totalRain == 0):
+        relay2.value = True
+        print("Relay 2 Value set to: " + str(relay2.value))
+    else:
+        relay2.value = False
+        print("Relay 2 Value set to: " + str(relay2.value))
+    
 
 while 1:
     try:
-        setRelayOutputs()
+        #setRelayOutputs()
         strg = sio.readline()       
         parseGPS(strg)  
         raise AttributeError("Fault in Receieved GPS")
     except AttributeError as e:
         strg = sio.readline()
         parseGPS(strg)
-        setRelayOutputs()
+        #setRelayOutputs()
     else:
         strg = sio.readline()
         parseGPS(strg)
-        setRelayOutputs()
+        #setRelayOutputs()
         ser.close()
 
