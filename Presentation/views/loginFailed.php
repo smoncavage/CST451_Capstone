@@ -19,9 +19,9 @@ ini_set('display_errors',1);
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
                         <?php
-                        echo $_SESSION['username'];
-                        echo $_SESSION['pass'];
-                        echo $_SESSION['valid'];
+                        //echo $_SESSION['username'];
+                        //echo $_SESSION['pass'];
+                        //echo $_SESSION['valid'];
                         if($_SESSION['username'] == NULL){
                             $message = "Username is Missing, ";
                         }elseif($_SESSION['pass'] == NULL){
