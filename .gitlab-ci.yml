@@ -27,7 +27,19 @@ build-job:       # This job runs in the build stage, which runs first.
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
-    -echo "Unit Testing" --log-junit report.xml
+    - $myXMLData =
+      -  "<?xml version='1.0' encoding='UTF-8'?>
+    - <document>
+      -  <user>John Doe</wronguser>
+      - <email>john@example.com</wrongemail>
+    - </document>"
+    - $xml = simplexml_load_string($myXMLData);
+    - if ($xml === false) 
+      - echo "Failed loading XML "; --log-junit report.xml
+      - foreach(libxml_get_errors() as $error) 
+        - echo "<br>", $error->message; 
+    - else 
+      -  print_r($xml); --log-junit report.xml
   artifacts:
     when: always
     reports:
@@ -36,13 +48,9 @@ unit-test-job:   # This job runs in the test stage.
 lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
   script:
-    - echo "Linting code... This will take about 10 seconds." --log-junit report.xml
-    - sleep 10 --log-junit report.xml
-    - echo "No lint issues found." --log-junit report.xml
-  artifacts:
-    when: always
-    reports:
-      junit: report.xml
+    - echo "Linting code... This will take about 10 seconds." l
+    - sleep 10 
+    - echo "No lint issues found." 
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
