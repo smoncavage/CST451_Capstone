@@ -5,7 +5,7 @@
         'type' => 'group-project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '65ba04349e7eb58b9da8fe2e51a6bd1a889b369c',
+        'reference' => 'dd7e6fd1122816955a7cffd314c0f9d5e85d5d8d',
         'name' => 'cst451/2_grand_canyon_univeristy_capstone_project',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'group-project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '65ba04349e7eb58b9da8fe2e51a6bd1a889b369c',
+            'reference' => 'dd7e6fd1122816955a7cffd314c0f9d5e85d5d8d',
             'dev_requirement' => false,
         ),
         'doctrine/instantiator' => array(
