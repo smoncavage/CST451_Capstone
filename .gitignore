@@ -8,7 +8,7 @@ __pycache__/
 *.so
 
 #PHP
-
+vendor/
 <<<<<<< Updated upstream
 .bat
 =======
