@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	'Product_Price' = '$prodPrice', 'Product_Picture' = $prodPic, WHERE Product_ID = '$prodID'";
 	$result = mysqli_query($conn,$query);
 	if ($conn->query($query) == TRUE) {
+        echo "Product updated. ";
 	}else{
 		die("SQL Query failed: " . mysqli_error($conn));
 	}
@@ -71,17 +72,17 @@ if($cart_item->update()){
 }else{
     header("Location: cart.php?action=unable_to_update");
 }
+$proddescription = $_REQUEST['Product_Description'];
 ?>
-<form method="post" action="cart.php" enctype="multipart/form-data">
-		Product Name: <input type="text" name="Product"><?php echo $_REQUEST['Product_Name']; ?>
+<form method="post" action="../views/cart.php" enctype="multipart/form-data">
+    <label>Product Name: <input type="text" name="Product"><?php echo $_REQUEST['Product_Name']; ?></label>
 		<br>
-		Product Description: 
-		<textarea name="product" rows="15" cols="60" name = "Description"><?php echo $_REQUEST['Product_Description']; ?></textarea>
+		<label>Product Description:
+            <textarea name="product" rows="15" cols="60" name = "Description"><?php echo $proddescription;?></textarea></label>
 		<br>
 		<input TYPE="submit" name="upload" value="Submit"/>
 </form>
 	
-<a href="./logout.php"> <input type = "submit" name = "logout" value = "Logout"/></a>
-</body>
+<a href="../views/logout.php"> <input type = "submit" name = "logout" value = "Logout"/></a>
+
 <?php include 'layout_foot.php'; ?>
-</html>

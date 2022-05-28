@@ -6,17 +6,22 @@ Capstone Project
 -->
 
 <?php
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors',1);
-include '../views/layout_head.php';
-include('./_displayAllProducts.php');
-//include('../../autoloader.php');
-//displayAllProducts();
-// include('auth_session.php');
-// sessCheck();
-// if($_SESSION["valid"] != 1){
-//     header("Location: ./login/login.php");
-// }
+require_once('../../BusinessService/ProductBusinessService.php');
+include '../../Logger.php';
+$logger = new MyLogger();
+$log=$logger->getLogger();
+$log->addRecord(1,"Entered Store.php page. ");
+if(isset($_REQUEST['user'])){
+    include '../views/layout_head.php';
+    $log->addRecord(1,"Store Page Load Layout Header File. ");
+}
+else {
+    header("Location: ./login.php");
+    $log->addRecord(1,"Store page Re-Direct to Login.php - Session Variable Not Set. ");
+}
 ?>
 
 <body class = "body" style="text-align:center">
@@ -27,37 +32,26 @@ include('./_displayAllProducts.php');
 	<br/>
     <br/>
 	<div style="text-align:center" class="container">
-          <div style="text-align:center" class="col-md-10 col-md-offset-1">
+          <div style="text-align:center" >
           <h1>Product Page</h1>
-                <table style="text-align:center" class="table table-striped table-condensed table-bordered table-rounded">
-                        <thead style="text-align:center">
-                            <tr>
-                                <th>Product ID</th>
-                                <th>Product Name</th>
-                                <th>Product Description</th>
-                                <th>Price</th>
-                                <th>Image</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if (isset($results)){
-                            for($i = 0; $i < count($results->data); $i++) ?>
-                    		<tr>
-                            <td><?php echo $results->data[$i]['Product ID']; ?></td>
-                            <td><?php echo $results->data[$i]['Product Name']; ?></td>
-                            <td><?php echo $results->data[$i]['Product Description']; ?></td>
-                            <td><?php echo $results->data[$i]['Price']; ?></td>
-                            <td><?php echo $results->data[$i]['Image']; ?></td>
-                    		</tr>
-            				<?php }//endfor; ?>
-                        </tbody>
-                </table>
+              <?php
+                $service = new ProductBusinessService();
+                $service->searchAllProducts();
+              ?>
         </div>
    </div>
 </div>
 
 
-<h2 style="color:red">Products Coming Soon!</h2>
+<div>
+    <br/>
+    <a href = "logout.php" class = "boxed-btn"> Logout </a>
+    <br/>
+</div>
+<div>
+    <br/>
+</div>
+
 </body>
 
 <?php include '../views/layout_foot.php'; ?>

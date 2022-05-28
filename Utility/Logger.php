@@ -42,6 +42,7 @@ use Monolog\Handler\LogglyHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\BrowserConsoleHandler;
 use Monolog\Processor\WebProcessor;
+require_once __DIR__.('vendor/autoload.php');
 
 class MyLogger implements \Psr\Log\LoggerInterface {
 	private static ?Logger $logger = null;
@@ -51,12 +52,12 @@ class MyLogger implements \Psr\Log\LoggerInterface {
 		if(self::$logger == null){
 			//Log to Standard 
 			self::$logger = new Logger('phpLog');
-			//self::$logger->pushHandler(new LogglyHandler('e835e345-6359-461c-ae27-66eb600b922e/tag/monolog', Logger::DEBUG));
+			self::$logger->pushHandler(new LogglyHandler('e835e345-6359-461c-ae27-66eb600b922e/tag/monolog', Logger::DEBUG));
             $dateFormat = "Y n j, g:i a";
             $output = "%datetime% > %level_name% > %message% %context% %extra%\n";
-            $formatter = new LineFormatter($output, $dateFormat);
-            $stream = new StreamHandler(__DIR__.'../my_app.log', Level::Debug);
-            $stream->setFormatter($formatter);
+            //$formatter = new LineFormatter($output, $dateFormat);
+            //$stream = new StreamHandler(__DIR__.'../my_app.log', Level::Debug);
+            //$stream->setFormatter($formatter);
 			self::$logger->addRecord(1, 'test logs to loggly' );
 		}
 		return self::$logger;

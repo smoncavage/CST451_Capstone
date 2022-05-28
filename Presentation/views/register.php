@@ -171,8 +171,8 @@ try {
 	}
 $conn->close;
 ?>
-Click <a href = "./index.php"> here </a> to return to the Main page, or
-	<a href = "./login.php"> here </a> to go to the Login page.
+Click <a href = "./index.php" class ="boxed-btn"> here </a> to return to the Main page, or
+	<a href = "./login.php" class = "boxed-btn"> here </a> to go to the Login page.
 
                     </div>
                 </div>

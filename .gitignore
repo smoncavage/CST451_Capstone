@@ -8,7 +8,11 @@ __pycache__/
 *.so
 
 #PHP
-/vendor/
+
+<<<<<<< Updated upstream
+.bat
+=======
+>>>>>>> Stashed changes
 
 # Distribution / packaging
 .Python
@@ -157,6 +161,6 @@ dmypy.json
 /app/Config/database.php
 
 >>>>>>> remotes/origin/main
-/.idea/dataSources.xml
-/.idea/deployment.xml
-/.idea/sqldialects.xml
+/vendor/microsoft/microsoft-graph/
+/vendor/ralouphie/getallheaders/
+/vendor/webmozart/assert/

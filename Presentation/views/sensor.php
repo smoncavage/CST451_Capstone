@@ -7,11 +7,22 @@
 -->
 
 <?php
-include './layout_head.php';
-error_reporting(E_ALL);
-ini_set('display_errors',1);
+error_reporting(E_STRICT);
+ini_set('display_errors',0);
+include '../../Logger.php';
+$logger = new MyLogger();
+$log=$logger->getLogger();
+$log->addRecord(1,"Entered Sensor.php page. ");
 require_once('../../BusinessService/SensorBusinessService.php');
-//include '../../jsonGPIO.php';
+if(isset($_REQUEST['user'])){
+    include '../views/layout_head.php';
+    $log->addRecord(1,"Sensor Page Load Layout Header File. ");
+
+}
+else {
+    header("Location: ./login.php");
+    $log->addRecord(1,"Sensor page Re-Direct to Login.php - Session Variable Not Set. ");
+}
 ?>
 
 <body onload = 'loadMapScenario();'>
@@ -44,9 +55,12 @@ require_once('../../BusinessService/SensorBusinessService.php');
                 <h5 style="text-align: center">Garden Environment Sensor</h5>
                 <?php
                 $busserv = new SensorBusinessService();
+                $log->addRecord(1,"Sensor Page new SensorBusinessService Created. ");
                 $sensors = $busserv->getAllSensorData();
                 $lat = $busserv->convertLat($sensors[0][7]/1000);
                 $lon = $busserv->convertLon($sensors[0][8]/1000);
+                $log->addRecord(1,"Sensor Page Converted Latitude and Longitude from sensor Data. ");
+
                 ?>
             </div>
             <div class="col-lg-8 col-md-6">
@@ -56,7 +70,6 @@ require_once('../../BusinessService/SensorBusinessService.php');
                         var map;
                         function loadMapScenario(){
                             map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
-                                credentials: 'Av0TSxjqVSPgrCjL-6BY_-4hg7dm7TJou-ctyDAlpn3_rollYn53wE76jGDnbPE3',
                                 center: new Microsoft.Maps.Location(<?php echo $lat ?> , <?php echo $lon ?>),
                                 zoom: 13
                             });
@@ -78,28 +91,36 @@ require_once('../../BusinessService/SensorBusinessService.php');
             <div class="col-lg-12 col-md-6">
                 <div class="single-latest-news">
                     <?php
-                    error_reporting(E_ALL);
-                    ini_set('display_errors',1);
                     //Open Weather API Call in this "hero area" section of HTML as well
                     $busserv->getLatestWeatherData($sensors);
+                    $log->addRecord(1,"Sensor Page Retrieve Latest Weather Data from Sensors. ");
                     ?>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 text-center">
+            <div class="col-sm-6 text-center">
                 <form method="POST" action="">
                     <input type="submit" name="getVal" value="Get I/O Values"><br/>
                     <?php
                     $busserv->getSolenoidRelayStatus();
+                    $log->addRecord(1,"Sensor Page Load Relay Status from Raspberry Pi JSON webpage");
                     ?>
                 </form>
-                <br/>
+
+            </div>
+            <div class="col-sm-6 text-center">
+                <form method="POST" action="./logout.php">
+                    <input type="submit" name="logout" value="Log Out"><br/>
+                </form>
             </div>
         </div>
+        <br/>
     </div>
-
+</div>
 <!-- end latest news -->
 </body>
-<?php include './layout_foot.php'; ?>
+<?php
+include './layout_foot.php';
+?>
 

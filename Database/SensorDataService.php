@@ -13,6 +13,9 @@ include 'db.php';
 
 class SensorDataService {
 
+    private $db;
+    private $conn;
+    private $sensors;
     function getAllSensorsData(){
         $db = new Database();
         $conn = $db->dbConnect();
@@ -29,41 +32,16 @@ class SensorDataService {
         $index = 0;
         while($row = mysqli_fetch_assoc($result)){
             $sensors[$index] = array(
-                $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"], $row["Altitude"], $row["GPSTimeStamp"],
-                $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
+                $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"],
+                $row["Altitude"], $row["GPSTimeStamp"], $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
             );
-            ++$index;
+            ++$index;;
         }
         if(!$sensors){
             echo "No Results Found.";
         }
         else{
-            //echo "<table table id = \"sensors\" style=\"text-align:center\" class=\"table table-striped table-condensed table-bordered table-rounded\">";
-            //echo "<tr>";
-            //echo "<th> ID </th>";
-            //echo "<th> Time Stamp </th>";
-            //echo "<th> Temperature </th>";
-            //echo "<th> Humidity </th>";
-            //echo "<th> Pressure </th>";
-            //echo "<th> Altitude </th>";
-            //echo "<th> GPS Time Stamp </th>";
-            //echo "<th> GPS Latitude </th>";
-            //echo "<th> GPS Longitude </th>";
-            //echo "<th> GPS Altitude </th>";
-            //echo "<th> GPS Connected Satellites </th>";
-            //echo "</tr>";
-
-
-
-
-
             for($x=0; $x< count($sensors);$x++){
-                //echo "<tr>";
-                //echo "<td>" . $sensors[$x][0] . " </td>" . "<td>" . $sensors[$x][1] . " </td>" . "<td>" . $sensors[$x][2] . " </td>" .
-                //    "<td>" . $sensors[$x][3] . " </td>" . "<td>" . $sensors[$x][4] . " </td>" . "<td>" . $sensors[$x][5] . " </td>" .
-                //    "<td>" . $sensors[$x][6] . " </td>" . "<td>" . $sensors[$x][7] . " </td>" . "<td>" . $sensors[$x][8] . " </td>" .
-                //"<td>" . $sensors[$x][9] . " </td>" . "<td>" . $sensors[$x][10] . " </td>";
-                //echo "</tr>";
                 $lat=$this->convertLatitude($sensors[$x][7]/1000);
                 $lon=$this->convertLongitude($sensors[$x][8]/1000);
                 echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> ID </b></div>                     <div class = 'col' style = 'text-align:right'>". $sensors[$x][0] ."</div> </div>";
@@ -114,18 +92,6 @@ class SensorDataService {
             echo "cURL Error #:" . $err;
         } else {
             echo "<table id = \"forecast\" style=\"text-align:center\" >";
-            /* echo "<tr>";
-            echo "<th> Description </th>";
-            echo "<th> Forecast Time </th>";
-            echo "<th> Temperature </th>";
-            echo "<th> Humidity </th>";
-            echo "<th> Pressure </th>";
-            echo "<th> Wind Speed </th>";
-            echo "<th> Wind Direction </th>";
-            echo "<th> Precipitation </th>";
-            echo "<th> Icon </th>";
-            echo "</tr>";
-            */
             $jsonContent = file_get_contents("https://pro.openweathermap.org/geo/1.0/reverse?lat=" . $lat . "&lon=" . $lon . "&appid=" . $apiKey);
             $geodata = json_decode($jsonContent, true);
 
@@ -155,27 +121,6 @@ class SensorDataService {
                 }
 
                 echo "<br/></td></div>";
-               /*
-                echo "<div class = 'col-sm-2' style = 'text-align:right'>";
-                $localTime = $this->convertUTCLocal($value['dt_txt']);
-                echo "<div class = 'row' >". $localTime. "</div>";
-                echo "<div class = 'row'><img src='http://openweathermap.org/img/wn/" . $value['weather'][0]['icon'] . "@2x.png'></img></div>";
-                echo "<div class = 'row'>". $value['weather'][0]['description']."</div>";
-                echo "<div class = 'row'>". $value['main']['temp']. "<span>&#176;</span> F " ."</div>";
-                echo "<div class = 'row'>". $value['main']['humidity']. " % "  ."</div>";
-                echo "<div class = 'row'>". $value['main']['pressure']. " hPa" ."</div>";
-                echo "<div class = 'row'>". $value['wind']['speed']." MPH " ."</div>";
-                echo "<div class = 'row'>". $value['wind']['deg']." Deg " ."</div>";
-                if (isset($value['rain']['1h'])) {
-                    //echo "<td>" . $precipitation = $value['rain']['1h'] . " inches " . "</td>";
-                    echo "<div class = 'col' style = 'text-align:left'>". $value['rain']['1h']. " in. of precip " . "</div>";
-                } else {
-                    //echo "<td>" . $precipitation = 'None' . "</td>";
-                    echo "<div class = 'col' style = 'text-align:left'>No Precip </div>";
-                }
-                echo "</div>";
-               echo "<br/>";
-               */
             }
 
             echo "</table>";
@@ -247,44 +192,46 @@ class SensorDataService {
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
-        }$users = [];
+        }$sensors = [];
         $index = 0;
         while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"]
+            $sensors[$index] = array(
+                $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"],
+                $row["Altitude"], $row["GPSTimeStamp"], $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
             );
             ++$index;
         }
         mysqli_close($conn);
+        return $sensors;
     }
+
     function getSensorById($entryId)
     {
         $db = new Database();
         $conn = $db->dbConnect();
         $query = "Select * from sensor where entryid like '%$entryId%'";
-        if(isset($conn)) {
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param('i', $entryId);
-            $stmt->execute();
-            $results = $stmt->get_results();
-
-            if ($results->num_rows == 0) {
-                return null;
-            } else {
-                $sensors = array();
-                while ($sensor = $results->fetch_assoc()) {
-                    array_push($sensors, $sensor);
-                }
-                return new Sensor($sensors[0]["entryid"], $sensors[1]["DTStamp"], $sensors[2]["Temperature"], $sensors[3]["Humidity"], $sensors[4]["Pressure"], $sensors[5]["Altitude"], $sensors[6]["GPSTimeStamp"], $sensors[7]["GPSLat"], $sensors[8]["GPSLong"], $sensors[9]["GPSAltitude"], $sensors[10]["GPSNumSat"]);
-            }
+        $result = mysqli_query($conn, $query);
+        if(!$result){
+            die("Could not retrieve data: " . mysqli_error($conn));
         }
+        $sensors = [];
+        $index = 0;
+        while($row = mysqli_fetch_assoc($result)){
+            $sensors[$index] = array(
+                    $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"],
+                    $row["Altitude"], $row["GPSTimeStamp"], $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $sensors;
     }
 
     public function updateSensor($entryid, $dtStamp, $temp, $hum, $press, $alt, $gpsdtStamp, $gpsLat, $gpsLong, $gpsAlt, $gpsSat):string
     {
         $db = new Database();
         $conn = $db->dbConnect();
-        $query = "UPDATE sensor SET Sensor_ID = ?, 'DTStamp' = ?, Temperature = ?, Humidity = ?, Pressure = ?, Altitude = ?, GPSTimeStamp = ?, GPSLat = ?, GPSLong = ?, GPSAltitude = ?, GPSSatNum = ?";
+        $query = "UPDATE sensor SET 'DTStamp' = ?, Temperature = ?, Humidity = ?, Pressure = ?, Altitude = ?, GPSTimeStamp = ?, GPSLat = ?, GPSLong = ?, GPSAltitude = ?, GPSSatNum = ? WHERE Sensor_ID like ".$entryid;
         if (isset($conn)) {
             $stmt = $conn->prepare($query);
             $stmt->bind_param('idddddsssss', $entryid, $dtStamp, $temp, $hum, $press, $alt, $gpsdtStamp, $gpsLat, $gpsLong, $gpsAlt, $gpsSat);
@@ -315,6 +262,31 @@ class SensorDataService {
             }
         }
         return "Deleted";
+    }
+
+    public function indexQueryResult($qry)
+    {
+        $this->db = new Database();
+        $this->conn = $this->db->dbConnect();
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit();
+        }
+        $this->query = $qry;
+        $this->result = mysqli_query($this->conn, $this->query);
+        if (!$this->result) {
+            die("Could not retrieve data: " . mysqli_error($this->conn));
+        }
+
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($this->result)) {
+            $sensors[$index] = array(
+                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
+            );
+            ++$index;
+        }
+        mysqli_close($this->conn);
+        return $this->sensors;
     }
 
 }

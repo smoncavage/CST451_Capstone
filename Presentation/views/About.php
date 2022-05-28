@@ -14,11 +14,13 @@ Capstone Project
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
                         <p class="subtitle">Automated Gardening</p>
-                        <h1>This is where I tell you about myself.</h1>
+                        <h6>This website is the basis for using a Raspberry Pi 4 to control solenoid valves in order to water a garden, lawn, or plants with different "zones". The Raspberry Pi takes input from a soil sensor located within each "zone"
+						 as well as looking at your local weather forecast in order to determine if it is going to rain in the near future. If the soil sensor senses a "dry" state with no precipitation in the forecast, the solenoids will turn on and
+						 allow water to flow to that particular zone until there is either precipitation in the forecast or the sensor senses a "wet" state.</h6>
                         <div class="hero-btns">
-                            <a href="../views/login/login.php" class="boxed-btn">Log In</a>
-                            <a href="../views/login/register.html" class="bordered-btn">Register With Us</a>
-                            <a href="../views/login/logout.php" class="boxed-btn">Log Out</a>
+                            <a href="login.php" class="boxed-btn">Log In</a>
+                            <a href="register.html" class="bordered-btn">Register With Us</a>
+                            <a href="logout.php" class="boxed-btn">Log Out</a>
                         </div>
                     </div>
                 </div>

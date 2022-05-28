@@ -28,5 +28,5 @@ Capstone Project
     </div>
 </div>
 <!-- end hero area -->
-
+<a href = "logout.php" class = "boxed-btn"> Logout </a>
 <?php include '../views/layout_foot.php'; ?>

@@ -14,21 +14,22 @@ Capstone Project
                     <div class="hero-text-tablecell">
                         <p class="subtitle">Please Login or Register to Continue.</p>
                         <?php
-						//include_once('myfuncs.php');
-						//if(isSessionStarted() == TRUE){
-						//	session_destroy();
-							// Destroy session
-						//}
-						//session_unset();
-						echo "In order to continue, "
-
-						//if(session_destroy() !== NULL) {
-							// Redirecting To Home Page
-							//header("Location: ./index.php");
-						//}
+                        error_reporting(E_ALL);
+                        ini_set('display_errors',1);
+						session_unset();
+                        if (ini_get("session.use_cookies")) {
+                            $params = session_get_cookie_params();
+                            setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"],$params["httponly"]);
+                        }
+                        if(session_id() !== null) {
+                            //session_destroy();
+                            setcookie('user',"");
+                            setcookie('pass',"");
+                            setcookie('startSess',"");
+                        }
 						?>
 						<br>
-							Please return to the <a href = "index.php"> Homepage </a> or <a href = "login.php"> Login </a> again.
+                        In order to continue, Please return to the <a href = "index.php" class = "boxed-btn"> Homepage </a> or <a href = "login.php" class = "boxed-btn"> Login </a> again.
                     </div>
                 </div>
             </div>

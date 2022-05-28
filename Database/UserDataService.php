@@ -11,222 +11,70 @@ User Data Service
 
 include 'db.php';
 class UserDataService{
+    private $query = "";
+    private $db = "";
+    private $conn = "";
+    private bool|mysqli_result $result;
+    private $users = [];
 
     function findByFirstName($search){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = "SELECT * FROM user Where First_Name like '%$search%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }
-        $users = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        return $users;
+        $this->query = "SELECT * FROM user WHERE First_Name like '%$search%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
     }
     
     function findByLastName($search){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = " SELECT * FROM user Where Last_Name like '%$search%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }$users = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        displayAllUsers($users);
-        return $users;
+        $this->query = " SELECT * FROM user WHERE Last_Name like '%$search%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
     }
     
     function findByID($search){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        $serch=intval($search);
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = " SELECT * FROM user Where ID like '%$search%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }$users = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        displayAllUsers($users);
-        return $users;
+        $this->query = " SELECT * FROM user WHERE ID like '%$search%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
     }
 	
     function findByUsername($search){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = " SELECT * FROM user Where Username like '%$search%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }$users = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        displayAllUsers($users);
-        return $users;
+        $this->query = " SELECT * FROM user WHERE Username like '%$search%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
+    }
+	
+	function findByPassword($search){
+        $this->query = " SELECT * FROM user WHERE PASSWORD like '%$search%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
     }
     
     function findByRole($search){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = " SELECT * FROM user Where Username like '%$search%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }$users = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        displayAllUsers($users);
-        return $users;
+        $this->query = " SELECT * FROM user WHERE Username like '%$search%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
     }
     
     function findByAddressID($search){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = " SELECT * FROM user Where Address_ID like '%$search%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }$users = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        displayAllUsers($users);
-        return $users;
+        $this->query = " SELECT * FROM user WHERE Address_ID like '%$search%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
     }
     
     function findByCreditID($search){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = " SELECT * FROM user Where Credit_ID like '%$search%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }$users = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        displayAllUsers($users);
-        return $users;
+        $this->query = " SELECT * FROM user WHERE Credit_ID like '%$search%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
     }
     
 	function deleteItem($id){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = " DELETE * FROM user Where ID like '%$id%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }$users = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        displayAllUsers($users);
-        return $users;
+        $this->query = " DELETE * FROM user WHERE ID like '%$id%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
 	}
 	
 	function updateOne($id, $person){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = " UPDATE". $person ." user Where ID like '%$id%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }$users = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        displayAllUsers($users);
-        return $users;
+        $this->query = " UPDATE". $person ." user Where ID like '%$id%'";
+        $this->users = $this->indexQueryResult($this->query);
+        return $this->users;
 	}
 	
 	function findByFirstNameWithAddress($n){
@@ -260,5 +108,33 @@ class UserDataService{
 				//exit;
 			}
 	}
+
+    /**
+     * @return array|void
+     */
+    public function indexQueryResult($qry)
+    {
+        $this->db = new Database();
+        $this->conn = $this->db->dbConnect();
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit();
+        }
+        $this->query = $qry;
+        $this->result = mysqli_query($this->conn, $this->query);
+        if (!$this->result) {
+            die("Could not retrieve data: " . mysqli_error($this->conn));
+        }
+
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($this->result)) {
+            $users[$index] = array(
+                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
+            );
+            ++$index;
+        }
+        mysqli_close($this->conn);
+        return $this->users;
+    }
 }
 ?>

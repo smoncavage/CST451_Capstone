@@ -2,17 +2,18 @@
 class Database{
  
     // specify your own database credentials
-    private string $host = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-    private string $db_name = "e0ugzn4gbm5rk7vn";
-    private string $username = "iil0c5udr9vv6qbk ";
-    private string $password = "g4asynvtu9x2oh4e";
-  /*
-    private string $host = "127.0.0.1:3306";
-    private string $db_name = "eCommerce";
-    private string $username = "root";
-    private string $password = "root";
-*/	
-    public $conn;
+
+   private string $host = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+   private string $db_name = "g4asynvtu9x2oh4e";
+   private string $username = "e0ugzn4gbm5rk7vn";
+   private string $password = "iil0c5udr9vv6qbk";
+    /*
+       private string $host = "127.0.0.1:3306";
+       private string $db_name = "eCommerce";
+       private string $username = "root";
+       private string $password = "root";
+    */
+    public $conn = null;
 
     // get the database connection
     public function getConnection(): ?PDO
@@ -38,23 +39,23 @@ class Database{
         //$user = "root";
         //$password = "root";
         //$databas = "ecommerce";
-
-		$servername = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-		$user = "e0ugzn4gbm5rk7vn";
-		$password = "iil0c5udr9vv6qbk";
-		$databas = "g4asynvtu9x2oh4e"; 
-
+        /*
+		private $servername = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+		private $user = "e0ugzn4gbm5rk7vn";
+		private $password = "iil0c5udr9vv6qbk";
+		private $databas = "g4asynvtu9x2oh4e";
+        */
         //Create Connection
 
         //mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $conn = mysqli_connect($servername,$user,$password,$databas);
+        $this->conn = mysqli_connect($this->host,$this->username,$this->password,$this->db_name);
 
         //Check Connection
 
         if (mysqli_connect_errno()){
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        return $conn;
+        return $this->conn;
     }
 }
-?>
+

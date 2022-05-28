@@ -7,7 +7,17 @@ css Based on code by: Imran Hossain from https://imransdesign.com/
 -->
 
 
-<?php include './layout_head.php'; ?>
+<?php
+
+include './layout_head.php';
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+//include_once '../../Utility/auth_session.php';
+include '../../Logger.php';
+$logger = new MyLogger();
+$log=$logger->getLogger();
+$log->addRecord(1,"Entered Index.php page. ");
+?>
 
 <!-- hero area -->
 <div class="hero-area hero-bg">
@@ -30,5 +40,7 @@ css Based on code by: Imran Hossain from https://imransdesign.com/
 </div>
 <!-- end hero area -->
 
-<?php include './layout_foot.php'; ?>
+<?php
+include 'layout_foot.php';
+?>
 
