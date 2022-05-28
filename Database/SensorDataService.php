@@ -17,50 +17,30 @@ class SensorDataService {
     private $conn;
     private $sensors;
     function getAllSensorsData(){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        $query = "Select * from sensor ORDER BY entryid DESC Limit 1";
-        $result = mysqli_query($conn, $query);
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }
-        $sensors = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $sensors[$index] = array(
-                $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"],
-                $row["Altitude"], $row["GPSTimeStamp"], $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
-            );
-            ++$index;;
-        }
-        if(!$sensors){
+        $this->query = "Select * from sensor ORDER BY entryid DESC Limit 1";
+        $this->sensors = $this->indexQueryResult($this->query);
+        if(!$this->sensors){
             echo "No Results Found.";
         }
         else{
-            for($x=0; $x< count($sensors);$x++){
-                $lat=$this->convertLatitude($sensors[$x][7]/1000);
-                $lon=$this->convertLongitude($sensors[$x][8]/1000);
-                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> ID </b></div>                     <div class = 'col' style = 'text-align:right'>". $sensors[$x][0] ."</div> </div>";
-                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Time Stamp </b></div>             <div class = 'col' style = 'text-align:right'>". $sensors[$x][1] ."</div> </div>";
-                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Temperature </b></div>            <div class = 'col' style = 'text-align:right'>". $sensors[$x][2] ."</div> </div>";
-                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Humidity </b></div>               <div class = 'col' style = 'text-align:right'>". $sensors[$x][3] ."</div> </div>";
-                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Pressure </b></div>               <div class = 'col' style = 'text-align:right'>". $sensors[$x][4] ."</div> </div>";
-                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Altitude </b></div>               <div class = 'col' style = 'text-align:right'>". $sensors[$x][5] ."</div> </div>";
-                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> GPS Time Stamp </b></div>         <div class = 'col' style = 'text-align:right'>". $sensors[$x][6] ."</div> </div>";
+            for($x=0; $x< count($this->sensors);$x++){
+                $lat=$this->convertLatitude($this->sensors[$x][7]/1000);
+                $lon=$this->convertLongitude($this->sensors[$x][8]/1000);
+                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> ID </b></div>                     <div class = 'col' style = 'text-align:right'>". $this->sensors[$x][0] ."</div> </div>";
+                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Time Stamp </b></div>             <div class = 'col' style = 'text-align:right'>". $this->sensors[$x][1] ."</div> </div>";
+                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Temperature </b></div>            <div class = 'col' style = 'text-align:right'>". $this->sensors[$x][2] ."</div> </div>";
+                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Humidity </b></div>               <div class = 'col' style = 'text-align:right'>". $this->sensors[$x][3] ."</div> </div>";
+                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Pressure </b></div>               <div class = 'col' style = 'text-align:right'>". $this->sensors[$x][4] ."</div> </div>";
+                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Altitude </b></div>               <div class = 'col' style = 'text-align:right'>". $this->sensors[$x][5] ."</div> </div>";
+                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> GPS Time Stamp </b></div>         <div class = 'col' style = 'text-align:right'>". $this->sensors[$x][6] ."</div> </div>";
                 echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> GPS Latitude </b></div>           <div class = 'col' style = 'text-align:right'>". $lat ."</div> </div>";
                 echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> GPS Longitude </b></div>          <div class = 'col' style = 'text-align:right'>". $lon ."</div> </div>";
-                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> GPS Altitude </b></div>           <div class = 'col' style = 'text-align:right'>". $sensors[$x][9] ."</div> </div>";
-                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Connected Sattelites </b></div>   <div class = 'col' style = 'text-align:right'>". $sensors[$x][10] ."</div> </div>";
+                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> GPS Altitude </b></div>           <div class = 'col' style = 'text-align:right'>". $this->sensors[$x][9] ."</div> </div>";
+                echo "<div class = 'row'> <div class='col'><b style = 'text-align:left'> Connected Sattelites </b></div>   <div class = 'col' style = 'text-align:right'>". $this->sensors[$x][10] ."</div> </div>";
             }
             echo "</table>";
         }
-        mysqli_close($conn);
-        //displayAllUsers($users);
-        return $sensors;
+        return $this->sensors;
     }
 
     function getLatestWeatherForecast($localSensorArray){
@@ -100,8 +80,6 @@ class SensorDataService {
             $jsonContents = file_get_contents("https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=" . $lat . "&lon=" . $lon . "&appid=" . $apiKey . "&cnt=10&units=imperial");
             $data = json_decode($jsonContents, true);
             //echo $data;
-
-
 
             foreach ($data['list'] as $hour => $value) {
                 echo "<td><div class = 'col-sm-12 news-item'>";
@@ -182,89 +160,33 @@ class SensorDataService {
     }
 
     function findByTemp($search){
-        $db = new Database();
-        $conn = $db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $query = " SELECT * FROM sensors Where Temperature like '%$search%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }$sensors = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $sensors[$index] = array(
-                $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"],
-                $row["Altitude"], $row["GPSTimeStamp"], $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        return $sensors;
+        $this->query = " SELECT * FROM sensors Where Temperature like '%$search%'";
+        $this->sensors = $this->indexQueryResult($this->query);
+        return $this->sensors;
     }
 
     function getSensorById($entryId)
     {
-        $db = new Database();
-        $conn = $db->dbConnect();
-        $query = "Select * from sensor where entryid like '%$entryId%'";
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Could not retrieve data: " . mysqli_error($conn));
-        }
-        $sensors = [];
-        $index = 0;
-        while($row = mysqli_fetch_assoc($result)){
-            $sensors[$index] = array(
-                    $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"],
-                    $row["Altitude"], $row["GPSTimeStamp"], $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
-            );
-            ++$index;
-        }
-        mysqli_close($conn);
-        return $sensors;
+        $this->query = "Select * from sensor where entryid like '%$entryId%'";
+        $this->sensors = $this->indexQueryResult($this->query);
+        return $this->sensors;
     }
 
     public function updateSensor($entryid, $dtStamp, $temp, $hum, $press, $alt, $gpsdtStamp, $gpsLat, $gpsLong, $gpsAlt, $gpsSat):string
     {
-        $db = new Database();
-        $conn = $db->dbConnect();
-        $query = "UPDATE sensor SET 'DTStamp' = ?, Temperature = ?, Humidity = ?, Pressure = ?, Altitude = ?, GPSTimeStamp = ?, GPSLat = ?, GPSLong = ?, GPSAltitude = ?, GPSSatNum = ? WHERE Sensor_ID like ".$entryid;
-        if (isset($conn)) {
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param('idddddsssss', $entryid, $dtStamp, $temp, $hum, $press, $alt, $gpsdtStamp, $gpsLat, $gpsLong, $gpsAlt, $gpsSat);
-            if($stmt->execute()){
-                return true;
-            }else{
-                echo "Error".$query."<br>".mysqli_error($conn);
-                return false;
-            }
-        }
-        return "updated";
+        $this->query = "UPDATE sensor SET 'DTStamp' = ?, Temperature = ?, Humidity = ?, Pressure = ?, Altitude = ?, GPSTimeStamp = ?, GPSLat = ?, GPSLong = ?, GPSAltitude = ?, GPSSatNum = ? WHERE Sensor_ID like ".$entryid;
+        $this->sensors = $this->indexQueryResult($this->query);
+        return $this->sensors;
     }
 
     public function deleteSensor($entryId): string
     {
-        $db = new Database();
-        $conn = $db->dbConnect();
-        $query = "DELETE FROM sensor WHERE 'entryid' = ?";
-        if(isset($conn)){
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("i", $entryId);
-
-            if($stmt->execute()){
-                return true;
-            }else{
-                echo "Error".$query."<br>".mysqli_error($conn);
-                return false;
-            }
-        }
-        return "Deleted";
+        $this->query = "DELETE FROM sensor WHERE 'entryid' = ?";
+        $this->sensors = $this->indexQueryResult($this->query);
+        return $this->sensors;
     }
 
-    public function indexQueryResult($qry)
+    public function indexQueryResult($qry):array
     {
         $this->db = new Database();
         $this->conn = $this->db->dbConnect();
@@ -281,7 +203,8 @@ class SensorDataService {
         $index = 0;
         while ($row = mysqli_fetch_assoc($this->result)) {
             $sensors[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
+                $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"],
+                $row["Altitude"], $row["GPSTimeStamp"], $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
             );
             ++$index;
         }

@@ -156,12 +156,13 @@ else {
 										for($x=0; $x < count($products);$x++){
 											echo "<tr>";
 												echo "<td>" . $products[$x][1] . "</td>";
-												echo "<td>" . $_REQUEST['cart-quantity']. "</td>";
+                                                $cartqty = $_REQUEST['cart-quantity'];
+												echo "<td>" . $cartqty. "</td>";
 												echo "<td>$ " . number_format($products[$x][3],2). "</td>";
 												echo "<td>$ " . number_format($_REQUEST['cart-quantity'] * $products[$x][3], 2). "</td>";
 												echo "<td><a href='../views/cart.php?action=delete&id=". $products[$x][0] ."'><span class='text-danger'>Remove</span></a></td>";
 											echo "</tr>";
-												$total =  number_format($_REQUEST['cart-quantity'] * $products[$x][3], 2);
+												$total =  number_format($cartqty * $products[$x][3], 2);
 											echo "</tr>";
 												echo" <td colspan='3' style='text-align='right''>Total</td>";
 												echo "<td>$ ". number_format($total, 2) . "</td>";

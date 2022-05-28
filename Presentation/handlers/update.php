@@ -73,9 +73,10 @@ if($cart_item->update()){
     header("Location: cart.php?action=unable_to_update");
 }
 $proddescription = $_REQUEST['Product_Description'];
+$prodname = $_REQUEST['Product_Name'];
 ?>
 <form method="post" action="../views/cart.php" enctype="multipart/form-data">
-    <label>Product Name: <input type="text" name="Product"><?php echo $_REQUEST['Product_Name']; ?></label>
+    <label>Product Name: <input type="text" name="Product"><?php echo $prodname; ?></label>
 		<br>
 		<label>Product Description:
             <textarea name="product" rows="15" cols="60" name = "Description"><?php echo $proddescription;?></textarea></label>
