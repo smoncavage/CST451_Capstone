@@ -129,7 +129,7 @@ class UserDataService{
         $index = 0;
         while ($row = mysqli_fetch_assoc($this->result)) {
             $users[$index] = array(
-                $row["ID"], $row["First_Name"], $row["Last_Name"], $row["Username"]
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
             );
             ++$index;
         }

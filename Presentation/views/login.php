@@ -74,9 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $valid = null;
     $validpass = null;
     $valid = $usrSvc->findByUsername($username);
-    echo " $valid";
+    echo strval($valid)."<br/>";
     $validpass = $usrSvc->findByPassword($pass);
-    echo "$validpass";
+    echo strval($validpass);
     $datetime = new DateTime();
     $time=$datetime->setTimezone(new DateTimeZone('UTC'));
 
@@ -93,12 +93,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             setcookie('startSess', $time->format('H:i:s'));
             echo "SESSION USER SET TO ". $_SESSION['username'];
             $_SESSION['valid']=1;
-            header("Location:./loginResponse.php");
+?>
+            <meta http-equiv="Refresh", content="0; url='./loginResponse.php'"/>
+<?php
+            //header("Location:./loginResponse.php");
             throw new Exception("User passed Login: ", 202);
         }else{
             $logentry = $datetime->format('Y/m/d H:i:s') . $username . ': Login Attempt Failed';
             $log->addRecord(1, $logentry);
-            header("Location:./loginFailed.php");
+            ?>
+            <meta http-equiv="Refresh", content="0; url='./loginFailed.php'"/>
+            <?php
+            //header("Location:./loginFailed.php");
             throw new Exception("User Failed Login: ", 401);
         }
     }catch (Exception $e){

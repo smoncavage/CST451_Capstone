@@ -3,10 +3,10 @@ class Database{
  
     // specify your own database credentials
 
-   private string $host = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-   private string $db_name = "g4asynvtu9x2oh4e";
-   private string $username = "e0ugzn4gbm5rk7vn";
-   private string $password = "iil0c5udr9vv6qbk";
+   private string $host;
+   private string $db_name;
+   private string $username;
+   private string $password;
     /*
        private string $host = "127.0.0.1:3306";
        private string $db_name = "eCommerce";
@@ -30,6 +30,10 @@ class Database{
         return $this->conn;
     }
     public function dbConnect(){
+        $this->host = "bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+        $this->db_name = "g4asynvtu9x2oh4e";
+        $this->username = "e0ugzn4gbm5rk7vn";
+        $this->password = "iil0c5udr9vv6qbk";
 
         //
         // Enter your host name, database username, password, and database name.

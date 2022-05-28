@@ -16,7 +16,7 @@ session_start();
 
 include '../../Database/UserDataService.php';
 require_once '../../Utility/myfuncs.php';
-if(!isset($_SESSION['username'])){
+if(!isset($_REQUEST['username'])){
     header("Location: ./loginFailed.php");
 }
 else {
