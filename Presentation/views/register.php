@@ -118,15 +118,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+    return htmlspecialchars($data);
 }
 
 //Secure the Password Added on 7/26/2020
 $password = password_hash($pass, PASSWORD_DEFAULT);
 
-//Create MSQLI Statement for User Insertion
-$sql = "INSERT INTO user (FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, EMAIL)
+//Create MYSQLI Statement for User Insertion
+$sql = "INSERT INTO user (FIRST_NAME, LASTNAME, USERNAME, PASSWORD, EMAIL)
 VALUES ('$firstname','$lastname','$username', '$password', '$email')";
 
 try {
@@ -169,7 +168,7 @@ try {
 		//log to default error_log destination
 		error_log($logentry);
 	}
-$conn->close;
+$conn->close();
 ?>
 Click <a href = "./index.php" class ="boxed-btn"> here </a> to return to the Main page, or
 	<a href = "./login.php" class = "boxed-btn"> here </a> to go to the Login page.

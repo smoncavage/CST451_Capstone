@@ -74,9 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $valid = null;
     $validpass = null;
     $valid = $usrSvc->findByUsername($username);
-    echo strval($valid)."<br/>";
+    echo $valid ."<br/>";
     $validpass = $usrSvc->findByPassword($pass);
-    echo strval($validpass);
+    echo $validpass;
     $datetime = new DateTime();
     $time=$datetime->setTimezone(new DateTimeZone('UTC'));
 

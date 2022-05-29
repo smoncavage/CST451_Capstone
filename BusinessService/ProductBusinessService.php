@@ -8,27 +8,29 @@ Capstone
 <?php
 include '../../Database/ProductDataService.php';
 class ProductBusinessService{
+    private $service;
+    private $products;
     function searchAllProducts(){
-        $service = new ProductDataService();
-        $products = $service->findAllProducts();
-        return $products;
+        $this->service = new ProductDataService();
+        $this->products = $this->service->findAllProducts();
+        return $this->products;
     }
     function searchByName($pattern){
-        $service = new ProductDataService();
-        $products = $service->findByProductName($pattern);
-        return $products;
+        $this->service = new ProductDataService();
+        $this->products = $this->service->findByProductName($pattern);
+        return $this->products;
     }
 
     function searchByPrice($pattern){
-        $service = new ProductDataService();
-        $products = $service->findByProductPrice($pattern);
-        return $products;
+        $this->service = new ProductDataService();
+        $this->products = $this->service->findByProductPrice($pattern);
+        return $this->products;
     }
 
     function searchByID($pattern){
-        $service = new ProductDataService();
-        $products = $service->findByProductID($pattern);
-        return $products;
+        $this->service = new ProductDataService();
+        $this->products = $this->service->findByProductID($pattern);
+        return $this->products;
     }
 
 }

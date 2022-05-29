@@ -24,19 +24,19 @@ class UserDataService{
     }
     
     function findByLastName($search){
-        $this->query = " SELECT * FROM user WHERE Last_Name like '%$search%'";
+        $this->query = " SELECT * FROM user WHERE LastName like '%$search%'";
         $this->users = $this->indexQueryResult($this->query);
         return $this->users;
     }
     
     function findByID($search){
-        $this->query = " SELECT * FROM user WHERE ID like '%$search%'";
+        $this->query = " SELECT * FROM user WHERE USER_ID like '%$search%'";
         $this->users = $this->indexQueryResult($this->query);
         return $this->users;
     }
 	
     function findByUsername($search){
-        $this->query = " SELECT * FROM user WHERE Username like '%$search%'";
+        $this->query = " SELECT * FROM user WHERE USERNAME like '%$search%'";
         $this->users = $this->indexQueryResult($this->query);
         return $this->users;
     }
@@ -48,7 +48,7 @@ class UserDataService{
     }
     
     function findByRole($search){
-        $this->query = " SELECT * FROM user WHERE Username like '%$search%'";
+        $this->query = " SELECT * FROM user WHERE Role_ID like '%$search%'";
         $this->users = $this->indexQueryResult($this->query);
         return $this->users;
     }
@@ -66,7 +66,7 @@ class UserDataService{
     }
     
 	function deleteItem($id){
-        $this->query = " DELETE * FROM user WHERE ID like '%$id%'";
+        $this->query = " DELETE * FROM user WHERE USER_ID like '%$id%'";
         $this->users = $this->indexQueryResult($this->query);
         return $this->users;
 	}

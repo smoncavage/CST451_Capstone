@@ -134,6 +134,6 @@ $(document).ready(function(){
     <!-- main js -->
     <script src="../css/assets/js/main.js"></script>
 </footer>
-</html>
+
 
 

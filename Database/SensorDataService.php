@@ -16,6 +16,7 @@ class SensorDataService {
     private $db;
     private $conn;
     private $sensors;
+    protected $weatherKey;
     function getAllSensorsData(){
         $this->query = "Select * from sensor ORDER BY entryid DESC Limit 1";
         $this->sensors = $this->indexQueryResult($this->query);
@@ -44,16 +45,24 @@ class SensorDataService {
     }
 
     function getLatestWeatherForecast($localSensorArray){
-        //bing map key AiXY78wQEUmf3HnoGua1X7x3VW5468j15GZyfCjyXnNKr4QnSLovHyy3P9kRYNO2
+        $file = fopen("ak.env", "r", 1);
+        $index = 0;
+        $lines = [];
+        //Output lines until EOF is reached
+        while (!feof($file)) {
+            $lines[$index++] = fgets($file);
+        }
+        $this->weatherKey = $lines[1];
+        fclose($file);
+
         $curl = curl_init();
-        $apiKey = "37d5482bf2d36047a822b19964843ac3";
         $lat = strval($this->convertLatitude($localSensorArray[0][7]/1000));
         $lon = strval($this->convertLongitude($localSensorArray[0][8]/1000));
         //echo "Lat: " .$lat;
         //echo "Lon: " .$lon;
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=".$lat."&lon=".$lon."&appid=".$apiKey,
+            CURLOPT_URL => "https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=".$lat."&lon=".$lon."&appid=".$this->weatherKey,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_ENCODING => "",
@@ -136,7 +145,7 @@ class SensorDataService {
     function convertUTCLocal($dateTimeUTC){
         $timezone = 'America/New_York';
         $dateFormat = 'H:i';
-        $dateTimeUTC = $dateTimeUTC ? $dateTimeUTC : date($dateFormat);
+        $dateTimeUTC = $dateTimeUTC ?: date($dateFormat);
         $date = new DateTime($dateTimeUTC, new DateTimeZone('UTC'));
         $date->setTimeZone(new DateTimeZone($timezone));
 
@@ -160,7 +169,7 @@ class SensorDataService {
     }
 
     function findByTemp($search){
-        $this->query = " SELECT * FROM sensors Where Temperature like '%$search%'";
+        $this->query = " SELECT * FROM sensor Where Temperature like '%$search%'";
         $this->sensors = $this->indexQueryResult($this->query);
         return $this->sensors;
     }
@@ -172,14 +181,14 @@ class SensorDataService {
         return $this->sensors;
     }
 
-    public function updateSensor($entryid, $dtStamp, $temp, $hum, $press, $alt, $gpsdtStamp, $gpsLat, $gpsLong, $gpsAlt, $gpsSat):string
+    public function updateSensor($entryid, $dtStamp, $temp, $hum, $press, $alt, $gpsdtStamp, $gpsLat, $gpsLong, $gpsAlt, $gpsSat): array
     {
         $this->query = "UPDATE sensor SET 'DTStamp' = ?, Temperature = ?, Humidity = ?, Pressure = ?, Altitude = ?, GPSTimeStamp = ?, GPSLat = ?, GPSLong = ?, GPSAltitude = ?, GPSSatNum = ? WHERE Sensor_ID like ".$entryid;
         $this->sensors = $this->indexQueryResult($this->query);
         return $this->sensors;
     }
 
-    public function deleteSensor($entryId): string
+    public function deleteSensor($entryId): array
     {
         $this->query = "DELETE FROM sensor WHERE 'entryid' = ?";
         $this->sensors = $this->indexQueryResult($this->query);

@@ -65,7 +65,7 @@ function addProductToCart(){
 
     $db = new Database();
     $conn = $db->dbConnect();
-    $query = "ADD ". $product . " TO cart WHERE id = '$product_id' ";
+    $query = "ADD ". $cart_item . " TO cart WHERE id = '$product_id' ";
     $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
     header("Location: ./cart.php");
     return $result;

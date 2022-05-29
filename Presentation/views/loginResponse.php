@@ -35,63 +35,21 @@ else {
     <div class="form">
 		 <!-- <a href="../../Utility/whoAmI.php">Who Am I</a> -->
 		<h2>Thank You <?php
-                            $user = null;
-                            $action = $_GET['action'] ?? "";
-                            if(isset($_SESSION['username'])){
-                                $user = $_SESSION['username'];
-                            }
-                            //$user = stripslashes($_REQUEST['username']);
-							echo $user;
-                            //echo $_SESSION['username'];
-							$_SESSION['username'] = $user;
-							//$usrSvc = new UserDataService();
-                            //$chkResult=$usrSvc->findByUsername($user);
-							//if ($chkResult !== NULL) {
-                            //    echo $chkResult[3];
+            $user = null;
+            $action = $_GET['action'] ?? "";
+            if(isset($_SESSION['username'])){
+                $user = $_SESSION['username'];
+            }
+            //$user = stripslashes($_REQUEST['username']);
+            echo $user;
+            //echo $_SESSION['username'];
+            $_SESSION['username'] = $user;
+            //$usrSvc = new UserDataService();
+            //$chkResult=$usrSvc->findByUsername($user);
+            //if ($chkResult !== NULL) {
+            //    echo $chkResult[3];
 
-						?>! You have Logged in Successfully!</h2>
-		
-		<!--<table class = "table">
-                       
-		<tr>
-		<th>User ID</th>
-		<th>User First Name</th>
-		<th>User Last Name</th>
-		<th>Username</th>
-		<th>Address</th>
-		<th>City</th>
-		<th>State</th>
-		<th>Zip Code</th>
-		<th>Country</th>
-		<th>Role</th>
-		</tr>
-		<?php
-		//$i=0;
-		//while($row = mysqli_fetch_array($chkResult)) {
-		?>
-		<tr>
-		<td><?php //echo $row['ID']; ?></td>
-		<td><?php //echo $row["FIRST_NAME"]; ?></td>
-		<td><?php //echo $row["LASTNAME"]; ?></td>
-		<td><?php //echo $row["USERNAME"]; ?></td>
-		<td><?php //echo $row["ADDRESS1"]; ?></td>
-		<td><?php //echo $row["CITY"]; ?></td>
-		<td><?php //echo $row["STATE"]; ?></td>
-		<td><?php //echo $row["ZIP"]; ?></td>
-		<td><?php //echo $row["COUNTRY"]; ?></td>
-		<td><?php //echo $row["ROLE"]; ?></td>
-		</tr> -->
-		<?php
-		//$i++;
-		//}
-		?>
-		</table>
-		<?php
-		//}
-		//else{
-		//	echo "No result found";
-		//}
-		?>				
+            ?>! You have Logged in Successfully!</h2>
 		<br>
 		<a href = "sensor.php" class = "boxed-btn">Continue</a>
     </div>

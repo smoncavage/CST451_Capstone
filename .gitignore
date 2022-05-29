@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -9,10 +8,7 @@ __pycache__/
 
 #PHP
 vendor/
-<<<<<<< Updated upstream
 .bat
-=======
->>>>>>> Stashed changes
 
 # Distribution / packaging
 .Python
@@ -160,7 +156,4 @@ dmypy.json
 /app/Config/core.php
 /app/Config/database.php
 
->>>>>>> remotes/origin/main
-/vendor/microsoft/microsoft-graph/
-/vendor/ralouphie/getallheaders/
-/vendor/webmozart/assert/
+/.idea

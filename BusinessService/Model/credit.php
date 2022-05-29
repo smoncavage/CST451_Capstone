@@ -24,26 +24,26 @@ class Credit{
     }
     
     public function getCard_Type(){
-        return $this->credit_type;
+        return $this->card_type;
     }
     
     public function getCard_Number(){
-        return $this->credit_num;
+        return $this->card_num;
     }
     
     public function getCard_Date(){
-        return $this->credit_date;
+        return $this->card_date;
     }
     
     public function getCard_Name(){
-        return $this->credit_name;
+        return $this->card_name;
     }
     
     public function getCard_Zipcode(){
-        return $this->credit_zip;
+        return $this->card_zip;
     }
     
     public function getCard_Saved(){
-        return $this->credit_saved;
+        return $this->card_saved;
     }
 }

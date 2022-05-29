@@ -10,7 +10,6 @@ Capstone Project
 include '../../Database/SensorDataService.php';
 class SensorBusinessService{
     function getAllSensorData(){
-        $sensors = Array();
         $service = new SensorDataService();
         $sensors = $service->getAllSensorsData();
         return $sensors;

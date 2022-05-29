@@ -14,7 +14,7 @@ if($_SESSION["valid"] != 1){
 	header("Location: ./login.php");
 } */
 ?>
-<?php include('../../../autoloader.php');; ?>
+<?php include('../../../autoloader.php'); ?>
 <body class = "body">
 
 <form class = "form3" method = "post" >  

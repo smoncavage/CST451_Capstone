@@ -16,6 +16,7 @@ include('../../../autoloader.php');
 // get database connection
 $db = new Database();
 $conn=$db->dbConnect();
+$cart=null;
 
 if(isset($_SESSION['cart'])&&(isset($_SESSION['id']))){
     $cart=$_SESSION['cart'];
@@ -46,7 +47,9 @@ if (isset($cart_count)) {
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
-
+            $name=$row[1];
+            $price= $row[3];
+            $quantity=$_SESSION['quantity'];
             if (isset($price)) {
                 if (isset($quantity)) {
                     $sub_total=$price*$quantity;
@@ -62,7 +65,7 @@ if (isset($cart_count)) {
             echo "</div>";
 
             echo "<div class='col-md-4'>";
-            echo "<h4>$" . number_format($price, 2, '.', ',') . "</h4>";
+            echo "<h4>$" . number_format($price, 2) . "</h4>";
             echo "</div>";
             echo "</div>";
 

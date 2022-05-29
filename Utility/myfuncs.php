@@ -8,7 +8,7 @@ Miscellaneous Functions
 <?php
 //require_once('auth_session.php');
 //session_start();
-
+/*
 if(!function_exists('saveUserId')){
 function saveUserId($username){
 	$_SESSION['curuser'] = $username;
@@ -19,6 +19,7 @@ function getUserId(){
 	return $_SESSION['curuser'];
 }
 }
+*/
 if(!function_exists('setTimeStamp')){
 function setTimeStamp($time){
 	//$time = time() - $_SESSION['datetime'];
@@ -34,7 +35,7 @@ function getTimeStamp(){
 	return $_SESSION['login_time'];
 }
 }
-
+/*
 if(!function_exists('checkUser')){
 function checkUser(){
     $db = new Database();
@@ -94,12 +95,11 @@ function checkUser(){
 	}
 }
 }
-
+*/
 if(!function_exists('stringToArray')){
 function stringToArray($string){
 	$int = str_word_count($string);
-	$aryString = array_fill(0, $int, $string);
-	return $aryString;
+    return array_fill(0, $int, $string);
 }
 }
 
@@ -108,14 +108,15 @@ function isSessionStarted()
 {
     if ( php_sapi_name() !== 'cli' ) {
         if ( version_compare(phpversion(), '5.4.0', '>=') ) {
-            return session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
+            return session_status() === PHP_SESSION_ACTIVE;
         } else {
-            return session_id() === '' ? FALSE : TRUE;
+            return !(session_id() === '');
         }
     }
     return FALSE;
 }
 }
+/*
 if(!function_exists('getUsersByFirstName')){
 function getUsersByFirstName($search){
 	$conn = dbConnect(); 
@@ -207,5 +208,5 @@ function getUsersByLastName($search){
 	return $users;
 }
 }
-
+*/
 ?>
