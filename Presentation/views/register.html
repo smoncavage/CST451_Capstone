@@ -259,12 +259,17 @@ Form handler for Registration Module in HTML
 					<br/>
 					<br/>
 						<div class = hero-btns>
-						<label><input type = "submit" name = "submit" value = "Submit" /></label>
-						</div>
+							<label><input type = "submit" name = "submit" value = "Submit" /></label>
+							
+						
 					</form>
-					<label><a href = "index.php" ><input type = "submit" name = "submit" value = "Cancel" /></a></label>
-				</div>
+							<form action = "./index.php" method = "POST" style="margin: 0 auto">
+								<label><input type = "submit" name = "cancel" value = "Cancel"/></a></label>
+							</form>
+						</div>
+				</div>				
 			</div>
+			
 			<div class="col-lg-4">
 				<div class="contact-form-wrap">
 					<div class="contact-form-box">
@@ -273,7 +278,8 @@ Form handler for Registration Module in HTML
 					</div>
 					<div class="contact-form-box">
 						<h4><i class="fas fa-address-book"></i> Contact</h4>
-						<p>Phone: +1 111 222 3333 <br> Email: support@autogarden.com</p>
+						<p>Phone: +1 111 222 3333 <br> Email: support@autogardenpi.com</p>
+						
 					</div>
 				</div>
 			</div>
@@ -283,53 +289,11 @@ Form handler for Registration Module in HTML
 <!-- end contact form -->
 
 
-<div>
-	<!-- /row -->
-
-</div>
-<!-- /container -->
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <!-- Latest compiled and minified Bootstrap JavaScript -->
-<script src="../css/assets/bootstrap/js/bootstrap.min.js"></script>
-
-<script>
-	$(document).ready(function(){
-		// add to cart button listener
-		$('.add-to-cart-form').on('submit', function(){
-
-			// info is in the table / single product layout
-			var id = $(this).find('.product-id').text();
-			var quantity = $(this).find('.cart-quantity').val();
-
-			// redirect to add.php, with parameter values to process the request
-			window.location.href = "add.php?id=" + id + "&quantity=" + quantity;
-			return false;
-		});
-
-		// update quantity button listener
-		$('.update-quantity-form').on('submit', function(){
-
-			// get basic information for updating the cart
-			var id = $(this).find('.product-id').text();
-			var quantity = $(this).find('.cart-quantity').val();
-
-			// redirect to update_quantity.php, with parameter values to process the request
-			window.location.href = "update.php?id=" + id + "&quantity=" + quantity;
-			return false;
-		});
-
-		// change product image on hover
-		$(document).on('mouseenter', '.product-img-thumb', function(){
-			var data_img_id = $(this).attr('data-img-id');
-			$('.product-img').hide();
-			$('#product-img-'+data_img_id).show();
-		});
-
-	});
-</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <footer>
 	<!-- footer -->
@@ -390,7 +354,7 @@ Form handler for Registration Module in HTML
 	<!-- end copyright -->
 
 	<!-- jquery -->
-	<script src="../css/assets/js/jquery-3.6.0.min.js"></script>
+	<script src="../css/assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
 	<script src="../css/assets/bootstrap/js/bootstrap.min.js"></script>
 	<!-- count down -->

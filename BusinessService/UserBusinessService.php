@@ -1,12 +1,12 @@
-!--
+<!--
 Stephan Moncavage
 CST-451
 Capstone Project
 11 May 2022
 -->
-
 <?php
 //include('../../autoloader.php');
+include '../../Database/UserDataService.php';
 class UserBusinessService{
     function getAllSensorData(){
         $sensors = Array();
@@ -40,6 +40,13 @@ class UserBusinessService{
         $persons = Array();
         $service = new UserDataService();
         $persons = $service->findByUsername($pattern);
+        return $persons;
+    }
+
+    function searchByPassword($pattern){
+        $persons = Array();
+        $service = new UserDataService();
+        $persons = $service->findByPassword($pattern);
         return $persons;
     }
     

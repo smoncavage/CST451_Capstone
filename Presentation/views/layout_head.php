@@ -6,7 +6,13 @@ Capstone Project
 Header Update to separate file
 Some portions based on code by: Imran Hossain from https://imransdesign.com/
 -->
-
+<?php
+/*session_start();
+session_set_cookie_params(time()+36000, "/", "", TRUE, FALSE);
+setcookie('user','');
+setcookie('pass', '');
+setcookie('startSess', '');*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +20,7 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title><?php echo $page_title ?? "Garden Watering"; ?></title>
+<title><?php echo $page_title ?? "Garden Watering";?></title>
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="../css/assets/img/favicon.png">
@@ -55,7 +61,7 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
                 <div class="main-menu-wrap">
                     <!-- logo -->
                     <div class="site-logo">
-                        <a href="index.php">
+                        <a href="./index.php">
                             <img src="../css/assets/img/logo.png" alt="">
                         </a>
                     </div>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -9,6 +10,7 @@ __pycache__/
 #PHP
 vendor/
 .bat
+environmentalVariables.php
 
 # Distribution / packaging
 .Python
@@ -156,4 +158,4 @@ dmypy.json
 /app/Config/core.php
 /app/Config/database.php
 
-/.idea
+>>>>>>> remotes/origin/main

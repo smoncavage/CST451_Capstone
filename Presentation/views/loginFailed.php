@@ -23,18 +23,16 @@ ini_set('display_errors',1);
                         //echo $_SESSION['username'];
                         //echo $_SESSION['pass'];
                         //echo $_SESSION['valid'];
-                        if($_SESSION['username'] == NULL){
-                            $message = "Username is Missing, ";
-                        }elseif($_SESSION['pass'] == NULL){
-                            $message = "Password is missing, ";
-                        }elseif($_SESSION['valid'] != 1){
+                        if(!isset($_COOKIE['user'])){
+                            $message = "Username is Missing or not found, ";
+                        }elseif(!isset($_COOKIE['pass'])){
+                            $message = "Password is missing or not found, ";
+                        }elseif(!isset($_COOKIE['startSess'])){
                             $message = "Username or Password was not found, ";
                         }else{
                             $message = "session has encountered an error, ";
                         }
                         ?>
-                        <?php  ?>
-
                         <div class="form">
                             <h2>We are sorry about this but your, <?php echo $message ?> please try again or create a new account!</h2>
                             <br>

@@ -35,7 +35,7 @@ class SensorDataService {
                 $row["entryid"], $row["DTStamp"], $row["Temperature"], $row["Humidity"], $row["Pressure"],
                 $row["Altitude"], $row["GPSTimeStamp"], $row["GPSLat"], $row["GPSLong"], $row["GPSAltitude"], $row["GPSNumSat"]
             );
-            ++$index;;
+            ++$index;
         }
         if(!$this->sensors){
             echo "No Results Found.";
@@ -68,62 +68,38 @@ class SensorDataService {
         $apiKey = getenv('WEATHER_API_KEY');
         $lat = strval($this->convertLatitude($localSensorArray[0][7]/1000));
         $lon = strval($this->convertLongitude($localSensorArray[0][8]/1000));
-        //echo "Lat: " .$lat;
-        //echo "Lon: " .$lon;
-        /*$curl = curl_init();
-        curl_setopt_array($curl, [
-            CURLOPT_URL => "https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=".$lat."&lon=".$lon."&appid=".$apiKey,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-        ]);
+        $fetchCount = 24;
+        $jsonContent = file_get_contents("https://pro.openweathermap.org/geo/1.0/reverse?lat=".$lat."&lon=".$lon."&appid=".$apiKey);
+        $geoData = json_decode($jsonContent, true);
 
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
+        echo "<h3 style=\"text-align: center\">Weather Forecast for : ". $geoData[0]['name'] . ", " . $geoData[0]['state'] . "</h3> <br/>" ;
+        echo "<table id = \"forecast\" style=\"text-align:center\" >";
+        $jsonDataContents = file_get_contents("https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=" . $lat . "&lon=" . $lon . "&appid=" . $apiKey . "&cnt=".$fetchCount."&units=imperial");
+        $data = json_decode($jsonDataContents, true);
+        //echo $data;
 
-        curl_close($curl);
-
-        if ($err) {
-            echo "cURL Error #:" . $err;
-        } else {*/
-            echo "<table id = \"forecast\" style=\"text-align:center\" >";
-            $jsonContent = file_get_contents("https://pro.openweathermap.org/geo/1.0/reverse?lat=".$lat."&lon=".$lon."&appid=".$apiKey);
-            $geodata = json_decode($jsonContent, true);
-
-            echo "<h3 style=\"text-align: center\">Weather Forecast for : ". $geodata[0]['name'] . ", " . $geodata[0]['state'] . "</h3> <br/>" ;
-
-            $jsonDataContents = file_get_contents("https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=" . $lat . "&lon=" . $lon . "&appid=" . $apiKey . "&cnt=10&units=imperial");
-            $data = json_decode($jsonDataContents, true);
-            //echo $data;
-
-
-
-            foreach ($data['list'] as $hour => $value) {
-                echo "<td><div class = 'col-sm-12 news-item'>";
-                $localTime = $this->convertUTCLocal($value['dt_txt']);
-                echo "<b>".$localTime ."</b><br/>";
-                echo "<img src='http://openweathermap.org/img/wn/" . $icon = $value['weather'][0]['icon'] . "@2x.png'></img><br/>";
-                echo "<div style = 'text-transform: uppercase'> ".$value['weather'][0]['description']."</div>";
-                echo $value['main']['temp'] . "<span>&#176;</span> F "."<br/>";
-                echo $value['main']['humidity'] . " % "."<br/>";
-                echo $value['main']['pressure'] . " hPa"."<br/>";
-                echo $value['wind']['speed'] . " MPH "."<br/>";
-                echo $value['wind']['deg'] . " DEG "."<br/>";
-                echo $this->convertWindDegtoCardinal($value['wind']['deg'])."<br/>";
-                if (isset($value['rain']['1h'])) {
-                    echo $value['rain']['1h'] . " inches ";
-                } else {
-                    echo 'No Precip';
-                }
-
-                echo "<br/></td></div>";
+        foreach ($data['list'] as $value) {
+            echo "<td class='row-cols-lg-12'><div class = 'cols-lg-8' style='width: 175px'><div class = 'container' style = 'font-family: Lucida Console'>";
+            $localTime = $this->convertUTCLocal($value['dt_txt']);
+            echo "<b>" . $localTime . "</b><br/>";
+            echo "<img src='http://openweathermap.org/img/wn/" . $value['weather'][0]['icon'] . "@2x.png'></img><br/>";
+            echo "<div style = 'text-transform: uppercase'><b> " . $value['weather'][0]['description'] . "</b></div>";
+            echo $value['main']['temp'] . "<span>&#176;</span> F " . "<br/>";
+            echo $value['main']['humidity'] . " % " . "<br/>";
+            echo $value['main']['pressure'] . " hPa" . "<br/>";
+            //echo $value['wind']['deg'] . " DEG " . "<br/>";
+            echo $this->convertWindDegtoCardinal($value['wind']['deg']). " Wind @" . "<br/>";
+            echo $value['wind']['speed'] . " MPH " . "<br/>";
+            if (isset($value['rain']['1h'])) {
+                echo $value['rain']['1h'] . " inches ";
             }
+            else {
+                echo 'No Precip';
+            }
+            echo "</td></div>";
+        }
 
-            echo "</table>";
+        echo "</table><br/>";
         //}
     }
 

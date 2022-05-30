@@ -10,17 +10,16 @@ Login Response Page
 //include("../../Utility/auth_session.php");
 error_reporting(E_ALL);
 ini_set('display_errors',1);
-session_start();
 ?>
 <?php
 
 include '../../Database/UserDataService.php';
 require_once '../../Utility/myfuncs.php';
-if(!isset($_REQUEST['username'])){
-    header("Location: ./loginFailed.php");
+if(isset($_COOKIE['user'])){
+    include '../views/layout_head.php';
 }
 else {
-    include '../views/layout_head.php';
+    header("Location: ./loginFailed.php");
 }
 ?>
 <!-- hero area -->
@@ -35,21 +34,22 @@ else {
     <div class="form">
 		 <!-- <a href="../../Utility/whoAmI.php">Who Am I</a> -->
 		<h2>Thank You <?php
-            $user = null;
-            $action = $_GET['action'] ?? "";
-            if(isset($_SESSION['username'])){
-                $user = $_SESSION['username'];
-            }
-            //$user = stripslashes($_REQUEST['username']);
-            echo $user;
-            //echo $_SESSION['username'];
-            $_SESSION['username'] = $user;
-            //$usrSvc = new UserDataService();
-            //$chkResult=$usrSvc->findByUsername($user);
-            //if ($chkResult !== NULL) {
-            //    echo $chkResult[3];
-
-            ?>! You have Logged in Successfully!</h2>
+                            $user = null;
+                            $action = $_GET['action'] ?? "";
+                            if(isset($_COOKIE['user'])){
+                                $user = $_COOKIE['user'];
+                            }
+                            //$user = stripslashes($_REQUEST['username']);
+							echo $user;
+                            //echo $_SESSION['username'];
+							//$_SESSION['user'] = $user;
+							$usrSvc = new UserDataService();
+                            $chkResult=$usrSvc->findByUsername($user);
+							if ($chkResult !== NULL) {
+                                //header("Location: ./loginFailed.php");
+                            }
+						?>! You have Logged in Successfully!
+		</h2>
 		<br>
 		<a href = "sensor.php" class = "boxed-btn">Continue</a>
     </div>

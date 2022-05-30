@@ -114,28 +114,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
 }
 
-//Test Input Function found on https://www.w3schools.com/php/php_form_required.asp
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-    return htmlspecialchars($data);
-}
-
 //Secure the Password Added on 7/26/2020
-$password = password_hash($pass, PASSWORD_DEFAULT);
+//$password = password_hash($pass, PASSWORD_DEFAULT);
 
-//Create MYSQLI Statement for User Insertion
-$sql = "INSERT INTO user (FIRST_NAME, LASTNAME, USERNAME, PASSWORD, EMAIL)
-VALUES ('$firstname','$lastname','$username', '$password', '$email')";
+//Create MSQLI Statement for User Insertion
+$sql = "INSERT INTO user (FIRST_NAME, LASTNAME, USERNAME, PASSWORD, EMAIL, Role_ID)
+VALUES ('$firstname','$lastname','$username', '$password', '$email', '$role')";
 
 try {
     //Validate Statement and execute
     if ($firstname && $lastname && $username && $pass && $email != NULL) {
+        $result = mysqli_query($conn, $sql);
+        if (!$result) {
+            echo "Could not Add User due to : " . mysqli_error($conn);
+        }
         if (!mysqli_connect_errno()) {
             echo "Thank you for registering with us ";
             //check errors
             if ($firstnameErr && $lastnameErr && $usernameErr && $passErr && $emailErr && $addressErr && $cityErr && $stateErr && $zipcodeErr && $countryErr == NULL) {
                 echo "Information is in correct Format.";
+                $result = mysqli_query($conn, $sql);
+                if (!$result) {
+                    echo "Could not Add User due to : " . mysqli_error($conn);
+                }
             }
             throw new Exception("New User Registered: ", 202);
         }
@@ -168,6 +169,13 @@ try {
 		//log to default error_log destination
 		error_log($logentry);
 	}
+//Test Input Function found on https://www.w3schools.com/php/php_form_required.asp
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 $conn->close();
 ?>
 Click <a href = "./index.php" class ="boxed-btn"> here </a> to return to the Main page, or

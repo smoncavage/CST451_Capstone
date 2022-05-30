@@ -87,8 +87,8 @@ else {
     </div>
     <br/>
     <div class = "row">
-        <div class="col-lg-12 col-md-6">
-            <div class="single-latest-news">
+        <div class="col-lg-12 " style = 'overflow-x: scroll'>
+            <div class="owl-stage">
                 <?php
                 //Open Weather API Call in this "hero area" section of HTML as well
                 $busserv->getLatestWeatherData($sensors);

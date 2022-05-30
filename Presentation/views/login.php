@@ -49,7 +49,8 @@ $log->addRecord(1,"Entered Login.php page. ");
 //include_once('./../../../autoloader.php');
 //require_once '../../Utility/auth_session.php';
 //include '../../Utility/Logger.php';
-include '../../Database/UserDataService.php';
+include '../../BusinessService/UserBusinessService.php';
+session_unset();
 if(session_id() === null) {
     session_start();
     session_set_cookie_params(time()+36000, "/", "", TRUE, FALSE);
@@ -67,29 +68,27 @@ date_default_timezone_set("America/New_York");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = stripslashes($_REQUEST["username"]);
-    echo $username;
+    //echo $username;
     $_SESSION['username'] = $username;
-    echo $_SESSION['username'];
+    //echo $_SESSION['username'];
     $pass = stripslashes($_REQUEST["pass"]);
     $_SESSION['pass'] = $pass;
     $_SESSION['login_user'] = $username;
     $_SESSION['login_time'] = time();
     //saveUserId($username);
     //$valid = checkUser();
-    $usrSvc = new UserDataService();
-    $valid = null;
-    $validpass = null;
-    $valid = $usrSvc->findByUsername($username);
-    echo $valid ."<br/>";
-    $validpass = $usrSvc->findByPassword($pass);
-    echo $validpass;
+    $usrSvc = new UserBusinessService();
+    $valid = $usrSvc->searchByUsername($username);
+    echo $valid[0][3] ."<br/>";
+    $validpass = $usrSvc->searchByPassword($pass);
+    echo $validpass[0][3];
     $datetime = new DateTime();
     $time=$datetime->setTimezone(new DateTimeZone('UTC'));
 
     //echo $_SESSION["valid"];
     try{
 
-        if($valid == $validpass){
+        if($valid == $validpass && $valid != null){
             $_SESSION["valid"] = 1;
             $logentry = $datetime->format('Y/m/d H:i:s') . $username . ': Logged In';
             $log->addRecord(1, $logentry);

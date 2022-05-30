@@ -20,6 +20,7 @@ class UserDataService{
     function findByFirstName($search){
         $this->query = "SELECT * FROM user WHERE First_Name like '%$search%'";
         $this->users = $this->indexQueryResult($this->query);
+        echo $this->users;
         return $this->users;
     }
     
@@ -36,15 +37,50 @@ class UserDataService{
     }
 	
     function findByUsername($search){
-        $this->query = " SELECT * FROM user WHERE USERNAME like '%$search%'";
-        $this->users = $this->indexQueryResult($this->query);
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = " SELECT * FROM user WHERE USERNAME like '%$search%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            //echo $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"];
+            ++$index;
+        }
+        mysqli_close($conn);
+
+        return $users;
     }
 	
 	function findByPassword($search){
-        $this->query = " SELECT * FROM user WHERE PASSWORD like '%$search%'";
-        $this->users = $this->indexQueryResult($this->query);
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = " SELECT * FROM user WHERE PASSWORD like '%$search%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            //echo $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"];
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
     }
     
     function findByRole($search){
@@ -123,7 +159,8 @@ class UserDataService{
         $this->query = $qry;
         $this->result = mysqli_query($this->conn, $this->query);
         if (!$this->result) {
-            die("Could not retrieve data: " . mysqli_error($this->conn));
+            echo "Could not retrieve data: " . mysqli_error($this->conn);
+            return $this->users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
         }
 
         $index = 0;
@@ -131,6 +168,7 @@ class UserDataService{
             $users[$index] = array(
                 $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
             );
+            //echo $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"];
             ++$index;
         }
         mysqli_close($this->conn);

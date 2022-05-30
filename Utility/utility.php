@@ -60,7 +60,7 @@ function getAllUsers(){
 	mysqli_close($conn);
 	return $users;
 }
-
+*/
 function insertUsers(){
 	$conn = dbConnect();
 	//Multi-Dimentional Array for Users
@@ -78,6 +78,6 @@ function insertUsers(){
 	$result = mysqli_query($conn, $qry) or die(mysqli_error($conn));
 	}
 }
-*/
+
 
 ?>
