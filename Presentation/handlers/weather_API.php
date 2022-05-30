@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors',1);
-Class Currentweather {
+Class Currentweather Extends APIs{
     private $jsonfile;
     private $jsondata;
     private $temp;
@@ -19,7 +19,6 @@ Class Currentweather {
     private $sunrise;
     private $sunset;
     private $cloudsall;
-    protected $weatherKey;
 
     private function jsondata($url) {
         $this->jsonfile = file_get_contents($url);
@@ -30,17 +29,9 @@ Class Currentweather {
 
     //location for current weather
     public function locationbycity($city, $country) {
-        $file = fopen("ak.env", "r", 1);
-        $index = 0;
-        $lines = [];
-        //Output lines until EOF is reached
-        while (!feof($file)) {
-            $lines[$index++] = fgets($file);
-        }
-        $this->weatherKey = $lines[1];
-        fclose($file);
-
-        return "https://api.openweathermap.org/data/2.5/weather?q=" . str_replace(' ', '%20', $city) .",". str_replace(' ', '%20', $country) ."&units=metric&appid=". $this->weatherKey ."";
+        $apiKey = getenv('WEATHER_API_KEY', False);
+        $currenturl = "http://api.openweathermap.org/data/2.5/weather?q=". str_replace(' ', '%20', $city) .",". str_replace(' ', '%20', $country) ."&units=metric&appid=". $apiKey ."";
+        return $currenturl;
     }
 
     // Get current temperature

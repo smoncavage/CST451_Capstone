@@ -5,6 +5,7 @@ Capstone Project
 7 May 2022
 -->
 <?php
+//session_start();
 include './layout_head.php';
 error_reporting(E_ALL);
 ini_set('display_errors',1);
@@ -52,8 +53,13 @@ include '../../Database/UserDataService.php';
 if(session_id() === null) {
     session_start();
     session_set_cookie_params(time()+36000, "/", "", TRUE, FALSE);
+    setcookie('user','');
+    setcookie('pass', '');
+    setcookie('startSess', '');
 }
+//startSess();
 
+//$log = new MyLogger();
 
 date_default_timezone_set("America/New_York");
 
@@ -93,18 +99,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             setcookie('startSess', $time->format('H:i:s'));
             echo "SESSION USER SET TO ". $_SESSION['username'];
             $_SESSION['valid']=1;
-?>
-            <meta http-equiv="Refresh", content="0; url='./loginResponse.php'"/>
-<?php
-            //header("Location:./loginResponse.php");
+            header("Location:./loginResponse.php");
             throw new Exception("User passed Login: ", 202);
         }else{
             $logentry = $datetime->format('Y/m/d H:i:s') . $username . ': Login Attempt Failed';
             $log->addRecord(1, $logentry);
-            ?>
-            <meta http-equiv="Refresh", content="0; url='./loginFailed.php'"/>
-            <?php
-            //header("Location:./loginFailed.php");
+            header("Location:./loginFailed.php");
             throw new Exception("User Failed Login: ", 401);
         }
     }catch (Exception $e){

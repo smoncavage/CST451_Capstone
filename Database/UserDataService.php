@@ -81,7 +81,7 @@ class UserDataService{
 			//$n = search string
         $db = new Database();
         $conn = $db->dbConnect();
-			$qry = $conn->prepare("UNION USERS.ID, ISDEFAULT, First_Name, Last_Name, STREET, CITY, STATE, POSTALCODE
+			$qry = $conn->prepare("UNION USERS.UserID, ISDEFAULT, First_Name, LastName, STREET, CITY, STATE, POSTALCODE
 				FROM USERS
 				JOIN ADDRESSES
 				ON USERS.id = ADDRESSES.USERS_id

@@ -17,6 +17,12 @@ include '../../Logger.php';
 $logger = new MyLogger();
 $log=$logger->getLogger();
 $log->addRecord(1,"Entered Index.php page. ");
+session_unset();
+session_set_cookie_params(time()+36000, "/", "", TRUE, FALSE);
+session_start();
+setcookie('user','');
+setcookie('pass', '');
+setcookie('startSess', '');
 ?>
 
 <!-- hero area -->

@@ -19,6 +19,7 @@ ini_set('display_errors',1);
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
                         <?php
+                        //session_start();
                         //echo $_SESSION['username'];
                         //echo $_SESSION['pass'];
                         //echo $_SESSION['valid'];
@@ -32,6 +33,8 @@ ini_set('display_errors',1);
                             $message = "session has encountered an error, ";
                         }
                         ?>
+                        <?php  ?>
+
                         <div class="form">
                             <h2>We are sorry about this but your, <?php echo $message ?> please try again or create a new account!</h2>
                             <br>
@@ -44,5 +47,7 @@ ini_set('display_errors',1);
     </div>
 </div>
 <!-- end hero area -->
+
+
 </body>
 <?php include 'layout_foot.php'; ?>

@@ -10,6 +10,7 @@
 error_reporting(E_STRICT);
 ini_set('display_errors',0);
 include '../../Logger.php';
+include_once '../../environmentVariables.php';
 $logger = new MyLogger();
 $log=$logger->getLogger();
 $log->addRecord(1,"Entered Sensor.php page. ");
@@ -48,9 +49,7 @@ else {
             </div>
         </div>
     </div>
-
     <div class="row">
-
         <div class = "col-lg-4 col-md-6">
             <h5 style="text-align: center">Garden Environment Sensor</h5>
             <?php
@@ -60,23 +59,12 @@ else {
             $lat = $busserv->convertLat($sensors[0][7]/1000);
             $lon = $busserv->convertLon($sensors[0][8]/1000);
             $log->addRecord(1,"Sensor Page Converted Latitude and Longitude from sensor Data. ");
-
+            $mapsApiKey = getenv('MAPS_API_KEY');
             ?>
         </div>
         <div class="col-lg-8 col-md-6">
             <div class="single-latest-news">
-                <?php
-                $file = fopen("ak.env", "r",1);
-                $index = 0;
-                $lines = [];
-                //Output lines until EOF is reached
-                while(! feof($file)) {
-                    $lines[$index++] = fgets($file);
-                }
-                $mapKey=$lines[3];
-                fclose($file);
-                ?>
-                <script type = 'text/javascript' src = 'https://www.bing.com/api/maps/mapcontrol?key='<?php echo$mapKey; ?>></script>
+                <script type = 'text/javascript' src = 'https://www.bing.com/api/maps/mapcontrol?key=<?php echo $mapsApiKey ?>'></script>
                 <script type = 'text/javascript'>
                     var map;
                     function loadMapScenario(){
@@ -87,7 +75,6 @@ else {
                     }
                 </script>
                 <div id="myMap" class = 'position-relative' style='width:730px;height:325px;'>
-
                     <div>
                         <div id="printoutPanel">
                         </div>
@@ -98,6 +85,7 @@ else {
             </div>
         </div>
     </div>
+    <br/>
     <div class = "row">
         <div class="col-lg-12 col-md-6">
             <div class="single-latest-news">
@@ -128,8 +116,10 @@ else {
     </div>
     <br/>
 </div>
+
 <!-- end latest news -->
-</body>
+
 <?php
 include './layout_foot.php';
 ?>
+
