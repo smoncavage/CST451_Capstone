@@ -6,14 +6,13 @@ Capstone Project
 Checkout from Cart
 -->
 <?php
-include('../../../autoloader.php');
+include('../../autoloader.php');
 // connect to database
 //include 'db.php';
 //get items in cart
 //include_once "cart_item.php";
 //send information to reciept.php after checkout complete
 //include 'reciept.php';
-// get database connection
 $db = new Database();
 $conn=$db->dbConnect();
 $cart=null;

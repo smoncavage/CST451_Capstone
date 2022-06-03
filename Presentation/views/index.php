@@ -8,7 +8,7 @@ css Based on code by: Imran Hossain from https://imransdesign.com/
 
 
 <?php
-
+//Start the Web Session and load the cookies necessary for the session
 session_set_cookie_params(time()+36000, "/", "SameSite", TRUE, TRUE);
 session_start();
 setcookie('user','');

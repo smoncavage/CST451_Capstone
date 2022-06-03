@@ -5,8 +5,9 @@ Milestone 6
 04 April 2021
 -->
 <?php
-//include('./../autoloader.php');
+include('../Database/db.php');
 class OrderDataService{
+    //Return all orders from a given Date.
     function findByOrderDate($search){
         $db = new Database();
         $conn = $db->getConnection();
@@ -30,7 +31,7 @@ class OrderDataService{
         mysqli_close($conn);
         displayAllUsers($orders);
     }
-    
+    //Return a specific order based upon its unique ID number
     function findByOrderID($search){
         $db = new Database();
         $conn = $db->getConnection();
@@ -51,7 +52,7 @@ class OrderDataService{
             );
             ++$index;
         }
-        mysqli_close($conn);
+        mysqli_close();
         displayAllUsers($orders);
     }
 }

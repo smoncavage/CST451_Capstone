@@ -15,7 +15,8 @@ $logger = new MyLogger();
 $log=$logger->getLogger();
 $log->addRecord(1,"Entered Sensor.php page. ");
 require_once('../../BusinessService/SensorBusinessService.php');
-if(isset($_REQUEST['user'])){
+//Verify that the Session Cookies are set before displaying the page for login verification.
+if(isset($_COOKIE['user'])){
     include '../views/layout_head.php';
     $log->addRecord(1,"Sensor Page Load Layout Header File. ");
 
@@ -25,19 +26,16 @@ else {
     $log->addRecord(1,"Sensor page Re-Direct to Login.php - Session Variable Not Set. ");
 }
 ?>
-
+<!-- Load the map from js script -->
 <body onload = 'loadMapScenario();'>
 <!-- latest news -->
 <div class="row">
     <div class="cart-banner pt-100 pb-100">
         <br/>
         <br/>
-        <br/>
-        <br/>
-        <br/>
+
         <h5 style="text-align: center"></h5>
         <div class = "col-sm-12 sidenav news-item">
-
         </div>
     </div>
 </div>
@@ -45,6 +43,7 @@ else {
     <div class="row">
         <div class="col-lg-8 offset-lg-2 text-center">
             <div class="section-title">
+                <br/>
                 <h3><span class="orange-text">Local</span> Weather </h3>
             </div>
         </div>
@@ -55,6 +54,7 @@ else {
             <?php
             $busserv = new SensorBusinessService();
             $log->addRecord(1,"Sensor Page new SensorBusinessService Created. ");
+            //Retrieve and display Sensor Data next to the Map Output
             $sensors = $busserv->getAllSensorData();
             $lat = $busserv->convertLat($sensors[0][7]/1000);
             $lon = $busserv->convertLon($sensors[0][8]/1000);
@@ -90,18 +90,20 @@ else {
         <div class="col-lg-12 " style = 'overflow-x: scroll'>
             <div class="owl-stage">
                 <?php
-                //Open Weather API Call in this "hero area" section of HTML as well
+                //Open Weather API Call in this "news area" section of HTML
                 $busserv->getLatestWeatherData($sensors);
                 $log->addRecord(1,"Sensor Page Retrieve Latest Weather Data from Sensors. ");
                 ?>
             </div>
         </div>
     </div>
+    <br/>
     <div class="row">
         <div class="col-sm-6 text-center">
             <form method="POST" action="">
                 <input type="submit" name="getVal" value="Get I/O Values"><br/>
                 <?php
+                //Retrieve the Relay Status from JSON output by Raspberry Pi on POST button
                 $busserv->getSolenoidRelayStatus();
                 $log->addRecord(1,"Sensor Page Load Relay Status from Raspberry Pi JSON webpage");
                 ?>

@@ -11,31 +11,91 @@ User Data Service
 
 include 'db.php';
 class UserDataService{
-    private $query = "";
-    private $db = "";
-    private $conn = "";
-    private bool|mysqli_result $result;
-    private $users = [];
-
+    //Retrieve all User Data
+    public function getAllUserData(){
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query =" SELECT * FROM user";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
+    }
+    //Search for person by First Name
     function findByFirstName($search){
-        $this->query = "SELECT * FROM user WHERE First_Name like '%$search%'";
-        $this->users = $this->indexQueryResult($this->query);
-        echo $this->users;
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = "SELECT * FROM user WHERE First_Name like '%$search%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
     }
-    
+    //Search for person by LastName
     function findByLastName($search){
-        $this->query = " SELECT * FROM user WHERE LastName like '%$search%'";
-        $this->users = $this->indexQueryResult($this->query);
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = " SELECT * FROM user WHERE LastName like '%$search%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
     }
-    
+    //Search for person by their associated ID
     function findByID($search){
-        $this->query = " SELECT * FROM user WHERE USER_ID like '%$search%'";
-        $this->users = $this->indexQueryResult($this->query);
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = " SELECT * FROM user WHERE USER_ID like '%$search%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
     }
-	
+	//Search for person by their associated username
     function findByUsername($search){
         $db = new Database();
         $conn = $db->dbConnect();
@@ -46,20 +106,17 @@ class UserDataService{
             echo "Could not retrieve data: " . mysqli_error($conn);
             return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
         }
-
         $index = 0;
         while ($row = mysqli_fetch_assoc($result)) {
             $users[$index] = array(
                 $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
             );
-            //echo $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"];
             ++$index;
         }
         mysqli_close($conn);
-
         return $users;
     }
-	
+	//search for person by their password to compare against their user ID
 	function findByPassword($search){
         $db = new Database();
         $conn = $db->dbConnect();
@@ -70,51 +127,124 @@ class UserDataService{
             echo "Could not retrieve data: " . mysqli_error($conn);
             return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
         }
-
         $index = 0;
         while ($row = mysqli_fetch_assoc($result)) {
             $users[$index] = array(
                 $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
             );
-            //echo $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"];
             ++$index;
         }
         mysqli_close($conn);
         return $users;
     }
-    
+    //Return all Persons by a given "Role"
     function findByRole($search){
-        $this->query = " SELECT * FROM user WHERE Role_ID like '%$search%'";
-        $this->users = $this->indexQueryResult($this->query);
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = " SELECT * FROM user WHERE Role_ID like '%$search%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
     }
-    
+    //Search for person by their address
     function findByAddressID($search){
-        $this->query = " SELECT * FROM user WHERE Address_ID like '%$search%'";
-        $this->users = $this->indexQueryResult($this->query);
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = " SELECT * FROM user WHERE Address_ID like '%$search%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
     }
-    
+    //Search for person by their associated Credit Card Information
     function findByCreditID($search){
-        $this->query = " SELECT * FROM user WHERE Credit_ID like '%$search%'";
-        $this->users = $this->indexQueryResult($this->query);
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = " SELECT * FROM user WHERE Credit_ID like '%$search%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
     }
-    
+    //Future CRUD Function
 	function deleteItem($id){
-        $this->query = " DELETE * FROM user WHERE USER_ID like '%$id%'";
-        $this->users = $this->indexQueryResult($this->query);
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = " DELETE * FROM user WHERE USER_ID like '%$id%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
 	}
-	
+	//Future CRUD function
 	function updateOne($id, $person){
-        $this->query = " UPDATE". $person ." user Where ID like '%$id%'";
-        $this->users = $this->indexQueryResult($this->query);
-        return $this->users;
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $query = " UPDATE". $person ." user Where ID like '%$id%'";
+        $result = mysqli_query($conn, $query);
+        $users = [];
+        if (!$result) {
+            echo "Could not retrieve data: " . mysqli_error($conn);
+            return $users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
+        }
+        $index = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[$index] = array(
+                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
+            );
+            ++$index;
+        }
+        mysqli_close($conn);
+        return $users;
 	}
-	
+	//Return both the person and their associated Address information
+    //Future CRUD function
 	function findByFirstNameWithAddress($n){
-			//$n = search string
         $db = new Database();
         $conn = $db->dbConnect();
 			$qry = $conn->prepare("UNION USERS.UserID, ISDEFAULT, First_Name, LastName, STREET, CITY, STATE, POSTALCODE
@@ -144,35 +274,5 @@ class UserDataService{
 				//exit;
 			}
 	}
-
-    /**
-     * @return array|void
-     */
-    public function indexQueryResult($qry)
-    {
-        $this->db = new Database();
-        $this->conn = $this->db->dbConnect();
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
-        $this->query = $qry;
-        $this->result = mysqli_query($this->conn, $this->query);
-        if (!$this->result) {
-            echo "Could not retrieve data: " . mysqli_error($this->conn);
-            return $this->users[0][array(9999, 'Not Found', 'Not Found', 'Not Found')];
-        }
-
-        $index = 0;
-        while ($row = mysqli_fetch_assoc($this->result)) {
-            $users[$index] = array(
-                $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"]
-            );
-            //echo $row["USER_ID"], $row["FIRST_NAME"], $row["LASTNAME"], $row["USERNAME"];
-            ++$index;
-        }
-        mysqli_close($this->conn);
-        return $this->users;
-    }
 }
 ?>

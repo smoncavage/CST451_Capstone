@@ -6,13 +6,6 @@ Capstone Project
 Header Update to separate file
 Some portions based on code by: Imran Hossain from https://imransdesign.com/
 -->
-<?php
-/*session_start();
-session_set_cookie_params(time()+36000, "/", "", TRUE, FALSE);
-setcookie('user','');
-setcookie('pass', '');
-setcookie('startSess', '');*/
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,17 +65,6 @@ setcookie('startSess', '');*/
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li><a href="About.php">About</a></li>
-                            <!--<li><a href="#">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="../css/404.html">404 page</a></li>
-                                    <li><a href="About.php">About</a></li>
-                                    <li><a href="cart.php">Cart</a></li>
-                                    <li><a href="checkout.php">Check Out</a></li>
-                                    <li><a href="Contact.php">Contact</a></li>
-                                    <li><a href="Store.php">Shop</a></li>
-                                </ul>
-                            </li>
-                            -->
                             <li><a href="sensor.php">Sensor</a></li>
                             <li><a href="Contact.php">Contact</a></li>
                             <li><a href="Store.php">Shop</a>

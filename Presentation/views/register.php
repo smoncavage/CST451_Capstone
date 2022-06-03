@@ -19,7 +19,6 @@ PHP Form handler for HTML Registration Module
 
 <?php
 include '../../Database/db.php';
-//include '../navigation.php';
 $db = new Database();
 $conn=$db->dbConnect();
 $firstname = $lastname = $username = $pass = $email = $address1 = $city = $state = $zipcode = $country = "";
@@ -27,7 +26,7 @@ $address2 = $_REQUEST["address2"];
 $role = $_REQUEST["role"];
 $firstnameErr = $lastnameErr = $usernameErr = $passErr = $emailErr = $addressErr = $cityErr = $stateErr = $zipcodeErr = $countryErr = NULL;
 
-//Test Input Values from HTML Form. Found on https://www.w3schools.com/php/php_form_required.asp
+//Test Input Values from HTML Form.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	$firstname = $_REQUEST["firstname"];
@@ -114,7 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
 }
 
-//Secure the Password Added on 7/26/2020
+//Secure the Password
+//Future Functionality for Production Environment
 //$password = password_hash($pass, PASSWORD_DEFAULT);
 
 //Create MSQLI Statement for User Insertion

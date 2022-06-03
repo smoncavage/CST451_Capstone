@@ -5,21 +5,13 @@ Capstone Project
 11 May 2022
 -->
 <?php
-//include auth_session.php file on all user panel pages
-include("auth_session.php");
 include '../views/layout_head.php';
-//sessCheck();
-/* if($_SESSION["valid"] != 1){
-	header("Location: ../views/login.php");
-} */
 ?>
-<?php //include('../../autoloader.php');; ?>
 <body class = "body">
 
 <form class = "form3" method = "post" >
 
     <?php
-    //include "myfuncs.php";
 
     function getAllProducts(){
         $db = new Database();
@@ -41,14 +33,6 @@ include '../views/layout_head.php';
             );
             ++$index;
         }
-        /*
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            $users[$index] = array(
-                $row["ID"], $row["FIRSTNAME"], $row["LASTNAME"]
-            );
-            ++$index;
-            */
-        //mysqli_free_result($result);
         mysqli_close($conn);
         return $products;
     }
@@ -85,23 +69,14 @@ include '../views/layout_head.php';
         $searchPattern = $_REQUEST["searchPattern"];
         echo "Searching by: " . $searchPattern . "<br>";
         $user = getUsersByFirstName($searchPattern);
-        //echo implode(",", $user);
-        //$rslt = [];
-        //$index = count($user);
         if($user == null){
             echo "<br> No results found. <br>";
         }else{
             foreach($user as $usr){
-                //for($i = 0; $i <= count($user); $i++){
-                //for($j = 0; $j <= count($row); $j++){
                 echo "<br> User Id: " . $usr[0] . " First Name: " . $usr[1] . " Last Name: " . $usr[2] . " Username: " . $usr[3] . "<br>";
-                //}
             }
-            //echo "<ul><li>" . implode("</li><li>", $user) . "</li></ul>";
             echo "<br>";
-            //print_r($user);
         }
-
     }
     ?>
 

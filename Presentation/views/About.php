@@ -3,6 +3,7 @@ Stephan Moncavage
 CST-451
 Capstone Project
 07 May 2022
+About "the Company" Page
 -->
 
 <?php include '../views/layout_head.php'; ?>

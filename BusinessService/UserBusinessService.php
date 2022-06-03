@@ -8,62 +8,57 @@ Capstone Project
 //include('../../autoloader.php');
 include '../../Database/UserDataService.php';
 class UserBusinessService{
+    //Retrieve all Sensor Data from the Database
     function getAllSensorData(){
-        $sensors = Array();
         $service = new UserDataService();
-        $sensors = $service->getAllSensorsData();
-        return $sensors;
+        $persons = $service->getAllUserData();
+        return $persons;
     }
-
+    //future Search Capability
     function searchByFirst($pattern){
-        $persons = Array();
         $service = new UserDataService();
         $persons = $service->findByFirstName($pattern);
         return $persons;
     }
-    
+    //future Search Capability
     function searchByLast($pattern){
-        $persons = Array();
         $service = new UserDataService();
         $persons = $service->findByLastName($pattern);
         return $persons;
     }
-    
+    //future Search Capability
     function searchByID($pattern){
-        $persons = Array();
         $service = new UserDataService();
         $persons = $service->findByID($pattern);
         return $persons;
     }
-    
+    //Search by Username from user Database
     function searchByUsername($pattern){
-        $persons = Array();
         $service = new UserDataService();
         $persons = $service->findByUsername($pattern);
         return $persons;
     }
-
+    //Search for user by Password in Database
     function searchByPassword($pattern){
-        $persons = Array();
         $service = new UserDataService();
         $persons = $service->findByPassword($pattern);
         return $persons;
     }
-    
+    //future Search Capability
     function searchByRole($pattern){
         $persons = Array();
         $service = new UserDataService();
         $persons = $service->findByRole($pattern);
         return $persons;
     }
-    
+    //future Search Capability
     function searchByAddressID($pattern){
         $persons = Array();
         $service = new UserDataService();
         $persons = $service->findByAddressID($pattern);
         return $persons;
     }
-    
+    //future Search Capability
     function searchByCreditID($pattern){
         $persons = Array();
         $service = new UserDataService();

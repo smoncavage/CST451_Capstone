@@ -10,7 +10,6 @@ Some portions based on code found on: https://codeofaninja.com/2015/08/simple-ph
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors',1);
-//session_start();
 
 if(isset($_REQUEST['product-id'])){
     addProducttoCart($_REQUEST['hidden_name'], $_REQUEST['product-id']);

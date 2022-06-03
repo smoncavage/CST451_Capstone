@@ -5,7 +5,6 @@ Capstone Project
 7 May 2022
 -->
 <?php
-//session_start();
 include './layout_head.php';
 error_reporting(E_ALL);
 ini_set('display_errors',1);
@@ -46,10 +45,8 @@ $log->addRecord(1,"Entered Login.php page. ");
 </div>
 <!-- end hero area -->
 <?php
-//include_once('./../../../autoloader.php');
-//require_once '../../Utility/auth_session.php';
-//include '../../Utility/Logger.php';
 include '../../BusinessService/UserBusinessService.php';
+//Used for Session cookie data for login timing and check
 session_unset();
 if(session_id() === null) {
     session_start();
@@ -58,10 +55,6 @@ if(session_id() === null) {
     setcookie('pass', '');
     setcookie('startSess', '');
 }
-//startSess();
-
-//$log = new MyLogger();
-
 date_default_timezone_set("America/New_York");
 
 // When form submitted, check and create user session.
@@ -75,8 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['pass'] = $pass;
     $_SESSION['login_user'] = $username;
     $_SESSION['login_time'] = time();
-    //saveUserId($username);
-    //$valid = checkUser();
     $usrSvc = new UserBusinessService();
     $valid = $usrSvc->searchByUsername($username);
     echo $valid[0][3] ."<br/>";
@@ -85,14 +76,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $datetime = new DateTime();
     $time=$datetime->setTimezone(new DateTimeZone('UTC'));
 
-    //echo $_SESSION["valid"];
     try{
-
+        //Ensure that the login is valid to open Sensor/Store/Cart pages
         if($valid == $validpass && $valid != null){
             $_SESSION["valid"] = 1;
             $logentry = $datetime->format('Y/m/d H:i:s') . $username . ': Logged In';
             $log->addRecord(1, $logentry);
-
+            //Add the userdata to the cookies for verification
             setcookie('user',$username);
             setcookie('pass', 'valid');
             setcookie('startSess', $time->format('H:i:s'));
@@ -107,13 +97,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             throw new Exception("User Failed Login: ", 401);
         }
     }catch (Exception $e){
+        //log to default error_log destination
         $logentry = $datetime->format('Y/m/d H:i:s') . ' ' . $e;
         $log->addRecord(1, $logentry);
-        //log to default error_log destination
-        //error_log($logentry);
+        //System Log File for exception capture
+        error_log($logentry);
         echo $datetime->format('Y/m/d H:i:s'). ' ' . $e;
     }
-    //$row = $result-fetch_assoc();
 }
 ?>
 

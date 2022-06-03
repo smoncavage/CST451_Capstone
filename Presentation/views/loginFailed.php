@@ -19,10 +19,7 @@ ini_set('display_errors',1);
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
                         <?php
-                        //session_start();
-                        //echo $_SESSION['username'];
-                        //echo $_SESSION['pass'];
-                        //echo $_SESSION['valid'];
+                        //Check to why the login failed and return the correct error message.
                         if(!isset($_COOKIE['user'])){
                             $message = "Username is Missing or not found, ";
                         }elseif(!isset($_COOKIE['pass'])){
@@ -45,7 +42,6 @@ ini_set('display_errors',1);
     </div>
 </div>
 <!-- end hero area -->
-
 
 </body>
 <?php include 'layout_foot.php'; ?>
