@@ -1,0 +1,1001 @@
+Address_ID,Street,Street2,City,State,Postal_Code,Default_ID,Address_Type
+1,"1234 South St.",,Chicago,IL,12345,0,2
+2,"05 Scofield Street",,Chicago,Illinois,60630,2,1
+3,"51322 Prairie Rose Terrace",,"Corpus Christi",Texas,78465,2,1
+4,"03703 Victoria Road",,Louisville,Kentucky,40233,2,2
+5,"433 Vidon Plaza",,Springfield,Illinois,62794,2,3
+6,"55 Muir Circle",,Washington,"District of Columbia",20005,2,1
+7,"66 Derek Plaza",,Phoenix,Arizona,85015,1,3
+8,"9426 Schlimgen Alley",,Topeka,Kansas,66611,1,2
+9,"278 Texas Circle",,Washington,"District of Columbia",20397,2,3
+10,"0149 Hagan Point",,"Spring Hill",Florida,34611,2,2
+11,"4209 Hovde Crossing",,Philadelphia,Pennsylvania,19093,2,1
+12,"9958 Maywood Crossing",,Waterloo,Iowa,50706,1,2
+13,"832 Killdeer Circle",,"New York City","New York",10009,2,3
+14,"4 6th Hill",,Shreveport,Louisiana,71115,1,3
+15,"07 Dwight Trail",,Charlottesville,Virginia,22903,1,1
+16,"74766 Nelson Point",,"Fort Lauderdale",Florida,33345,2,2
+17,"36231 Moose Park",,Killeen,Texas,76544,2,1
+18,"50 Upham Crossing",,Richmond,Virginia,23228,1,2
+19,"893 Mosinee Lane",,"Saint Paul",Minnesota,55103,1,2
+20,"57 Surrey Street",,Erie,Pennsylvania,16550,2,3
+21,"34283 Springview Crossing",,Macon,Georgia,31296,2,3
+22,"1 Ridgeview Crossing",,"Oklahoma City",Oklahoma,73142,1,2
+23,"2 Havey Court",,Chandler,Arizona,85246,1,2
+24,"55158 Claremont Plaza",,Houston,Texas,77025,1,2
+25,"644 East Pass",,Lexington,Kentucky,40586,2,2
+26,"952 Independence Hill",,"Santa Rosa",California,95405,2,2
+27,"35 Briar Crest Center",,Louisville,Kentucky,40215,2,3
+28,"115 Fieldstone Lane",,"Carol Stream",Illinois,60158,1,1
+29,"95285 Johnson Terrace",,Fayetteville,"North Carolina",28314,2,1
+30,"6561 Westport Way",,Lexington,Kentucky,40510,2,2
+31,"283 Lyons Avenue",,"San Francisco",California,94164,2,3
+32,"894 Northview Court",,Indianapolis,Indiana,46295,1,3
+33,"6448 Holy Cross Circle",,Kalamazoo,Michigan,49006,1,2
+34,"77 Meadow Vale Point",,"Port Saint Lucie",Florida,34985,2,1
+35,"7153 Paget Pass",,Dallas,Texas,75226,2,1
+36,"053 Bonner Trail",,Macon,Georgia,31205,2,2
+37,"5 Texas Court",,Washington,"District of Columbia",20557,1,1
+38,"7 Russell Hill",,Lexington,Kentucky,40546,2,3
+39,"91 Westerfield Lane",,Washington,"District of Columbia",20530,1,3
+40,"3 Karstens Plaza",,Norfolk,Virginia,23520,1,1
+41,"238 Erie Court",,"San Antonio",Texas,78250,2,1
+42,"2452 Corry Parkway",,Washington,"District of Columbia",20205,1,2
+43,"258 Forest Dale Park",,Ogden,Utah,84403,2,3
+44,"50083 Maple Wood Way",,Lynchburg,Virginia,24503,2,3
+45,"3 Elgar Plaza",,Scranton,Pennsylvania,18505,1,3
+46,"1386 Waywood Alley",,"Little Rock",Arkansas,72231,2,2
+47,"9 Burrows Road",,Melbourne,Florida,32941,1,2
+48,"61054 Delaware Way",,Montgomery,Alabama,36104,2,1
+49,"780 Luster Alley",,Dallas,Texas,75210,2,2
+50,"08087 Sutherland Place",,Austin,Texas,78737,1,2
+51,"2688 Northridge Center",,"Daytona Beach",Florida,32128,2,2
+52,"51 Graceland Avenue",,Rochester,"New York",14683,1,3
+53,"9241 Service Drive",,Jackson,Mississippi,39204,1,3
+54,"52188 Raven Terrace",,Minneapolis,Minnesota,55458,1,2
+55,"06 Gateway Plaza",,"Baton Rouge",Louisiana,70826,2,3
+56,"15 Fulton Plaza",,"Boynton Beach",Florida,33436,1,3
+57,"5 Hanover Park",,Birmingham,Alabama,35244,2,2
+58,"8695 Oak Valley Parkway",,Farmington,Michigan,48335,1,2
+59,"3684 Manufacturers Pass",,Evansville,Indiana,47719,2,1
+60,"90124 Golf Street",,Philadelphia,Pennsylvania,19115,2,1
+61,"63 Lerdahl Terrace",,Dallas,Texas,75379,2,3
+62,"763 Rusk Plaza",,Dallas,Texas,75231,2,2
+63,"54 Helena Alley",,Columbus,Georgia,31914,2,3
+64,"7234 Calypso Drive",,"San Antonio",Texas,78285,1,3
+65,"4 Gulseth Center",,"Boynton Beach",Florida,33436,1,2
+66,"7457 Crest Line Plaza",,Portland,Oregon,97216,1,3
+67,"75 American Way",,Houston,Texas,77065,1,1
+68,"26510 Sauthoff Place",,"Las Vegas",Nevada,89115,1,3
+69,"6 Mosinee Road",,Cincinnati,Ohio,45228,1,2
+70,"80 Oxford Street",,Hartford,Connecticut,6140,1,2
+71,"67 Steensland Place",,"Fort Pierce",Florida,34949,2,1
+72,"3 Kim Road",,Tempe,Arizona,85284,2,3
+73,"702 Ohio Street",,"Baton Rouge",Louisiana,70815,1,1
+74,"600 Susan Street",,Flint,Michigan,48550,2,3
+75,"007 Scofield Lane",,Hyattsville,Maryland,20784,2,3
+76,"60061 Portage Avenue",,Whittier,California,90605,1,2
+77,"92 Esker Drive",,Minneapolis,Minnesota,55407,1,3
+78,"8 Northport Park",,"New York City","New York",10175,1,3
+79,"975 Carioca Lane",,Bridgeport,Connecticut,6673,1,2
+80,"98131 Sherman Pass",,Nashville,Tennessee,37245,2,1
+81,"2231 Bultman Point",,Houston,Texas,77020,1,3
+82,"4 Kensington Crossing",,"Iowa City",Iowa,52245,1,2
+83,"8718 Hauk Street",,"Cape Coral",Florida,33915,2,1
+84,"78679 La Follette Place",,Mesquite,Texas,75185,2,1
+85,"84663 Graedel Place",,Jackson,Mississippi,39282,2,1
+86,"83 Lakewood Gardens Drive",,Cincinnati,Ohio,45999,1,1
+87,"23628 Elka Lane",,Schenectady,"New York",12305,1,3
+88,"7 Sachtjen Junction",,Houston,Texas,77015,1,3
+89,"76 Mandrake Junction",,Berkeley,California,94712,1,2
+90,"912 Eggendart Court",,Cambridge,Massachusetts,2142,1,2
+91,"7831 Walton Park",,Albany,"New York",12222,2,1
+92,"6 Anderson Avenue",,"Saint Paul",Minnesota,55103,2,2
+93,"97 Northwestern Place",,Miami,Florida,33124,1,3
+94,"3 Monument Way",,Bakersfield,California,93386,1,1
+95,"2021 Macpherson Circle",,"Colorado Springs",Colorado,80920,2,2
+96,"25332 Holmberg Circle",,Milwaukee,Wisconsin,53277,1,3
+97,"3763 Havey Circle",,Boise,Idaho,83705,2,2
+98,"98 Little Fleur Park",,"Grand Rapids",Michigan,49518,1,3
+99,"8 Nelson Crossing",,Harrisburg,Pennsylvania,17121,1,2
+100,"3519 Arizona Plaza",,"Los Angeles",California,90030,1,2
+101,"8 Florence Place",,Washington,"District of Columbia",20319,2,3
+102,"485 Darwin Court",,Asheville,"North Carolina",28805,2,3
+103,"94 Lakewood Plaza",,Escondido,California,92030,2,2
+104,"71 Kennedy Circle",,"Baton Rouge",Louisiana,70820,2,2
+105,"1 New Castle Pass",,Milwaukee,Wisconsin,53205,2,1
+106,"9 Declaration Terrace",,Washington,"District of Columbia",20530,1,1
+107,"69133 Union Street",,Chicago,Illinois,60681,1,2
+108,"34109 Lien Road",,Richmond,Virginia,23213,2,2
+109,"64 Mcbride Court",,"Corpus Christi",Texas,78465,1,2
+110,"542 Roth Avenue",,Tuscaloosa,Alabama,35405,2,3
+111,"4512 Golden Leaf Court",,Denver,Colorado,80243,2,2
+112,"60 Merrick Point",,Atlanta,Georgia,30386,2,1
+113,"5 Forest Dale Court",,Washington,"District of Columbia",20430,2,2
+114,"0362 Kings Street",,Columbia,"South Carolina",29208,2,2
+115,"4 Evergreen Junction",,Peoria,Illinois,61640,2,1
+116,"04 Aberg Plaza",,"San Diego",California,92105,2,2
+117,"7512 6th Alley",,Fairfax,Virginia,22036,1,3
+118,"12 Old Shore Trail",,Jacksonville,Florida,32215,2,3
+119,"876 Donald Hill",,Harrisburg,Pennsylvania,17126,1,1
+120,"15 Artisan Court",,Albany,"New York",12255,1,1
+121,"932 Northfield Avenue",,Peoria,Illinois,61635,1,1
+122,"0539 Hovde Center",,Columbia,"South Carolina",29240,2,3
+123,"63926 Atwood Drive",,Kent,Washington,98042,2,1
+124,"33 Porter Avenue",,Chicago,Illinois,60636,2,2
+125,"075 Dunning Way",,Minneapolis,Minnesota,55470,1,3
+126,"326 Donald Circle",,"Oklahoma City",Oklahoma,73104,2,2
+127,"804 Larry Alley",,Richmond,Virginia,23203,2,3
+128,"92 Lyons Drive",,"New York City","New York",10029,2,3
+129,"52821 Goodland Alley",,Omaha,Nebraska,68134,2,3
+130,"952 Morrow Park",,Indianapolis,Indiana,46266,1,1
+131,"97186 Stuart Terrace",,Gainesville,Florida,32605,1,1
+132,"2690 Veith Junction",,Metairie,Louisiana,70033,2,3
+133,"1 Waubesa Alley",,Chattanooga,Tennessee,37410,2,3
+134,"42 Oneill Avenue",,Seattle,Washington,98115,2,3
+135,"2211 Killdeer Way",,Fresno,California,93778,1,2
+136,"99 Pearson Alley",,Boston,Massachusetts,2216,2,3
+137,"222 Surrey Park",,"Los Angeles",California,90055,2,3
+138,"6590 Leroy Avenue",,"Virginia Beach",Virginia,23471,1,3
+139,"45 Victoria Street",,Norfolk,Virginia,23509,2,1
+140,"1 Luster Lane",,Raleigh,"North Carolina",27635,2,3
+141,"3436 Moulton Circle",,"New Castle",Pennsylvania,16107,2,1
+142,"14 Melvin Junction",,Montgomery,Alabama,36109,1,1
+143,"1254 Elmside Junction",,Jacksonville,Florida,32204,1,2
+144,"89522 Sutteridge Court",,Greensboro,"North Carolina",27455,2,3
+145,"913 Pine View Park",,"Colorado Springs",Colorado,80951,2,3
+146,"2769 Briar Crest Parkway",,Newark,"New Jersey",7188,1,2
+147,"5264 Grim Center",,"Salt Lake City",Utah,84170,1,3
+148,"657 Sycamore Court",,Mobile,Alabama,36616,2,3
+149,"2 Nevada Terrace",,"Cedar Rapids",Iowa,52410,1,1
+150,"97 Bluejay Hill",,Roanoke,Virginia,24004,2,2
+151,"44253 Golf Avenue",,Amarillo,Texas,79118,1,2
+152,"7 Darwin Way",,Amarillo,Texas,79159,1,1
+153,"82 Erie Junction",,Roanoke,Virginia,24014,2,2
+154,"75 Park Meadow Lane",,Montgomery,Alabama,36177,1,2
+155,"45 Glacier Hill Center",,Houston,Texas,77206,2,3
+156,"4 Bonner Terrace",,"Palm Bay",Florida,32909,2,3
+157,"72 Tennyson Junction",,Springfield,Illinois,62723,1,2
+158,"0 Forest Dale Pass",,"Van Nuys",California,91406,2,3
+159,"1584 Russell Way",,"San Antonio",Texas,78240,1,1
+160,"5069 Glacier Hill Street",,Montgomery,Alabama,36119,1,3
+161,"680 1st Junction",,Washington,"District of Columbia",20580,1,1
+162,"14764 Granby Point",,Evansville,Indiana,47719,1,2
+163,"33764 Gale Court",,"El Paso",Texas,88558,2,3
+164,"189 Hollow Ridge Lane",,Tampa,Florida,33680,1,2
+165,"5 8th Terrace",,Richmond,Virginia,23203,2,1
+166,"50 Monterey Plaza",,Fredericksburg,Virginia,22405,2,1
+167,"12972 Claremont Place",,Minneapolis,Minnesota,55428,1,1
+168,"886 Shasta Parkway",,Houston,Texas,77035,2,2
+169,"454 Prentice Alley",,"Boynton Beach",Florida,33436,2,3
+170,"53 Continental Crossing",,Northridge,California,91328,1,2
+171,"64948 Prentice Way",,Murfreesboro,Tennessee,37131,2,3
+172,"978 Donald Street",,Norwalk,Connecticut,6854,2,3
+173,"668 East Point",,Phoenix,Arizona,85062,2,2
+174,"0496 Stone Corner Crossing",,"Colorado Springs",Colorado,80910,2,1
+175,"4 Northwestern Alley",,"Saint Augustine",Florida,32092,1,2
+176,"16 Manitowish Center",,Birmingham,Alabama,35285,2,3
+177,"7 Farwell Circle",,Sacramento,California,95833,1,3
+178,"4 Hanson Center",,"Fort Worth",Texas,76147,1,1
+179,"3 Manufacturers Parkway",,Alexandria,Virginia,22333,1,3
+180,"42 Reindahl Terrace",,Norwalk,Connecticut,6859,1,2
+181,"77808 Grayhawk Court",,Norwalk,Connecticut,6854,2,3
+182,"39 Blue Bill Park Drive",,Phoenix,Arizona,85062,1,3
+183,"231 Barby Terrace",,Brooklyn,"New York",11241,2,3
+184,"871 Talmadge Alley",,Waco,Texas,76796,1,3
+185,"6 Continental Plaza",,Chattanooga,Tennessee,37405,2,2
+186,"1859 Judy Junction",,Topeka,Kansas,66642,1,1
+187,"798 Fair Oaks Drive",,Minneapolis,Minnesota,55470,2,2
+188,"63437 Cardinal Alley",,"Van Nuys",California,91411,1,2
+189,"7565 Calypso Point",,Washington,"District of Columbia",20409,2,3
+190,"3 Hudson Parkway",,"Fort Wayne",Indiana,46862,2,3
+191,"36252 Rutledge Street",,"New Orleans",Louisiana,70142,1,1
+192,"0321 Mcguire Way",,Rochester,"New York",14614,1,1
+193,"08489 Russell Pass",,"Young America",Minnesota,55573,1,1
+194,"500 Pierstorff Terrace",,Philadelphia,Pennsylvania,19115,2,2
+195,"0 Pawling Road",,Jamaica,"New York",11499,2,2
+196,"49282 Crowley Court",,Cincinnati,Ohio,45999,1,2
+197,"5 Mcbride Plaza",,Jamaica,"New York",11480,1,3
+198,"121 Knutson Crossing",,Atlanta,Georgia,31165,2,2
+199,"88621 Johnson Alley",,"Sioux Falls","South Dakota",57198,2,1
+200,"322 Moland Circle",,Metairie,Louisiana,70005,2,1
+201,"33 Springview Avenue",,Abilene,Texas,79605,2,3
+202,"7309 Dwight Way",,Bridgeport,Connecticut,6606,2,2
+203,"5 Pine View Park",,Lexington,Kentucky,40576,2,1
+204,"9 Fordem Point",,Scottsdale,Arizona,85271,1,1
+205,"278 Carioca Alley",,"Palm Bay",Florida,32909,2,3
+206,"591 Orin Trail",,"New York City","New York",10203,1,2
+207,"4887 Jay Place",,"San Antonio",Texas,78225,2,2
+208,"68 Pond Street",,"Saint Paul",Minnesota,55123,1,1
+209,"4 Morrow Parkway",,"Fort Worth",Texas,76162,1,2
+210,"6305 Gina Parkway",,Washington,"District of Columbia",20226,1,1
+211,"6214 Evergreen Street",,"Silver Spring",Maryland,20904,2,3
+212,"34763 7th Avenue",,"Saint Petersburg",Florida,33742,1,2
+213,"2764 Badeau Junction",,Visalia,California,93291,1,1
+214,"019 Superior Pass",,Denver,Colorado,80241,2,3
+215,"77228 Twin Pines Crossing",,Washington,"District of Columbia",20580,1,3
+216,"039 Loomis Avenue",,Sacramento,California,95838,2,2
+217,"4039 Sachtjen Parkway",,Bradenton,Florida,34205,1,3
+218,"62 Lighthouse Bay Crossing",,Abilene,Texas,79699,2,1
+219,"63699 Tennyson Place",,"Fort Worth",Texas,76105,1,3
+220,"37 1st Parkway",,"Los Angeles",California,90087,1,3
+221,"13169 Eastlawn Alley",,Trenton,"New Jersey",8695,2,3
+222,"54051 Packers Trail",,"Shawnee Mission",Kansas,66286,1,3
+223,"7887 Ludington Point",,Albuquerque,"New Mexico",87201,2,2
+224,"9 Becker Road",,"El Paso",Texas,79977,1,3
+225,"777 Upham Plaza",,Montgomery,Alabama,36104,1,1
+226,"68 Mitchell Lane",,Wilmington,Delaware,19805,1,3
+227,"4413 Barby Place",,Birmingham,Alabama,35242,1,1
+228,"5 Dayton Street",,"Santa Barbara",California,93111,1,3
+229,"0460 Heath Circle",,Jackson,Tennessee,38308,2,3
+230,"2588 Ramsey Crossing",,Columbia,Missouri,65211,2,2
+231,"27 American Avenue",,"Colorado Springs",Colorado,80905,1,2
+232,"6 Orin Place",,Birmingham,Alabama,35254,1,2
+233,"5 Armistice Road",,Lansing,Michigan,48930,2,3
+234,"84618 Memorial Court",,Duluth,Georgia,30195,1,3
+235,"959 Bellgrove Pass",,Minneapolis,Minnesota,55441,2,1
+236,"2175 Vera Lane",,Knoxville,Tennessee,37939,1,2
+237,"101 Elka Alley",,Boise,Idaho,83711,2,2
+238,"933 8th Court",,Phoenix,Arizona,85020,1,3
+239,"4735 Cascade Park",,"Moreno Valley",California,92555,2,1
+240,"9081 Annamark Avenue",,Sacramento,California,94230,2,1
+241,"24657 Birchwood Circle",,Norcross,Georgia,30092,1,3
+242,"50586 Coolidge Hill",,Asheville,"North Carolina",28805,1,2
+243,"58 Hermina Street",,"Wilkes Barre",Pennsylvania,18763,1,2
+244,"54 Superior Point",,Levittown,Pennsylvania,19058,1,3
+245,"00913 Dakota Point",,Killeen,Texas,76544,1,2
+246,"67891 Meadow Ridge Junction",,Northridge,California,91328,2,1
+247,"78 Helena Terrace",,Tampa,Florida,33694,1,1
+248,"24817 Becker Road",,Huntington,"West Virginia",25770,2,1
+249,"4286 Hauk Crossing",,Texarkana,Texas,75507,1,2
+250,"5166 Maple Wood Drive",,Arlington,Texas,76004,1,3
+251,"416 Duke Circle",,Springfield,Illinois,62764,1,3
+252,"4366 Grayhawk Circle",,Tucson,Arizona,85737,2,3
+253,"62769 Twin Pines Avenue",,Columbus,Ohio,43204,2,3
+254,"68864 Debs Circle",,"Fort Worth",Texas,76162,1,3
+255,"534 Jana Avenue",,Palmdale,California,93591,2,1
+256,"4 Eastlawn Trail",,"Van Nuys",California,91406,1,1
+257,"04073 Valley Edge Plaza",,Miami,Florida,33261,2,1
+258,"80200 Dayton Alley",,Columbia,"South Carolina",29240,1,1
+259,"72 Longview Court",,Toledo,Ohio,43656,2,1
+260,"4 Center Road",,Minneapolis,Minnesota,55423,1,1
+261,"232 Hintze Terrace",,Concord,California,94522,2,1
+262,"48040 Holy Cross Lane",,Duluth,Georgia,30195,1,3
+263,"3 Almo Plaza",,Arlington,Texas,76096,2,3
+264,"5671 Morning Terrace",,Dayton,Ohio,45432,2,2
+265,"55204 Meadow Valley Pass",,Evansville,Indiana,47747,2,1
+266,"08 Buhler Street",,"Great Neck","New York",11024,1,2
+267,"7979 Blue Bill Park Plaza",,York,Pennsylvania,17405,2,3
+268,"7 Sycamore Drive",,Shreveport,Louisiana,71130,1,2
+269,"75 Westerfield Drive",,"Los Angeles",California,90071,2,2
+270,"7167 Rieder Hill",,Flushing,"New York",11355,1,1
+271,"8646 Beilfuss Hill",,Erie,Pennsylvania,16565,2,1
+272,"07 Hovde Terrace",,Greenville,"South Carolina",29610,2,1
+273,"1 Maple Wood Junction",,"Maple Plain",Minnesota,55572,1,1
+274,"88954 Del Sol Center",,Orlando,Florida,32854,1,3
+275,"06 Tennyson Terrace",,"El Paso",Texas,79989,1,2
+276,"8 Victoria Court",,Portland,Oregon,97221,1,1
+277,"57206 Susan Junction",,Washington,"District of Columbia",56944,2,1
+278,"96 Grim Lane",,Glendale,Arizona,85311,1,2
+279,"889 Homewood Road",,"Kansas City",Missouri,64144,1,2
+280,"345 Rockefeller Court",,Memphis,Tennessee,38150,1,2
+281,"7198 Armistice Crossing",,Washington,"District of Columbia",20088,2,2
+282,"18 Pierstorff Crossing",,Lincoln,Nebraska,68524,1,1
+283,"0774 Stone Corner Street",,"Kansas City",Kansas,66160,1,2
+284,"8663 Milwaukee Hill",,Charleston,"South Carolina",29424,1,2
+285,"77 Straubel Hill",,Minneapolis,Minnesota,55436,1,1
+286,"1 Swallow Lane",,"Fort Wayne",Indiana,46896,1,3
+287,"3748 Sutherland Center",,Decatur,Illinois,62525,2,3
+288,"9914 Petterle Lane",,"Des Moines",Iowa,50315,2,2
+289,"5866 Summerview Point",,Milwaukee,Wisconsin,53220,2,1
+290,"025 Corscot Parkway",,Pittsburgh,Pennsylvania,15240,2,3
+291,"8432 Corry Point",,Phoenix,Arizona,85099,1,3
+292,"0132 Butternut Pass",,"San Diego",California,92153,2,3
+293,"759 Spenser Avenue",,Wilmington,Delaware,19892,2,2
+294,"938 Corry Parkway",,Brea,California,92822,1,3
+295,"6 Bayside Road",,Charlottesville,Virginia,22908,1,2
+296,"65719 Bowman Street",,"Salt Lake City",Utah,84115,1,1
+297,"86 Larry Point",,"Saint Paul",Minnesota,55172,1,1
+298,"73745 Del Mar Hill",,Washington,"District of Columbia",20051,1,3
+299,"8007 Old Shore Alley",,"Oklahoma City",Oklahoma,73104,2,2
+300,"4219 Manufacturers Plaza",,"New York City","New York",10260,1,2
+301,"34 Sommers Court",,Peoria,Arizona,85383,1,2
+302,"173 Di Loreto Point",,"Chula Vista",California,91913,2,2
+303,"8981 Rieder Road",,Tucson,Arizona,85720,2,3
+304,"9075 Nova Crossing",,Buffalo,"New York",14225,2,3
+305,"74 Scott Pass",,Clearwater,Florida,34615,2,1
+306,"599 Talisman Road",,Orlando,Florida,32803,2,1
+307,"33799 1st Drive",,Schenectady,"New York",12305,2,3
+308,"791 American Ash Terrace",,Knoxville,Tennessee,37995,1,1
+309,"00099 Buell Street",,Naples,Florida,33961,1,3
+310,"298 Vermont Circle",,"Las Vegas",Nevada,89120,1,3
+311,"8829 Bobwhite Street",,"Wichita Falls",Texas,76310,1,3
+312,"66905 Marquette Drive",,Syracuse,"New York",13205,2,3
+313,"7 Mandrake Alley",,Shreveport,Louisiana,71137,1,1
+314,"0410 Grayhawk Lane",,Clearwater,Florida,34620,1,3
+315,"17 Leroy Trail",,Philadelphia,Pennsylvania,19125,2,1
+316,"26 Spohn Alley",,Bronx,"New York",10454,1,2
+317,"8051 Hazelcrest Circle",,Augusta,Georgia,30905,2,3
+318,"4 Eggendart Hill",,Hartford,Connecticut,6152,2,2
+319,"797 Nobel Lane",,Monticello,Minnesota,55565,2,1
+320,"501 Bellgrove Center",,Bloomington,Illinois,61709,1,1
+321,"92547 Mallory Drive",,Orlando,Florida,32868,2,2
+322,"7657 Russell Terrace",,"Young America",Minnesota,55573,2,2
+323,"9194 Crowley Circle",,Erie,Pennsylvania,16505,2,3
+324,"30810 Loftsgordon Avenue",,Anderson,"South Carolina",29625,2,2
+325,"63947 Lindbergh Plaza",,Detroit,Michigan,48211,1,3
+326,"21747 Ludington Court",,Washington,"District of Columbia",20430,2,3
+327,"0670 Crescent Oaks Avenue",,Lincoln,Nebraska,68531,1,1
+328,"81 Ludington Hill",,Corona,California,92883,2,3
+329,"4 Riverside Terrace",,Appleton,Wisconsin,54915,1,1
+330,"0 Maple Wood Place",,Oakland,California,94627,1,1
+331,"5311 Veith Parkway",,"San Jose",California,95160,1,1
+332,"827 Harper Plaza",,Tacoma,Washington,98464,1,2
+333,"44488 Heath Trail",,Davenport,Iowa,52809,2,1
+334,"5212 Arapahoe Lane",,Jamaica,"New York",11431,1,3
+335,"328 Vernon Parkway",,Brooklyn,"New York",11241,1,3
+336,"17501 Del Mar Drive",,Memphis,Tennessee,38131,2,2
+337,"9 Monica Lane",,Gatesville,Texas,76598,1,3
+338,"20 Jackson Plaza",,Washington,"District of Columbia",20226,1,1
+339,"0 Birchwood Plaza",,Atlanta,Georgia,30356,2,2
+340,"498 Warrior Plaza",,Birmingham,Alabama,35225,1,3
+341,"1722 Hauk Junction",,"Las Vegas",Nevada,89193,2,1
+342,"1 Tomscot Center",,Charleston,"South Carolina",29403,2,3
+343,"584 Jackson Lane",,Chicago,Illinois,60691,1,2
+344,"38 Arkansas Park",,Birmingham,Alabama,35210,1,1
+345,"84896 Carey Lane",,Birmingham,Alabama,35279,1,2
+346,"31473 Shopko Hill",,Wichita,Kansas,67230,2,2
+347,"10691 Eastlawn Street",,Spokane,Washington,99210,1,2
+348,"96108 Barby Point",,"Salt Lake City",Utah,84115,1,2
+349,"0 American Plaza",,Vancouver,Washington,98687,2,2
+350,"04999 Towne Parkway",,Waltham,Massachusetts,2453,2,3
+351,"70 Raven Crossing",,Charleston,"West Virginia",25362,1,2
+352,"1 Hovde Pass",,Springfield,Ohio,45505,1,1
+353,"46116 Marcy Way",,"New York City","New York",10060,1,2
+354,"58476 Portage Alley",,Rochester,"New York",14683,1,1
+355,"5232 David Plaza",,Fairbanks,Alaska,99790,2,2
+356,"2 Scoville Point",,Newton,Massachusetts,2458,2,1
+357,"71484 Lindbergh Junction",,Portland,Oregon,97211,2,1
+358,"9085 Village Lane",,Madison,Wisconsin,53790,2,3
+359,"6893 Raven Parkway",,Memphis,Tennessee,38150,1,1
+360,"974 Ohio Road",,Huntington,"West Virginia",25770,2,2
+361,"118 Kings Pass",,Cleveland,Ohio,44105,2,2
+362,"416 Armistice Park",,Racine,Wisconsin,53405,1,1
+363,"97 Haas Hill",,"Young America",Minnesota,55573,1,2
+364,"18270 Manufacturers Street",,"San Jose",California,95108,2,3
+365,"46 7th Court",,Anaheim,California,92805,2,1
+366,"29398 Emmet Circle",,Indianapolis,Indiana,46239,2,1
+367,"135 Reinke Park",,Phoenix,Arizona,85005,1,1
+368,"66 Thompson Hill",,Brooklyn,"New York",11231,1,2
+369,"9 Declaration Point",,Montgomery,Alabama,36177,2,3
+370,"315 Heath Place",,Spokane,Washington,99205,1,2
+371,"8084 Warner Place",,"San Diego",California,92115,1,2
+372,"0531 Park Meadow Circle",,Metairie,Louisiana,70033,1,1
+373,"04378 Westridge Drive",,"New York City","New York",10115,1,1
+374,"056 Garrison Trail",,Minneapolis,Minnesota,55458,2,2
+375,"3475 Memorial Pass",,Alexandria,Virginia,22313,1,3
+376,"0377 Burrows Circle",,Charlotte,"North Carolina",28205,2,2
+377,"9001 Elmside Drive",,"Corpus Christi",Texas,78426,1,3
+378,"4 Holy Cross Pass",,Hartford,Connecticut,6140,1,3
+379,"765 Esker Hill",,"New Haven",Connecticut,6505,2,1
+380,"04470 Twin Pines Center",,Pasadena,California,91131,2,3
+381,"00744 Northport Court",,"New Orleans",Louisiana,70154,2,1
+382,"7001 Thackeray Trail",,Fresno,California,93721,1,3
+383,"91753 Bunker Hill Drive",,Washington,"District of Columbia",20029,1,2
+384,"61 Monument Place",,Birmingham,Alabama,35254,1,1
+385,"625 Knutson Plaza",,Richmond,Virginia,23228,2,1
+386,"3 Westridge Trail",,"Fort Wayne",Indiana,46814,2,2
+387,"398 Di Loreto Hill",,Atlanta,Georgia,31190,1,2
+388,"99494 Donald Place",,Huntington,"West Virginia",25705,2,2
+389,"2 Reindahl Trail",,Mobile,Alabama,36622,2,3
+390,"924 Lake View Lane",,Philadelphia,Pennsylvania,19131,1,1
+391,"1100 Westerfield Place",,"San Antonio",Texas,78215,2,3
+392,"09404 Dapin Point",,Bronx,"New York",10454,2,2
+393,"254 Sage Crossing",,"West Palm Beach",Florida,33421,2,3
+394,"853 Nevada Court",,Salem,Oregon,97312,1,1
+395,"105 Gulseth Point",,"New York City","New York",10014,1,1
+396,"26 Hazelcrest Center",,Stockton,California,95219,2,2
+397,"601 Columbus Road",,Orange,California,92867,1,2
+398,"8 Melvin Alley",,Birmingham,Alabama,35244,2,3
+399,"4557 Gulseth Center",,Orlando,Florida,32819,2,1
+400,"877 Hagan Court",,Evansville,Indiana,47737,1,2
+401,"994 Gale Junction",,"Saint Louis",Missouri,63143,2,3
+402,"0 Forest Run Lane",,"Kansas City",Missouri,64190,2,1
+403,"0 Eagan Avenue",,"San Francisco",California,94132,2,1
+404,"833 Vera Crossing",,Phoenix,Arizona,85099,2,3
+405,"795 Warrior Circle",,"Fort Worth",Texas,76147,2,3
+406,"1 Main Alley",,"San Diego",California,92137,1,1
+407,"7525 Vernon Crossing",,Alexandria,Virginia,22309,2,1
+408,"76 Heffernan Drive",,"Staten Island","New York",10310,2,2
+409,"411 Hanson Avenue",,Canton,Ohio,44720,2,3
+410,"42511 Old Gate Drive",,Lubbock,Texas,79410,1,1
+411,"1 Florence Plaza",,Gainesville,Florida,32627,2,3
+412,"5 Pennsylvania Drive",,Norman,Oklahoma,73071,1,1
+413,"4476 Artisan Plaza",,Houston,Texas,77080,2,2
+414,"58 Leroy Park",,Glendale,Arizona,85305,2,1
+415,"761 Butterfield Center",,Alexandria,Louisiana,71307,1,2
+416,"508 Colorado Alley",,"Corpus Christi",Texas,78405,2,2
+417,"2 Myrtle Road",,Flushing,"New York",11355,2,1
+418,"44821 Lakewood Parkway",,Gainesville,Florida,32610,1,3
+419,"3 Elmside Center",,"Cape Coral",Florida,33915,2,2
+420,"3465 Bashford Terrace",,"New York City","New York",10280,1,3
+421,"0042 Dryden Parkway",,"Saint Cloud",Minnesota,56372,1,1
+422,"082 Buhler Junction",,Austin,Texas,78726,1,3
+423,"535 Caliangt Center",,"San Bernardino",California,92424,2,1
+424,"3762 Buell Plaza",,"San Diego",California,92153,1,2
+425,"57806 Scott Place",,Sandy,Utah,84093,2,1
+426,"904 Saint Paul Junction",,Honolulu,Hawaii,96835,1,2
+427,"4 Katie Place",,Washington,"District of Columbia",20520,1,2
+428,"4768 Dryden Junction",,Boston,Massachusetts,2104,1,3
+429,"32 Del Sol Hill",,Richmond,Virginia,23272,2,1
+430,"1828 Rowland Court",,Minneapolis,Minnesota,55448,2,3
+431,"51 Grover Center",,Pittsburgh,Pennsylvania,15286,2,1
+432,"96 Sutherland Place",,"Simi Valley",California,93094,1,3
+433,"800 Delladonna Alley",,"New York City","New York",10079,1,1
+434,"21 Hauk Crossing",,Littleton,Colorado,80127,1,3
+435,"86 Bunting Street",,"San Jose",California,95194,1,1
+436,"29 Morningstar Park",,"San Francisco",California,94110,2,3
+437,"83446 Kedzie Junction",,"Saint Louis",Missouri,63180,1,2
+438,"05 Anderson Road",,Minneapolis,Minnesota,55417,1,3
+439,"496 Forest Run Road",,"Kansas City",Kansas,66105,1,1
+440,"8294 Thackeray Pass",,Saginaw,Michigan,48604,2,2
+441,"1702 Dapin Road",,Provo,Utah,84605,1,2
+442,"96036 Moulton Pass",,"Des Moines",Iowa,50369,1,1
+443,"11 American Point",,Cleveland,Ohio,44130,2,3
+444,"891 Oneill Park",,Pensacola,Florida,32505,1,1
+445,"547 Cambridge Plaza",,Jacksonville,Florida,32215,1,3
+446,"9386 Anzinger Parkway",,Vancouver,Washington,98682,1,2
+447,"984 Delladonna Parkway",,Akron,Ohio,44321,1,1
+448,"6339 Sauthoff Place",,Washington,"District of Columbia",20430,1,3
+449,"1 Oriole Hill",,Tacoma,Washington,98411,1,2
+450,"5 Summer Ridge Center",,Fresno,California,93709,1,1
+451,"8 Brentwood Road",,Kissimmee,Florida,34745,1,1
+452,"33 Maple Road",,Chicago,Illinois,60609,1,1
+453,"36483 Burrows Way",,"San Diego",California,92170,1,1
+454,"44045 Sachtjen Junction",,"Fort Myers",Florida,33994,1,3
+455,"4261 Petterle Street",,"Silver Spring",Maryland,20918,2,3
+456,"368 Butterfield Lane",,"San Jose",California,95155,1,2
+457,"3830 Claremont Place",,Tulsa,Oklahoma,74116,2,1
+458,"1 Spenser Terrace",,Jacksonville,Florida,32204,2,1
+459,"33101 Muir Alley",,Tuscaloosa,Alabama,35487,1,1
+460,"48 Elka Park",,"Pompano Beach",Florida,33064,2,3
+461,"72 Cottonwood Junction",,Corona,California,92883,2,1
+462,"85568 Macpherson Alley",,Aurora,Colorado,80044,1,2
+463,"7997 Nobel Alley",,Tyler,Texas,75705,2,1
+464,"31690 Marquette Plaza",,Richmond,Virginia,23225,2,3
+465,"3 North Court",,Dallas,Texas,75241,1,3
+466,"974 Old Gate Alley",,Arlington,Virginia,22234,2,3
+467,"51 Pine View Hill",,Jacksonville,Florida,32220,2,3
+468,"90232 Westridge Road",,Dallas,Texas,75205,1,3
+469,"9 Kensington Trail",,Clearwater,Florida,33763,1,2
+470,"1481 Rieder Plaza",,Washington,"District of Columbia",20036,1,2
+471,"104 Dottie Parkway",,Amarillo,Texas,79182,1,2
+472,"3967 Mendota Avenue",,Houston,Texas,77288,1,2
+473,"5129 Moose Junction",,"Cape Coral",Florida,33915,2,1
+474,"41 Sunbrook Terrace",,Seattle,Washington,98133,1,2
+475,"63330 Main Park",,Milwaukee,Wisconsin,53277,1,1
+476,"6 Cascade Place",,Sacramento,California,94250,1,3
+477,"36466 Comanche Alley",,Kissimmee,Florida,34745,2,1
+478,"21 Vera Hill",,"Boca Raton",Florida,33499,2,3
+479,"542 1st Terrace",,Washington,"District of Columbia",20425,2,1
+480,"2 Moose Center",,"San Francisco",California,94164,1,1
+481,"5 Florence Crossing",,"San Diego",California,92186,2,1
+482,"52 North Hill",,"Fort Wayne",Indiana,46857,1,1
+483,"44549 Westport Way",,Merrifield,Virginia,22119,2,1
+484,"99169 Cascade Street",,Louisville,Kentucky,40233,2,2
+485,"75094 Arkansas Junction",,Houston,Texas,77218,1,1
+486,"8788 Lakeland Point",,Huntsville,Alabama,35810,1,1
+487,"68589 Hoffman Lane",,Duluth,Georgia,30195,2,2
+488,"7401 1st Center",,Charlotte,"North Carolina",28242,2,1
+489,"15235 Village Park",,Durham,"North Carolina",27710,2,3
+490,"4 Old Gate Trail",,"Palo Alto",California,94302,2,1
+491,"549 2nd Parkway",,"Saint Petersburg",Florida,33731,2,3
+492,"18 Towne Park",,Austin,Texas,78726,2,3
+493,"5911 Katie Point",,"Los Angeles",California,90040,2,3
+494,"9877 Badeau Trail",,Birmingham,Alabama,35279,2,3
+495,"41468 Fuller Park",,Louisville,Kentucky,40220,1,2
+496,"53 Lindbergh Crossing",,"Grand Junction",Colorado,81505,1,3
+497,"315 Chinook Junction",,Phoenix,Arizona,85099,1,3
+498,"89131 Dayton Street",,"Sioux Falls","South Dakota",57193,2,3
+499,"53495 Pepper Wood Crossing",,Birmingham,Alabama,35236,2,1
+500,"6 Hermina Road",,Englewood,Colorado,80150,1,2
+501,"3 Lyons Park",,"San Jose",California,95194,1,2
+502,"2 Express Point",,"Las Vegas",Nevada,89193,1,3
+503,"32 Blackbird Plaza",,"Daytona Beach",Florida,32118,1,1
+504,"55723 Lake View Road",,"Saint Petersburg",Florida,33742,1,3
+505,"36143 Division Junction",,Galveston,Texas,77554,2,3
+506,"87 Merry Street",,Houston,Texas,77075,2,3
+507,"1621 Anhalt Point",,"Sioux Falls","South Dakota",57198,2,3
+508,"8993 Barnett Alley",,"Fort Worth",Texas,76147,2,2
+509,"03328 Fairview Trail",,Tulsa,Oklahoma,74170,1,1
+510,"758 Arkansas Junction",,Berkeley,California,94712,2,2
+511,"44 Johnson Hill",,"Oklahoma City",Oklahoma,73157,2,3
+512,"41 Summer Ridge Crossing",,"Cedar Rapids",Iowa,52405,1,2
+513,"15 Kedzie Hill",,Atlanta,Georgia,31165,2,1
+514,"694 Sunfield Center",,"San Antonio",Texas,78205,2,3
+515,"195 Weeping Birch Alley",,Ashburn,Virginia,22093,2,2
+516,"546 Trailsway Hill",,Minneapolis,Minnesota,55458,1,1
+517,"991 Bellgrove Road",,Orlando,Florida,32868,2,3
+518,"85 Stuart Parkway",,"New York City","New York",10203,2,1
+519,"44 Merchant Crossing",,Lexington,Kentucky,40546,1,3
+520,"32491 Morrow Junction",,Portland,Oregon,97232,2,2
+521,"51291 Arrowood Center",,"New York City","New York",10090,2,3
+522,"73 Sachtjen Alley",,Boulder,Colorado,80305,1,2
+523,"939 Hintze Place",,"Saint Paul",Minnesota,55188,1,2
+524,"975 Stoughton Pass",,Waco,Texas,76711,1,2
+525,"60 6th Lane",,"Chula Vista",California,91913,2,3
+526,"03 Macpherson Road",,Washington,"District of Columbia",20215,1,1
+527,"54834 Blackbird Street",,Houston,Texas,77075,1,1
+528,"889 Heath Road",,Peoria,Illinois,61614,1,2
+529,"5 Butternut Lane",,Erie,Pennsylvania,16550,2,2
+530,"5648 Granby Avenue",,Dallas,Texas,75353,1,1
+531,"68 Lawn Road",,Tallahassee,Florida,32314,2,3
+532,"97534 Jenifer Junction",,Charlotte,"North Carolina",28299,1,3
+533,"8 Clarendon Lane",,Florence,"South Carolina",29505,1,1
+534,"1968 Longview Parkway",,Amarillo,Texas,79159,1,1
+535,"2716 Park Meadow Center",,Tucson,Arizona,85705,1,1
+536,"9533 Swallow Avenue",,Mobile,Alabama,36641,2,2
+537,"8 Northwestern Plaza",,"Santa Fe","New Mexico",87505,1,1
+538,"0531 Green Ridge Place",,"Winston Salem","North Carolina",27105,1,3
+539,"0 Monica Pass",,Pensacola,Florida,32575,1,2
+540,"814 Golf Place",,"Los Angeles",California,90045,1,2
+541,"5 Jackson Lane",,Gainesville,Florida,32605,1,2
+542,"066 Glendale Street",,"Colorado Springs",Colorado,80915,1,3
+543,"59 Gulseth Street",,"Saint Cloud",Minnesota,56372,2,1
+544,"9883 Hoepker Avenue",,"Des Moines",Iowa,50315,2,1
+545,"075 Muir Street",,Washington,"District of Columbia",20436,1,1
+546,"7930 Fair Oaks Point",,Houston,Texas,77020,1,1
+547,"02 Prairie Rose Circle",,Tampa,Florida,33680,2,1
+548,"291 Marquette Junction",,Cambridge,Massachusetts,2142,1,3
+549,"816 Anniversary Point",,Hartford,Connecticut,6140,2,3
+550,"5 Vera Circle",,Worcester,Massachusetts,1610,2,2
+551,"443 Sullivan Court",,Johnstown,Pennsylvania,15906,1,3
+552,"0529 Magdeline Circle",,"San Jose",California,95194,1,3
+553,"96 Dawn Alley",,Washington,"District of Columbia",20430,2,2
+554,"3937 Scoville Plaza",,Pittsburgh,Pennsylvania,15261,1,3
+555,"749 Bartillon Lane",,Brooklyn,"New York",11225,1,2
+556,"9 Bartelt Court",,"El Paso",Texas,79955,1,3
+557,"7763 Dapin Hill",,"Maple Plain",Minnesota,55579,1,1
+558,"45 Thackeray Park",,Woburn,Massachusetts,1813,1,2
+559,"830 Everett Avenue",,Nashville,Tennessee,37250,1,3
+560,"743 Starling Pass",,Stamford,Connecticut,6912,1,1
+561,"030 Reindahl Junction",,Chicago,Illinois,60636,1,2
+562,"7 Bartillon Junction",,Hayward,California,94544,2,2
+563,"9 Granby Circle",,"Las Vegas",Nevada,89115,1,3
+564,"46 Michigan Terrace",,Elmira,"New York",14905,1,3
+565,"69607 Park Meadow Park",,Florence,"South Carolina",29505,2,2
+566,"7650 Buena Vista Drive",,"El Paso",Texas,88584,1,3
+567,"1 Gateway Crossing",,"Colorado Springs",Colorado,80935,1,2
+568,"9411 Loomis Alley",,"Los Angeles",California,90087,2,3
+569,"2661 Melrose Trail",,Rochester,"New York",14619,1,2
+570,"41942 Anzinger Place",,Omaha,Nebraska,68134,2,2
+571,"87 Sundown Circle",,Memphis,Tennessee,38161,1,2
+572,"32204 Mendota Pass",,"Mountain View",California,94042,1,3
+573,"8 Knutson Drive",,Atlanta,Georgia,31196,2,3
+574,"0012 Eastlawn Terrace",,Washington,"District of Columbia",20370,2,3
+575,"8 Anderson Crossing",,Atlanta,Georgia,30323,1,1
+576,"8 Barby Way",,Chandler,Arizona,85246,2,2
+577,"6792 School Way",,Duluth,Minnesota,55805,2,3
+578,"9088 Thompson Crossing",,Champaign,Illinois,61825,2,3
+579,"58188 Forest Dale Parkway",,Hayward,California,94544,1,2
+580,"70020 Charing Cross Place",,Arlington,Virginia,22225,1,2
+581,"788 Lighthouse Bay Street",,"Lake Charles",Louisiana,70607,1,2
+582,"3 Grim Junction",,Chicago,Illinois,60646,1,1
+583,"1388 Lyons Street",,Springfield,Illinois,62723,2,2
+584,"8 Vidon Point",,Schaumburg,Illinois,60193,1,2
+585,"4616 Anzinger Court",,Trenton,"New Jersey",8650,2,1
+586,"1 Cardinal Place",,Garland,Texas,75044,1,1
+587,"85 Schlimgen Center",,Johnstown,Pennsylvania,15906,2,2
+588,"8 Warner Lane",,"Grand Forks","North Dakota",58207,2,3
+589,"10 Stone Corner Road",,Nashville,Tennessee,37240,1,1
+590,"45156 Maryland Trail",,Topeka,Kansas,66617,1,1
+591,"991 Petterle Park",,Phoenix,Arizona,85062,2,3
+592,"69099 Pierstorff Avenue",,"El Paso",Texas,79923,1,2
+593,"480 Maywood Terrace",,"High Point","North Carolina",27264,2,3
+594,"71917 Crest Line Terrace",,"El Paso",Texas,88579,1,1
+595,"422 Meadow Ridge Trail",,Anniston,Alabama,36205,1,1
+596,"232 Lunder Place",,Sacramento,California,94273,2,3
+597,"956 Shelley Pass",,"Miami Beach",Florida,33141,1,1
+598,"46045 8th Junction",,Whittier,California,90605,2,2
+599,"91 Fair Oaks Way",,"San Antonio",Texas,78278,2,3
+600,"2 Morningstar Terrace",,Topeka,Kansas,66622,2,2
+601,"681 Springs Court",,Rockford,Illinois,61110,1,3
+602,"63 Commercial Street",,Evansville,Indiana,47737,2,2
+603,"6852 Lindbergh Center",,"Salt Lake City",Utah,84110,2,2
+604,"89726 Nelson Terrace",,Lafayette,Louisiana,70505,1,1
+605,"841 Cordelia Center",,Gary,Indiana,46406,2,3
+606,"8 Cardinal Drive",,Sandy,Utah,84093,1,3
+607,"3624 Scott Alley",,Washington,"District of Columbia",20392,2,2
+608,"93287 Erie Hill",,Houston,Texas,77050,1,1
+609,"8585 Granby Place",,Pittsburgh,Pennsylvania,15261,1,1
+610,"7222 Fremont Avenue",,"San Antonio",Texas,78225,2,3
+611,"55 Village Trail",,Boston,Massachusetts,2163,2,1
+612,"59 Fallview Trail",,Austin,Texas,78769,1,1
+613,"7872 Village Green Court",,Vancouver,Washington,98687,2,1
+614,"4660 Utah Circle",,Schenectady,"New York",12325,2,1
+615,"63 Sunbrook Pass",,Jamaica,"New York",11431,2,1
+616,"0373 Oneill Circle",,Lansing,Michigan,48901,1,1
+617,"62 6th Hill",,Houston,Texas,77060,1,1
+618,"17 West Place",,"Mountain View",California,94042,2,1
+619,"24 Corry Pass",,Indianapolis,Indiana,46254,1,2
+620,"8 Manley Avenue",,Chicago,Illinois,60657,1,3
+621,"949 Onsgard Lane",,Pittsburgh,Pennsylvania,15205,1,1
+622,"026 Hovde Alley",,Metairie,Louisiana,70033,2,1
+623,"60 Corscot Plaza",,Pittsburgh,Pennsylvania,15220,1,2
+624,"2 Loftsgordon Terrace",,"Las Vegas",Nevada,89115,2,2
+625,"65748 Donald Drive",,Lansing,Michigan,48956,2,1
+626,"1 Dayton Street",,Shreveport,Louisiana,71115,1,2
+627,"1 Jackson Center",,Washington,"District of Columbia",20420,1,3
+628,"882 6th Junction",,Jacksonville,Florida,32220,1,3
+629,"6322 Steensland Hill",,Miami,Florida,33153,1,1
+630,"6 Alpine Center",,Columbus,Ohio,43284,1,1
+631,"958 Dryden Hill",,Atlanta,Georgia,30316,1,1
+632,"7 Continental Circle",,"New York City","New York",10175,2,3
+633,"919 Wayridge Parkway",,Atlanta,Georgia,30358,1,1
+634,"410 Schmedeman Park",,Manassas,Virginia,22111,2,1
+635,"92541 Veith Way",,Tucson,Arizona,85743,1,1
+636,"806 Debra Point",,Roanoke,Virginia,24020,1,1
+637,"809 Union Court",,Philadelphia,Pennsylvania,19178,2,1
+638,"0757 Maywood Circle",,Seattle,Washington,98175,2,3
+639,"924 Anniversary Terrace",,"Colorado Springs",Colorado,80945,2,1
+640,"9185 Rowland Parkway",,Dallas,Texas,75241,1,1
+641,"4 Elgar Road",,"Santa Ana",California,92705,2,3
+642,"39997 Northview Terrace",,Lafayette,Indiana,47905,2,3
+643,"5284 1st Way",,Birmingham,Alabama,35220,1,1
+644,"06832 Darwin Alley",,Charleston,"West Virginia",25305,1,1
+645,"47995 Towne Center",,Conroe,Texas,77305,1,2
+646,"481 Golf Course Park",,Washington,"District of Columbia",20268,2,3
+647,"45300 Debra Parkway",,Washington,"District of Columbia",20205,2,1
+648,"92 Clarendon Junction",,Pensacola,Florida,32511,2,2
+649,"74448 Dryden Trail",,Charlotte,"North Carolina",28256,2,1
+650,"5 Dayton Place",,"Sioux Falls","South Dakota",57105,1,2
+651,"93363 Starling Place",,"San Diego",California,92110,1,2
+652,"74 Logan Hill",,Raleigh,"North Carolina",27615,2,2
+653,"46 Veith Way",,"Delray Beach",Florida,33448,2,2
+654,"87405 Shoshone Alley",,Tampa,Florida,33610,2,2
+655,"37 Mccormick Street",,Portland,Oregon,97286,1,2
+656,"98 Prairieview Pass",,Houston,Texas,77271,2,1
+657,"4 Gulseth Crossing",,Pittsburgh,Pennsylvania,15279,2,1
+658,"202 Shelley Point",,"Saint Louis",Missouri,63116,1,1
+659,"47233 Jackson Junction",,Bakersfield,California,93386,1,1
+660,"52299 Surrey Alley",,Murfreesboro,Tennessee,37131,2,3
+661,"112 Hooker Parkway",,Irvine,California,92717,1,3
+662,"03 Kennedy Drive",,Lexington,Kentucky,40510,1,1
+663,"80612 Kropf Alley",,Tampa,Florida,33615,1,3
+664,"856 Corry Place",,Detroit,Michigan,48267,1,1
+665,"9 Dahle Court",,Charlotte,"North Carolina",28284,2,2
+666,"0 Starling Lane",,"Punta Gorda",Florida,33982,2,3
+667,"05448 Porter Parkway",,Nashville,Tennessee,37228,2,2
+668,"3468 Dapin Terrace",,Chicago,Illinois,60619,2,1
+669,"0460 Manufacturers Park",,Pensacola,Florida,32520,1,3
+670,"9895 Red Cloud Center",,"Fort Smith",Arkansas,72905,1,2
+671,"5 Valley Edge Place",,Cincinnati,Ohio,45296,2,2
+672,"40 Evergreen Park",,Portland,Oregon,97240,2,1
+673,"086 Lukken Avenue",,Washington,"District of Columbia",20005,2,1
+674,"25700 Pankratz Street",,"Virginia Beach",Virginia,23471,2,2
+675,"099 Emmet Circle",,"Fort Worth",Texas,76134,2,3
+676,"015 Clemons Center",,Detroit,Michigan,48224,2,1
+677,"9516 Crest Line Park",,Birmingham,Alabama,35215,1,3
+678,"1 Pierstorff Lane",,Augusta,Georgia,30919,2,1
+679,"6447 Holy Cross Center",,Reno,Nevada,89595,1,1
+680,"168 Redwing Avenue",,Scottsdale,Arizona,85255,2,1
+681,"351 Bashford Way",,Washington,"District of Columbia",20397,1,3
+682,"6340 Haas Point",,"Salt Lake City",Utah,84135,2,2
+683,"24 School Terrace",,Joliet,Illinois,60435,1,3
+684,"36 Vernon Avenue",,Washington,"District of Columbia",20051,2,2
+685,"7317 Arkansas Road",,Newark,"New Jersey",7112,1,1
+686,"70 Anthes Circle",,Hampton,Virginia,23668,1,3
+687,"700 Lakeland Point",,Washington,"District of Columbia",20436,2,2
+688,"9285 Jackson Lane",,Houston,Texas,77206,2,2
+689,"8 Forster Pass",,Mesquite,Texas,75185,1,3
+690,"89 Texas Point",,Jacksonville,Florida,32215,1,1
+691,"140 Northfield Drive",,Washington,"District of Columbia",20430,2,1
+692,"45 Schlimgen Terrace",,"North Port",Florida,34290,1,1
+693,"2308 Ridgeview Junction",,Newark,"New Jersey",7112,1,1
+694,"031 Stang Alley",,"Idaho Falls",Idaho,83405,2,1
+695,"7330 Huxley Street",,Tyler,Texas,75705,2,2
+696,"0886 3rd Drive",,Atlanta,Georgia,31136,1,1
+697,"69 Banding Road",,"El Paso",Texas,88574,2,2
+698,"3 Hooker Terrace",,Everett,Washington,98206,1,1
+699,"074 Clarendon Way",,Miami,Florida,33124,2,1
+700,"9 Florence Junction",,Portland,Oregon,97229,2,2
+701,"54653 Forest Dale Lane",,Phoenix,Arizona,85030,1,3
+702,"03 Linden Way",,Washington,"District of Columbia",56944,2,3
+703,"188 Derek Court",,Newark,"New Jersey",7188,1,1
+704,"8493 Anhalt Court",,Oakland,California,94611,1,1
+705,"1797 Norway Maple Trail",,Schenectady,"New York",12325,1,3
+706,"3028 Village Green Trail",,"New Haven",Connecticut,6510,2,2
+707,"0 Reindahl Court",,Camden,"New Jersey",8104,1,3
+708,"154 Westend Terrace",,Tampa,Florida,33605,1,3
+709,"1 Kings Circle",,"Johnson City",Tennessee,37605,2,1
+710,"207 Independence Lane",,Charlottesville,Virginia,22908,1,3
+711,"11 Carey Court",,Springfield,Ohio,45505,2,3
+712,"6 Northport Plaza",,Miami,Florida,33261,1,2
+713,"793 Vera Alley",,Miami,Florida,33153,1,2
+714,"21900 Amoth Point",,Waco,Texas,76711,1,2
+715,"7018 Crest Line Lane",,Indianapolis,Indiana,46221,1,3
+716,"36890 Killdeer Point",,"Simi Valley",California,93094,2,2
+717,"19898 Fordem Drive",,Lincoln,Nebraska,68524,2,3
+718,"12 Lerdahl Plaza",,Jamaica,"New York",11499,1,1
+719,"299 Memorial Avenue",,Omaha,Nebraska,68179,2,1
+720,"50564 Anhalt Terrace",,Buffalo,"New York",14210,2,2
+721,"154 1st Trail",,Fresno,California,93704,2,2
+722,"40 Weeping Birch Way",,"Santa Ana",California,92705,1,2
+723,"75350 Charing Cross Avenue",,"Santa Clara",California,95054,1,1
+724,"30140 1st Parkway",,Toledo,Ohio,43699,2,3
+725,"29 Lien Terrace",,Hartford,Connecticut,6120,2,1
+726,"2098 Golf View Lane",,"Shawnee Mission",Kansas,66210,2,1
+727,"57721 Kinsman Pass",,Cincinnati,Ohio,45228,2,1
+728,"76 Dakota Hill",,Humble,Texas,77346,1,3
+729,"05804 Stuart Road",,Shreveport,Louisiana,71166,1,3
+730,"4377 Mandrake Center",,Mesa,Arizona,85210,2,3
+731,"3122 Corscot Pass",,Charlotte,"North Carolina",28284,2,3
+732,"49 Brown Parkway",,"Des Moines",Iowa,50369,2,2
+733,"911 Union Court",,Schenectady,"New York",12325,1,3
+734,"48 Elgar Way",,"San Bernardino",California,92410,1,2
+735,"4029 Muir Crossing",,"Salt Lake City",Utah,84125,2,2
+736,"28876 Riverside Lane",,"San Antonio",Texas,78245,2,1
+737,"259 Dunning Junction",,"Winston Salem","North Carolina",27157,1,3
+738,"1188 Clemons Parkway",,Houston,Texas,77276,1,2
+739,"02 West Drive",,Reno,Nevada,89595,2,3
+740,"924 Waubesa Lane",,Sacramento,California,95818,2,1
+741,"5801 Katie Terrace",,Washington,"District of Columbia",20591,2,1
+742,"9809 Pawling Center",,Washington,"District of Columbia",20299,1,3
+743,"2322 Cardinal Way",,Erie,Pennsylvania,16565,1,1
+744,"755 Dawn Point",,Alexandria,Louisiana,71307,1,3
+745,"731 Barby Place",,Honolulu,Hawaii,96810,1,1
+746,"91 Red Cloud Road",,Louisville,Kentucky,40225,2,3
+747,"9 Northport Street",,"El Paso",Texas,79940,2,3
+748,"32183 Marquette Terrace",,Galveston,Texas,77554,2,3
+749,"2731 Hallows Point",,"Kansas City",Missouri,64114,1,2
+750,"6902 Lillian Avenue",,Dayton,Ohio,45470,2,3
+751,"36046 Dottie Center",,Ocala,Florida,34474,1,2
+752,"2 Veith Place",,"Kansas City",Kansas,66112,2,2
+753,"2637 Gulseth Trail",,Mesa,Arizona,85210,2,2
+754,"8044 Boyd Drive",,"El Paso",Texas,79977,1,2
+755,"10 Hoard Street",,Baltimore,Maryland,21203,1,1
+756,"466 Farragut Circle",,"Santa Barbara",California,93111,2,3
+757,"55 Maryland Junction",,"Carol Stream",Illinois,60158,2,3
+758,"886 Merry Hill",,Charleston,"West Virginia",25313,1,1
+759,"984 Graceland Trail",,Clearwater,Florida,33763,1,2
+760,"02 Waxwing Way",,Washington,"District of Columbia",20057,1,3
+761,"2861 7th Alley",,Omaha,Nebraska,68134,2,2
+762,"6 Emmet Pass",,Charlotte,"North Carolina",28235,2,1
+763,"806 Tony Road",,"Kansas City",Missouri,64125,2,1
+764,"7 Linden Drive",,Juneau,Alaska,99812,2,2
+765,"66 Lukken Circle",,"Jersey City","New Jersey",7310,2,1
+766,"19 Rusk Park",,"Baton Rouge",Louisiana,70815,1,2
+767,"72 Crest Line Road",,Washington,"District of Columbia",20022,1,1
+768,"632 Lillian Court",,Waterbury,Connecticut,6721,2,3
+769,"537 Red Cloud Court",,Jackson,Mississippi,39216,1,1
+770,"83280 Dottie Junction",,Columbus,Ohio,43240,1,2
+771,"56 Leroy Pass",,Dallas,Texas,75221,1,1
+772,"74 Division Center",,Richmond,Virginia,23260,1,2
+773,"23 Towne Terrace",,Washington,"District of Columbia",20299,1,2
+774,"488 Memorial Alley",,Dallas,Texas,75323,1,2
+775,"641 Grover Parkway",,Arlington,Virginia,22205,1,3
+776,"1362 Larry Junction",,"Green Bay",Wisconsin,54305,1,3
+777,"6 Dorton Road",,Evansville,Indiana,47705,1,3
+778,"256 Stang Park",,"San Antonio",Texas,78205,2,2
+779,"1890 Schiller Street",,Washington,"District of Columbia",20041,2,3
+780,"14337 Sherman Park",,"Corpus Christi",Texas,78410,2,2
+781,"176 Hanson Alley",,Irvine,California,92710,2,3
+782,"10 Reinke Center",,Charlotte,"North Carolina",28289,1,2
+783,"1505 Sundown Avenue",,Erie,Pennsylvania,16534,1,2
+784,"248 Mayer Hill",,"West Hartford",Connecticut,6127,2,2
+785,"66 Northfield Place",,Cincinnati,Ohio,45254,2,1
+786,"6924 Corben Court",,Hartford,Connecticut,6105,1,2
+787,"4024 Elka Terrace",,Tucson,Arizona,85748,1,1
+788,"7117 Nobel Trail",,Omaha,Nebraska,68164,1,3
+789,"8302 Nobel Way",,Prescott,Arizona,86305,1,1
+790,"757 Lyons Park",,Brooklyn,"New York",11231,1,2
+791,"96 Fisk Parkway",,Largo,Florida,34643,2,3
+792,"266 Arizona Alley",,Washington,"District of Columbia",20575,1,1
+793,"8 Heffernan Pass",,Modesto,California,95397,1,3
+794,"28 Sullivan Terrace",,Gaithersburg,Maryland,20883,1,2
+795,"76 Lotheville Point",,Baltimore,Maryland,21265,2,2
+796,"7 Canary Terrace",,Flushing,"New York",11355,1,3
+797,"115 Michigan Lane",,Waco,Texas,76796,2,3
+798,"5 Fairfield Crossing",,Baltimore,Maryland,21282,2,1
+799,"9161 Saint Paul Street",,"El Paso",Texas,88514,2,3
+800,"4260 Bunting Hill",,"San Jose",California,95155,1,1
+801,"6280 Darwin Court",,"El Paso",Texas,88525,1,1
+802,"43550 Meadow Ridge Lane",,Irvine,California,92612,1,3
+803,"594 Logan Court",,Cincinnati,Ohio,45254,2,1
+804,"9485 Merchant Court",,Warren,Ohio,44485,1,1
+805,"2831 Northland Crossing",,Sarasota,Florida,34238,1,3
+806,"03348 Charing Cross Avenue",,"Kansas City",Missouri,64136,1,3
+807,"146 Dottie Lane",,"Los Angeles",California,90015,1,3
+808,"7 Quincy Circle",,"San Rafael",California,94913,2,1
+809,"9 2nd Trail",,"Los Angeles",California,90030,1,2
+810,"1 Derek Point",,"San Francisco",California,94116,2,1
+811,"66 Mosinee Circle",,"Falls Church",Virginia,22047,2,2
+812,"89 Sachs Drive",,"Kansas City",Kansas,66105,1,2
+813,"55257 Lighthouse Bay Junction",,Cleveland,Ohio,44130,2,3
+814,"22 Meadow Valley Avenue",,"Palm Bay",Florida,32909,1,1
+815,"823 Stephen Plaza",,Lexington,Kentucky,40576,1,3
+816,"724 Nelson Crossing",,Portsmouth,"New Hampshire",3804,1,1
+817,"42622 Straubel Road",,Topeka,Kansas,66667,2,3
+818,"9 Shoshone Avenue",,"El Paso",Texas,88514,2,1
+819,"19 Farmco Drive",,"San Diego",California,92176,1,1
+820,"1481 Sutherland Trail",,Yonkers,"New York",10705,2,1
+821,"90163 Hazelcrest Road",,Boise,Idaho,83705,2,1
+822,"6 Red Cloud Center",,Bronx,"New York",10469,1,3
+823,"2 Hintze Hill",,Palatine,Illinois,60078,2,2
+824,"69 Prentice Drive",,Bakersfield,California,93381,1,2
+825,"47 Bluestem Junction",,"Saint Petersburg",Florida,33715,1,1
+826,"647 Atwood Trail",,Fairbanks,Alaska,99709,2,1
+827,"069 Algoma Road",,"Grand Rapids",Michigan,49560,2,2
+828,"858 Sutteridge Junction",,"El Paso",Texas,88525,1,3
+829,"4 Burning Wood Alley",,"Winston Salem","North Carolina",27150,2,2
+830,"6 Orin Alley",,Rochester,Minnesota,55905,2,1
+831,"037 Lunder Crossing",,"Saint Louis",Missouri,63143,2,2
+832,"12541 Moose Way",,Memphis,Tennessee,38119,2,1
+833,"3725 Independence Center",,Houston,Texas,77250,2,2
+834,"74 Lerdahl Crossing",,Spokane,Washington,99210,1,3
+835,"110 Barby Circle",,"San Bernardino",California,92405,2,3
+836,"9793 Riverside Drive",,Bethesda,Maryland,20892,2,3
+837,"5 Bonner Crossing",,Jacksonville,Florida,32220,2,1
+838,"813 Oxford Parkway",,Washington,"District of Columbia",20005,2,1
+839,"6 Spenser Pass",,Albany,"New York",12205,2,2
+840,"41661 4th Lane",,Midland,Texas,79705,2,2
+841,"95557 Morning Parkway",,Oxnard,California,93034,1,3
+842,"0 Cottonwood Circle",,Detroit,Michigan,48258,2,3
+843,"4920 Doe Crossing Junction",,Paterson,"New Jersey",7544,2,2
+844,"10 Grim Street",,Marietta,Georgia,30066,2,1
+845,"7 Maple Street",,Cincinnati,Ohio,45228,1,2
+846,"81 Red Cloud Trail",,Seattle,Washington,98195,2,3
+847,"87 Melby Street",,"Mountain View",California,94042,2,1
+848,"69 Huxley Terrace",,"Newport News",Virginia,23605,2,2
+849,"8 Kropf Park",,Lexington,Kentucky,40581,1,3
+850,"8 Marquette Avenue",,Independence,Missouri,64054,2,2
+851,"8 Macpherson Way",,Washington,"District of Columbia",20530,1,2
+852,"4 Dwight Plaza",,Boston,Massachusetts,2163,1,2
+853,"23 Elka Court",,"San Jose",California,95113,2,3
+854,"1539 Prairie Rose Hill",,"Saint Paul",Minnesota,55114,1,3
+855,"03 Pepper Wood Circle",,Fargo,"North Dakota",58122,2,3
+856,"777 Florence Park",,"Baton Rouge",Louisiana,70815,1,1
+857,"8 Scofield Plaza",,Lancaster,Pennsylvania,17605,1,1
+858,"54472 Talmadge Circle",,"Long Beach",California,90831,2,3
+859,"6 Dapin Terrace",,Flushing,"New York",11355,1,3
+860,"36717 Almo Road",,Lansing,Michigan,48919,2,2
+861,"4533 Hazelcrest Road",,Houston,Texas,77020,1,2
+862,"6 Manley Plaza",,Reno,Nevada,89550,1,3
+863,"3 Butternut Circle",,"Long Beach",California,90810,2,1
+864,"3710 Randy Crossing",,Fayetteville,"North Carolina",28305,1,2
+865,"2035 Ridge Oak Pass",,Charlotte,"North Carolina",28210,2,2
+866,"0 Pleasure Place",,Charlotte,"North Carolina",28242,1,3
+867,"81 Village Green Parkway",,Albany,"New York",12227,2,3
+868,"50859 Scoville Terrace",,Sacramento,California,94250,2,2
+869,"064 Johnson Junction",,"Saint Paul",Minnesota,55103,2,1
+870,"66 Chive Court",,Plano,Texas,75074,2,3
+871,"40330 Thierer Park",,Detroit,Michigan,48258,1,1
+872,"4 Goodland Drive",,Houston,Texas,77288,1,3
+873,"308 Corry Alley",,Kent,Washington,98042,2,3
+874,"468 Park Meadow Drive",,Columbus,Georgia,31914,2,2
+875,"00399 Fordem Road",,Milwaukee,Wisconsin,53215,2,1
+876,"1198 Fulton Point",,Vancouver,Washington,98687,1,1
+877,"440 Prentice Circle",,Houston,Texas,77075,1,3
+878,"04 Northridge Road",,Dearborn,Michigan,48126,2,3
+879,"31951 Troy Parkway",,"Pinellas Park",Florida,34665,2,2
+880,"90475 Swallow Court",,Naples,Florida,34114,1,1
+881,"9 Rutledge Terrace",,Jackson,Mississippi,39282,2,3
+882,"402 Northridge Way",,"Shawnee Mission",Kansas,66210,2,1
+883,"9911 Brickson Park Avenue",,"Des Moines",Iowa,50310,1,2
+884,"00 Dorton Court",,Shreveport,Louisiana,71130,2,2
+885,"3266 Maywood Parkway",,Huntington,"West Virginia",25716,1,2
+886,"43 Muir Plaza",,Spring,Texas,77388,1,3
+887,"78407 Harbort Circle",,Dulles,Virginia,20189,2,2
+888,"1 Namekagon Hill",,Augusta,Georgia,30905,1,3
+889,"53044 Talmadge Road",,Honolulu,Hawaii,96835,1,2
+890,"6 Lukken Pass",,Pittsburgh,Pennsylvania,15235,2,3
+891,"59 Bellgrove Way",,Oakland,California,94627,1,3
+892,"42665 Carpenter Hill",,Tallahassee,Florida,32399,2,2
+893,"82662 Ridge Oak Place",,Lawrenceville,Georgia,30045,1,3
+894,"971 Dottie Terrace",,"Las Vegas",Nevada,89105,1,2
+895,"0 Briar Crest Street",,Hagerstown,Maryland,21747,2,3
+896,"6 Golden Leaf Street",,Springfield,Illinois,62723,1,1
+897,"80 Center Drive",,Knoxville,Tennessee,37995,1,2
+898,"1 Main Lane",,Newark,"New Jersey",7112,2,3
+899,"35 Summerview Trail",,Beaufort,"South Carolina",29905,1,3
+900,"7186 Barby Junction",,"Saint Louis",Missouri,63143,1,1
+901,"72 Blackbird Street",,Norfolk,Virginia,23509,1,2
+902,"49 Summerview Center",,"Shawnee Mission",Kansas,66225,2,2
+903,"6 Amoth Road",,Newark,"New Jersey",7104,2,3
+904,"2754 Judy Place",,Sacramento,California,94230,1,3
+905,"58998 Debra Crossing",,"Little Rock",Arkansas,72209,1,2
+906,"6 Scott Circle",,Austin,Texas,78737,2,1
+907,"77 Doe Crossing Crossing",,Boston,Massachusetts,2124,2,3
+908,"33379 Randy Hill",,Richmond,Virginia,23213,1,2
+909,"244 Waubesa Lane",,Baltimore,Maryland,21216,2,1
+910,"2339 Bayside Center",,"West Palm Beach",Florida,33405,1,3
+911,"264 Evergreen Junction",,Macon,Georgia,31217,1,1
+912,"7620 Dahle Road",,Boston,Massachusetts,2104,2,1
+913,"7 Karstens Drive",,"Kansas City",Missouri,64193,1,3
+914,"4 Butterfield Trail",,Washington,"District of Columbia",20525,1,1
+915,"835 Tomscot Terrace",,Tulsa,Oklahoma,74170,2,3
+916,"4 Dayton Road",,"Wilkes Barre",Pennsylvania,18768,2,1
+917,"326 Kenwood Lane",,Cleveland,Ohio,44130,2,1
+918,"9065 Morning Center",,Charlotte,"North Carolina",28220,1,3
+919,"2 Evergreen Center",,Savannah,Georgia,31405,1,2
+920,"8778 Arrowood Drive",,"Saint Paul",Minnesota,55127,1,2
+921,"84915 Hooker Alley",,"Oklahoma City",Oklahoma,73197,2,1
+922,"440 Debra Street",,"Saint Paul",Minnesota,55166,1,2
+923,"7 Calypso Crossing",,"New Orleans",Louisiana,70165,1,3
+924,"7334 Myrtle Way",,Cincinnati,Ohio,45218,1,1
+925,"244 Algoma Center",,Laredo,Texas,78044,2,2
+926,"492 Raven Center",,Charlottesville,Virginia,22903,1,3
+927,"6 Florence Hill",,"Kansas City",Kansas,66160,1,2
+928,"28 Arapahoe Crossing",,Orlando,Florida,32808,1,3
+929,"44 Dryden Alley",,Lexington,Kentucky,40505,1,1
+930,"04 Veith Alley",,Amarillo,Texas,79171,1,1
+931,"06647 Trailsway Plaza",,Everett,Washington,98206,2,3
+932,"839 Texas Avenue",,Portland,Oregon,97240,2,2
+933,"91429 Hallows Park",,Newark,Delaware,19725,2,1
+934,"2 Oxford Street",,Portland,Oregon,97296,2,3
+935,"5 Memorial Court",,Waterbury,Connecticut,6726,1,2
+936,"78884 Blackbird Avenue",,Lynchburg,Virginia,24503,1,3
+937,"34 Springview Point",,Houston,Texas,77015,2,1
+938,"46433 Shopko Alley",,Indianapolis,Indiana,46247,2,2
+939,"618 Springview Parkway",,"Kansas City",Missouri,64193,2,3
+940,"749 Hudson Avenue",,Indianapolis,Indiana,46231,2,1
+941,"0288 Del Sol Trail",,Waco,Texas,76711,2,3
+942,"597 Columbus Street",,"Fort Worth",Texas,76147,1,1
+943,"34 Gulseth Drive",,"Saint Augustine",Florida,32092,1,3
+944,"15005 Onsgard Court",,Pittsburgh,Pennsylvania,15274,2,1
+945,"4 Dovetail Hill",,Albany,"New York",12227,2,1
+946,"81673 Johnson Way",,"Terre Haute",Indiana,47805,1,2
+947,"12 Sugar Way",,Southfield,Michigan,48076,2,1
+948,"88369 Carey Street",,Washington,"District of Columbia",20029,2,1
+949,"3 Corry Place",,Flint,Michigan,48555,2,2
+950,"16821 Kennedy Way",,"Saint Paul",Minnesota,55115,2,1
+951,"687 Londonderry Drive",,Bronx,"New York",10459,2,2
+952,"2360 Steensland Park",,Greensboro,"North Carolina",27499,1,3
+953,"308 Old Gate Trail",,Cumming,Georgia,30130,1,3
+954,"4689 Florence Lane",,Omaha,Nebraska,68197,1,3
+955,"36040 Superior Point",,Rochester,Minnesota,55905,2,1
+956,"06 South Pass",,Phoenix,Arizona,85067,2,1
+957,"99627 Morningstar Avenue",,"Saint Petersburg",Florida,33705,2,3
+958,"640 Dorton Street",,Wichita,Kansas,67236,2,3
+959,"8 Ridgeview Lane",,"Saint Paul",Minnesota,55188,2,2
+960,"484 Hollow Ridge Alley",,Charlotte,"North Carolina",28205,2,1
+961,"22 Everett Way",,Cleveland,Ohio,44118,1,1
+962,"261 Eagle Crest Place",,Lubbock,Texas,79491,2,1
+963,"8550 Grover Avenue",,Houston,Texas,77276,2,1
+964,"68044 Merry Pass",,Salinas,California,93907,1,3
+965,"82755 Barby Pass",,"Panama City",Florida,32412,2,2
+966,"458 Butternut Trail",,Roanoke,Virginia,24040,1,3
+967,"231 Independence Point",,Wichita,Kansas,67205,1,3
+968,"70 Garrison Place",,Albuquerque,"New Mexico",87121,2,2
+969,"10310 Nova Terrace",,Richmond,Virginia,23285,1,3
+970,"3 Summerview Road",,"Las Vegas",Nevada,89115,2,1
+971,"7 Lake View Court",,"North Little Rock",Arkansas,72118,2,2
+972,"9250 Ronald Regan Way",,"Corpus Christi",Texas,78470,2,3
+973,"7895 School Way",,Syracuse,"New York",13251,1,1
+974,"8 Mandrake Pass",,Columbia,Missouri,65218,1,3
+975,"4 Bowman Plaza",,Indianapolis,Indiana,46278,1,3
+976,"83665 Memorial Plaza",,Huntsville,Alabama,35895,2,1
+977,"3 Anderson Drive",,Charleston,"South Carolina",29416,1,1
+978,"88 Hagan Plaza",,Milwaukee,Wisconsin,53220,2,1
+979,"6 Waywood Circle",,"New York City","New York",10260,2,2
+980,"24446 Gateway Park",,Alexandria,Virginia,22301,2,1
+981,"6 Crownhardt Avenue",,Metairie,Louisiana,70033,2,2
+982,"4 Vera Lane",,Laredo,Texas,78044,1,3
+983,"7065 Tennyson Road",,Chicago,Illinois,60636,2,1
+984,"3347 Cardinal Parkway",,"Little Rock",Arkansas,72204,1,2
+985,"652 Roxbury Circle",,Waterloo,Iowa,50706,1,2
+986,"86635 Lindbergh Pass",,"Apache Junction",Arizona,85219,1,3
+987,"128 Moulton Crossing",,Birmingham,Alabama,35236,2,1
+988,"9 Merchant Circle",,"Los Angeles",California,90045,1,3
+989,"66162 Esch Court",,"San Antonio",Texas,78230,2,1
+990,"3 Heath Center",,Minneapolis,Minnesota,55446,1,2
+991,"952 Bashford Place",,Springfield,Massachusetts,1152,1,3
+992,"1116 Bay Place",,Tulsa,Oklahoma,74133,2,1
+993,"88 Vermont Alley",,Washington,"District of Columbia",20370,1,3
+994,"0 Sunnyside Drive",,Albany,"New York",12210,1,1
+995,"1326 Oxford Trail",,Pittsburgh,Pennsylvania,15240,2,1
+996,"177 Kingsford Point",,Buffalo,"New York",14263,1,1
+997,"14070 Carpenter Place",,"San Antonio",Texas,78245,1,1
+998,"9 Dexter Alley",,Portland,Oregon,97255,1,2
+999,"5839 Kingsford Trail",,Spokane,Washington,99260,2,1
+1000,"19 Declaration Junction",,Greensboro,"North Carolina",27455,1,1

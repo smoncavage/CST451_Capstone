@@ -1,5 +1,4 @@
-# CST451_Capstone
-Senior Capstone Project - Weather Based Garden Watering System
+GitHub Repository - https://github.com/smoncavage/CST451_Capstone
 
 # Automated Garden Watering
 
@@ -72,4 +71,4 @@ Stephan Moncavage
 
 ## License
 
-* This project is licensed under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt) License - see the LICENSE.md file for detail
+* This project is licensed under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt) License - see the LICENSE.md file for details

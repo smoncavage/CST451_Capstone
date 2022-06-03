@@ -1,0 +1,4 @@
+Role_ID,Role_Name,Role_Description,Access_Level
+1,User,"General Users have general access to site and control their own information.",1
+2,Super_User,"Super_Users can add and delete products as well as delete users for certain violations",2
+3,Administrator,"Administrators have complete access to all site content with the exception of user financial information.",3

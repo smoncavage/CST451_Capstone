@@ -1,0 +1,2 @@
+Detail_ID,Order_ID,Product_ID,Quantity,CurrencyPrice,Discount_Code,Total_Price
+2,0,1,1,0,NULL,0

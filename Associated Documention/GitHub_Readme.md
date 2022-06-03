@@ -1,6 +1,3 @@
-# CST451_Capstone
-Senior Capstone Project - Weather Based Garden Watering System
-
 # Automated Garden Watering
 
 Utilizing a Raspberry Pi 4 this project takes in local environment sensory  data for temperature, barometric pressure, humidity, has soil sensory inputs as well as both GPS and GLONASS positioning data in order to pull locally forecast weather conditions.
@@ -29,47 +26,62 @@ Utilizing a Raspberry Pi 4 this project takes in local environment sensory  data
 * Circuit Breaker Low Voltage AC 6A 230/400V 1 Pole - DIN Mount
 * PS613163 3-Wire Appliance and Power Tool Cord, 6 ft, 16 AWG, 13A/125V AC, 1625w
 * Proper Solenoids to match your home's piping and project wiring design configuration
-* Schematics are in the "Associated Documentation" Folder in the repository.
 
 ### Dependencies
 
 * PHP 
 * Composer
-* python3
-* apache2
-* No-IP
-* Bootstrap
-* mysql/mariadb
+* npm.js
+* guzzlehttp
+* monolog
+* curl 
+
 
 ### Installing
 
 * From the main repository download the python script and set it to load on Raspberry Pi startup. 
-* The jsonGPIO.php file will also need to be copied to the Raspberry Pi as well into the /var/www/html folder after setting up your Raspberry Pi as a web-server and changing your Pi's IP address to a hosted website name through a DNS service. (I used No-IP for this project).
 * Directions to set the script to start with the Raspberry Pi can be found [here](https://raspberrypi-guide.github.io/programming/run-script-on-boot)
-* Setup Raspberry Pi as a web-server. Instructions can be found [here](https://pimylifeup.com/raspberry-pi-web-server/)
-* Setup No-IP for Dyanamic Name Services [here](https://raspberrytips.com/install-no-ip-raspberry-pi/) 
-* The other PHP files can be ran from the same website directly from the Raspberry Pi if wanted with minimal code changes, or even ran as a localhost if you do not need external access to your weather station/watering program.
+* 
 
 ### Executing program
 
-* Setup mysql/mariadb utilizing the DDL Script file within this repository within the "Associated Documentation" folder.
-* On Raspberry Pi run python3 combined_sensors.py after changing the database configuration 
-* Copy the PHP code and composer.json files to a Hosting server and publish the website.
+* How to run the program
+* Step-by-step bullets
+```
+code blocks for commands
+```
+
+## Help
+
+Any advise for common problems or issues.
+```
+command to run if program contains helper info
+```
 
 ## Authors
 
-### To become a contributor please contact Stephan on GitHub utilizing the link below.
-
 Contributors names and contact info
 
-Stephan Moncavage  
-[@smoncavage](https://github.com/smoncavage)
+ex. Dominique Pizzie  
+ex. [@DomPizzie](https://twitter.com/dompizzie)
 
 ## Version History
 
+* 0.2
+    * Various bug fixes and optimizations
+    * See [commit change]() or See [release history]()
 * 0.1
     * Initial Release
 
 ## License
 
-* This project is licensed under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt) License - see the LICENSE.md file for detail
+This project is licensed under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt) License - see the LICENSE.md file for details
+
+## Acknowledgments
+
+Inspiration, code snippets, etc.
+* [awesome-readme](https://github.com/matiassingers/awesome-readme)
+* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+* [dbader](https://github.com/dbader/readme-template)
+* [zenorocha](https://gist.github.com/zenorocha/4526327)
+* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
