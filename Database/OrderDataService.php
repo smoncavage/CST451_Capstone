@@ -5,15 +5,17 @@ Milestone 6
 04 April 2021
 -->
 <?php
-include('./../autoloader.php');
+include('../Database/db.php');
 class OrderDataService{
+    //Return all orders from a given Date.
     function findByOrderDate($search){
-        $conn = getConnection();
+        $db = new Database();
+        $conn = $db->getConnection();
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.products Where First_Name like '%$search%'";
+        $query = " SELECT * FROM products Where Product_Name like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -29,15 +31,16 @@ class OrderDataService{
         mysqli_close($conn);
         displayAllUsers($orders);
     }
-    
+    //Return a specific order based upon its unique ID number
     function findByOrderID($search){
-        $conn = getConnection();
+        $db = new Database();
+        $conn = $db->getConnection();
         $serch=intval($search);
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
         }
-        $query = " SELECT * FROM ecommerce.products Where ID like '%$search%'";
+        $query = " SELECT * FROM products Where Product_ID like '%$search%'";
         $result = mysqli_query($conn, $query);
         if(!$result){
             die("Could not retrieve data: " . mysqli_error($conn));
@@ -49,7 +52,7 @@ class OrderDataService{
             );
             ++$index;
         }
-        mysqli_close($conn);
+        mysqli_close();
         displayAllUsers($orders);
     }
 }

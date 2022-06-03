@@ -1,26 +1,32 @@
 <!--
 Stephan Moncavage
-CST-236
-eCommerce Site Milestone Project
-Milestone 1
-27 February 2021
+CST-451
+Capstone Project
+08 May 2022
 PHP Form handler for HTML Registration Module
 -->
+<?php include './layout_head.php'; ?>
+
+<!-- hero area -->
+<div class="hero-area hero-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-lg-2 text-center">
+                <div class="hero-text">
+                    <div class="hero-text-tablecell">
+
+
+
 <?php
-//error_reporting(E_ALL);
-//ini_set('display_errors',1);
-include_once'../../../autoloader.php';
-include '../layout_head.php';
-include '../../../Database/db.php';
-//include '../navigation.php';
+include '../../Database/db.php';
 $db = new Database();
-$conn=$db->getConnection();
+$conn=$db->dbConnect();
 $firstname = $lastname = $username = $pass = $email = $address1 = $city = $state = $zipcode = $country = "";
 $address2 = $_REQUEST["address2"];
 $role = $_REQUEST["role"];
 $firstnameErr = $lastnameErr = $usernameErr = $passErr = $emailErr = $addressErr = $cityErr = $stateErr = $zipcodeErr = $countryErr = NULL;
 
-//Test Inpute Values from HTML Form. Found on https://www.w3schools.com/php/php_form_required.asp
+//Test Input Values from HTML Form.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	$firstname = $_REQUEST["firstname"];
@@ -107,50 +113,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
 }
 
-//Test Input Function found on https://www.w3schools.com/php/php_form_required.asp
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
-//Secure the Password Added on 7/26/2020
-$password = password_hash($pass, PASSWORD_DEFAULT);
+//Secure the Password
+//Future Functionality for Production Environment
+//$password = password_hash($pass, PASSWORD_DEFAULT);
 
 //Create MSQLI Statement for User Insertion
-$sql = "INSERT INTO kirnyw4ar361d8qd.user (FIRST_NAME, LAST_NAME, USERNAME, PASSWORD)
-VALUES ('$firstname','$lastname','$username', '$password')";
+$sql = "INSERT INTO user (FIRST_NAME, LASTNAME, USERNAME, PASSWORD, EMAIL, Role_ID)
+VALUES ('$firstname','$lastname','$username', '$password', '$email', '$role')";
 
-try{
-	//Validate Statement and execute
-	if($firstname && $lastname && $username && $pass != NULL){
-		if ($conn.query($sql) == TRUE) {
-			echo "Thank you for registering with us";
-			//check errors
-			if($firstnameErr && $lastnameErr && $usernameErr && $passErr && $emailErr && $addressErr && $cityErr && $stateErr && $zipcodeErr && $countryErr == NULL){	
-				echo "Information is in correct Format.";
-			}
-			throw new Exception("New User Registered: ", 202);
-		}
-	}else {
-		//Error List
-		echo "Error: ";
-		echo $firstnameErr . " ";	
-		echo $lastnameErr . " ";	
-		echo $usernameErr . " ";	
-		echo $passErr . " ";
-		//Database Connection OR Insertion errors used in Development
-			
-		echo " Error: " . $sql . "" . $conn.error ;
-		echo "Error: " . $sql . "" . mysqli_error($conn);	
-		throw new Exception("User Registration Failed: " . ' ' . mysqli_error($conn), 200);
+try {
+    //Validate Statement and execute
+    if ($firstname && $lastname && $username && $pass && $email != NULL) {
+        $result = mysqli_query($conn, $sql);
+        if (!$result) {
+            echo "Could not Add User due to : " . mysqli_error($conn);
+        }
+        if (!mysqli_connect_errno()) {
+            echo "Thank you for registering with us ";
+            //check errors
+            if ($firstnameErr && $lastnameErr && $usernameErr && $passErr && $emailErr && $addressErr && $cityErr && $stateErr && $zipcodeErr && $countryErr == NULL) {
+                echo "Information is in correct Format.";
+                $result = mysqli_query($conn, $sql);
+                if (!$result) {
+                    echo "Could not Add User due to : " . mysqli_error($conn);
+                }
+            }
+            throw new Exception("New User Registered: ", 202);
+        }
+    } else {
+        //Error List
+        echo "Error: ";
+        echo $firstnameErr . " ";
+        echo $lastnameErr . " ";
+        echo $usernameErr . " ";
+        echo $passErr . " ";
+        //Database Connection OR Insertion errors used in Development
 
-		header("Location: loginFailed.php/");
-		die();
-		return "../loginFailed.php";
-		<a href = './register.html'><?php echo "Return "?></a><?php echo " to Registration Page, or use Browser 'Back' Button to enter missing information.";
-	}
+        echo " Error: " . $sql . "" . $conn->error;
+        echo "Error: " . $sql . "" . mysqli_error($conn);
+        throw new Exception("User Registration Failed: " . ' ' . mysqli_error($conn), 200);
+
+        //header("Location: loginFailed.php/");
+    }
+		//return "./loginFailed.php";
+        //die();
+        ?>
+		<a href = './register.html'>
+        <?php echo "Return "?></a>
+        <?php echo " to Registration Page, or use Browser 'Back' Button to enter missing information.";
 	}catch (Exception $e){
 		$datetime = new DateTime();
 		$datetime->setTimezone(new DateTimeZone('UTC'));
@@ -159,12 +169,24 @@ try{
 		//log to default error_log destination
 		error_log($logentry);
 	}
-$conn.close();
+//Test Input Function found on https://www.w3schools.com/php/php_form_required.asp
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+$conn->close();
 ?>
-<link rel="stylesheet" href="../css/style.css"/>
-Click <a href = "../../home.php"> here </a> to return to the Main page, or 
-	<a href = "../login.php"> here </a> to go to the Login page.
+Click <a href = "./index.php" class ="boxed-btn"> here </a> to return to the Main page, or
+	<a href = "./login.php" class = "boxed-btn"> here </a> to go to the Login page.
 
-</body>
-<?php include '../layout_foot.php'; ?>
-</html>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end hero area -->
+
+<?php include './layout_foot.php'; ?>

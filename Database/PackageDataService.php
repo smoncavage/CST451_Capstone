@@ -4,11 +4,14 @@ class PackageDataService
 {
     function getPackage($packageId){
         $db = new db();
-        $query = "SELECT * FROM kirnyw4ar361d8qd.PACKAGE WHERE PACKAGE_ID = ?";
+        $query = "SELECT * FROM PACKAGE WHERE PACKAGE_ID like ".$packageId;
         $conn = $db->getConnection();
         $stmt = $conn->prepare($query);
         $stmt->bind_param("i", $packageId);
         $stmt->execute();
+        if(!$stmt->execute()){
+            echo "Error".$query."<br>".$stmt->errorInfo();
+        }
         $results = $stmt->get_result();
 
         if($results->num_rows == 0){
@@ -24,48 +27,48 @@ class PackageDataService
     }
 
     function createPackage($packageName, $washLevel, $waxLevel, $shineLevel){
-        $db = new db();
-        $query = "INSERT INTO kirnyw4ar361d8qd.PACKAGE (PACKAGE_NAME, WASH_LEVEL, WAX_LEVEL, SHINE_LEVEL) VALUES (?,?,?,?)";
+        $db = new Database();
+        $query = "INSERT INTO PACKAGE (PACKAGE_NAME, WASH_LEVEL, WAX_LEVEL, SHINE_LEVEL) VALUES (?,?,?,?)";
         $conn = $db->getConnection();
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("siii", $packageName, $washLevel, $waxLevel, $shineLevel);
+        $stmt->bindValue("siii", $packageName, $washLevel, $waxLevel, $shineLevel);
 
-        if($stmt->ececute()){
+        if($stmt->execute()){
             return true;
         }else{
-            echo "Error".$query."<br>".mysqli_error($conn);
+            echo "Error".$query."<br>".$stmt->errorInfo();
             return false;
         }
 
     }
 
     function updatePackage($packageId, $packageName, $washLevel, $waxLevel, $shineLevel){
-        $db = new db();
-        $query = "UPDATE kirnyw4ar361d8qd.PACKAGE SET PACKAGE_ID = ?, PACKAGE_NAME = ?, WASH_LEVEL=?, WAX_LEVEL=?, SHINE_LEVEL=?)";
+        $db = new Database();
+        $query = "UPDATE PACKAGE SET PACKAGE_NAME = ?, WASH_LEVEL=?, WAX_LEVEL=?, SHINE_LEVEL=? WHERE PACKAGE_ID like ". $packageId;
         $conn = $db->getConnection();
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("isiii", $packageId, $packageName, $washLevel, $waxLevel, $shineLevel);
+        $stmt->bindValue("isiii", $packageId, $packageName, $washLevel, $waxLevel, $shineLevel);
 
-        if($stmt->ececute()){
+        if($stmt->execute()){
             return true;
         }else{
-            echo "Error".$query."<br>".mysqli_error($conn);
+            echo "Error".$query."<br>".$stmt->errorInfo();
             return false;
         }
 
     }
 
     function deletePackage($packageId){
-        $db = new db();
-        $query = "DELETE FROM kirnyw4ar361d8qd.PACKAGE WHERE PACKAGE_ID = ?";
+        $db = new Database();
+        $query = "DELETE FROM PACKAGE WHERE PACKAGE_ID = ?";
         $conn = $db->getConnection();
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $packageId);
+        $stmt->bindValue("i", $packageId);
 
-        if($stmt->ececute()){
+        if($stmt->execute()){
             return true;
         }else{
-            echo "Error".$query."<br>".mysqli_error($conn);
+            echo "Error".$query."<br>".$stmt->errorInfo();
             return false;
         }
 

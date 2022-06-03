@@ -14,7 +14,7 @@ class Paginator{
     private $_limit;
     private $_page;
     private $_query;
-    private $_total;
+    private $total;
   
     public function _contruct($conn, $query){
         $this->_conn = $conn;
@@ -42,7 +42,7 @@ class Paginator{
         $result->limit = $this->_limit;
         $result->total = $this->_limit;
         $result->data = $results;
-        
+        $result->total = count($results);
         return $result;
     }
     
@@ -51,7 +51,7 @@ class Paginator{
             return '';
         }
         
-        $last       = ceil( $this->_total / $this->_limit );
+        $last       = ceil( $this->total / $this->_limit );
         
         $start      = ( ( $this->_page - $links ) > 0 ) ? $this->_page - $links : 1;
         $end        = ( ( $this->_page + $links ) < $last ) ? $this->_page + $links : $last;

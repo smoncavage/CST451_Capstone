@@ -8,7 +8,9 @@ __pycache__/
 *.so
 
 #PHP
-/vendor/
+vendor/
+.bat
+environmentalVariables.php
 
 # Distribution / packaging
 .Python

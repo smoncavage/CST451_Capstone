@@ -8,10 +8,9 @@ Receipt Creation Page
 -->
 <?php
 include('../../../autoloader.php');
-// set page title
+
 $page_title="Checkout";
 
-// include page header html
 include 'layout_head.php';
 class reciept{
 	public function createReciept($numofitems, $total){
@@ -24,6 +23,5 @@ class reciept{
 		
 	}
 }
-//include page footer html
 include 'layout_foot.php';
 ?>

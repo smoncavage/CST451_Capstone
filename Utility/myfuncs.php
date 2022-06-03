@@ -1,14 +1,14 @@
 <!--
 Stephan Moncavage
-CST-236
-eCommerce Site Milestone Project
-Milestone 1
-27 February 2021
+CST-451
+Capstone Project
+19 May 2022
+Miscellaneous Functions
 -->
 <?php
 //require_once('auth_session.php');
 //session_start();
-
+/*
 if(!function_exists('saveUserId')){
 function saveUserId($username){
 	$_SESSION['curuser'] = $username;
@@ -19,6 +19,7 @@ function getUserId(){
 	return $_SESSION['curuser'];
 }
 }
+*/
 if(!function_exists('setTimeStamp')){
 function setTimeStamp($time){
 	//$time = time() - $_SESSION['datetime'];
@@ -34,10 +35,11 @@ function getTimeStamp(){
 	return $_SESSION['login_time'];
 }
 }
-
+/*
 if(!function_exists('checkUser')){
 function checkUser(){
-	$conn = dbConnect();
+    $db = new Database();
+	$conn = $db->dbConnect();
 	//$user = stripslashes($_REQUEST['username']);    // removes backslashes
 	$username = $_SESSION['username'];
 	$user = mysqli_real_escape_string($conn, $username);
@@ -48,14 +50,14 @@ function checkUser(){
 	
 	
 	// Check user is exist in the database
-	$query = "SELECT * FROM `users` WHERE username = '$user'";
+	$query = "SELECT * FROM `user` WHERE Username = '$user'";
 	$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 	//reset count
 	$count = 0;
 	$count = mysqli_num_rows($result);
 	
 	//Change to checking for a password stored as a hash. added 7/26/2020 S. Mocavage
-	$qry = "SELECT pass FROM `users` WHERE username = '$user' ";
+	$qry = "SELECT Password FROM `user` WHERE Username = '$user' ";
 	$result_hash = mysqli_query($conn, $qry) or die (mysqli_error($conn));
 	try{
 		if(password_verify($password, $result_hash)){
@@ -93,12 +95,11 @@ function checkUser(){
 	}
 }
 }
-
+*/
 if(!function_exists('stringToArray')){
 function stringToArray($string){
 	$int = str_word_count($string);
-	$aryString = array_fill(0, $int, $string);
-	return $aryString;
+    return array_fill(0, $int, $string);
 }
 }
 
@@ -107,15 +108,16 @@ function isSessionStarted()
 {
     if ( php_sapi_name() !== 'cli' ) {
         if ( version_compare(phpversion(), '5.4.0', '>=') ) {
-            return session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
+            return session_status() === PHP_SESSION_ACTIVE;
         } else {
-            return session_id() === '' ? FALSE : TRUE;
+            return !(session_id() === '');
         }
     }
     return FALSE;
 }
 }
-if(!function_exists('isSessionStarted')){
+/*
+if(!function_exists('getUsersByFirstName')){
 function getUsersByFirstName($search){
 	$conn = dbConnect(); 
 	try{
@@ -133,7 +135,7 @@ function getUsersByFirstName($search){
 		error_log($logentry);
 	}
 	try{
-		$query = " SELECT * FROM users WHERE FIRST_NAME LIKE '%$search%'";
+		$query = " SELECT * FROM user WHERE FIRST_NAME LIKE '%$search%'";
 		$result = mysqli_query($conn, $query);
 		if(!$result){
 			die("Could not retrieve data: " . mysqli_error($conn));
@@ -161,7 +163,7 @@ function getUsersByFirstName($search){
 }
 }
 
-if(!function_exists('isSessionStarted')){
+if(!function_exists('getUsersByLastName')){
 function getUsersByLastName($search){
 	$conn = dbConnect(); 
 	try{
@@ -206,5 +208,5 @@ function getUsersByLastName($search){
 	return $users;
 }
 }
-
+*/
 ?>

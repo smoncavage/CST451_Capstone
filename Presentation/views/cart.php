@@ -5,69 +5,23 @@ Capstone Project
 07 May 2022
 Cart Creation and Manipulation Page
 -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- title -->
-    <title>GCU-CST451</title>
-
-    <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="../css/assets/img/favicon.png">
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="../css/assets/css/all.min.css">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="../css/assets/bootstrap/css/bootstrap.min.css">
-    <!-- owl carousel -->
-    <link rel="stylesheet" href="../css/assets/css/owl.carousel.css">
-    <!-- magnific popup -->
-    <link rel="stylesheet" href="../css/assets/css/magnific-popup.css">
-    <!-- animate css -->
-    <link rel="stylesheet" href="../css/assets/css/animate.css">
-    <!-- mean menu css -->
-    <link rel="stylesheet" href="../css/assets/css/meanmenu.min.css">
-    <!-- main style -->
-    <link rel="stylesheet" href="../css/assets/css/main.css">
-    <!-- responsive -->
-    <link rel="stylesheet" href="../css/assets/css/responsive.css">
-
-</head>
-
-
-<!--PreLoader-->
-<div class="loader">
-    <div class="loader-inner">
-        <div class="circle"></div>
-    </div>
-</div>
-<!--PreLoader Ends-->
-
-<?php include '../views/layout_head.php'; ?>
-
-<!-- search area -->
-<div class="search-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                <div class="search-bar">
-                    <div class="search-bar-tablecell">
-                        <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
-                        <button type="submit">Search <i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end search area -->
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+include '../../Logger.php';
+$logger = new MyLogger();
+$log=$logger->getLogger();
+$log->addRecord(1,"Entered Cart.php page. ");
+if(isset($_REQUEST['user'])){
+    include '../views/layout_head.php';
+    $log->addRecord(1,"Cart Page Load Layout Header File. ");
+}
+else {
+    header("Location: ./login.php");
+    $log->addRecord(1,"Cart page Re-Direct to Login.php - Session Variable Not Set. ");
+}
+?>
 
 <!-- hero area -->
 <div class="hero-area hero-bg">
@@ -77,154 +31,81 @@ Cart Creation and Manipulation Page
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
                         <?php
-                        include('../../Utility/auth_session.php');
-                        include('../../../autoloader.php');
+                        //include('../../Utility/auth_session.php');
+                        //include('../../../autoloader.php');
                         include '../../Database/db.php';
-                        include_once 'cart_item.php';
+                        //include_once 'cart_item.php';
 
                         $page_title="Cart";
-
+						$products = [];
                         $action = isset($_GET['action']) ? $_GET['action'] : "";
 
                         echo "<div class='col-md-12'>";
                         if($action=='removed'){
-                            echo "<div class='alert alert-info'>";
-                            echo "Product was removed from your cart!";
+                            echo "<br/><br/><br/><br/><br/><br/><br/><div class='alert alert-info'>";
+                            $alert = "Product was removed from your cart!";
+                            echo $alert;
+                            $log->addRecord(1,$alert);
                             echo "</div>";
                         }
 
                         else if($action=='quantity_updated'){
-                            echo "<div class='alert alert-info'>";
-                            echo "Product quantity was updated!";
+                            echo "<br/><br/><br/><br/><br/><br/><br/><div class='alert alert-info'>";
+                            $alert = "Product quantity was updated!";
+                            $log->addRecord(1,$alert);
                             echo "</div>";
                         }
 
                         else if($action=='exists'){
-                            echo "<div class='alert alert-info'>";
-                            echo "Product already exists in your cart!";
+                            echo "<br/><br/><br/><br/><br/><br/><br/><div class='alert alert-info'>";
+                            $alert = "Product already exists in your cart!";
+                            echo $alert;
+                            $log->addRecord(1,$alert);
                             echo "</div>";
                         }
 
                         else if($action=='cart_emptied'){
-                            echo "<div class='alert alert-info'>";
-                            echo "Cart was emptied.";
+                            echo "<br/><br/><br/><br/><br/><br/><br/><div class='alert alert-info'>";
+                            $alert = "Cart was emptied.";
+                            echo $alert;
+                            $log->addRecord(1,$alert);
                             echo "</div>";
                         }
 
                         else if($action=='updated'){
-                            echo "<div class='alert alert-info'>";
-                            echo "Quantity was updated.";
+                            echo "<br/><br/><br/><br/><br/><br/><br/><div class='alert alert-info'>";
+                            $alert = "Quantity was updated.";
+                            echo $alert;
+                            $log->addRecord(1,$alert);
                             echo "</div>";
                         }
 
                         else if($action=='unable_to_update'){
-                            echo "<div class='alert alert-danger'>";
-                            echo "Unable to update quantity.";
+                            echo "<br/><br/><br/><br/><br/><br/><br/><div class='alert alert-danger'>";
+                            $alert = "Unable to update quantity.";
+                            echo $alert;
+                            $log->addRecord(1,$alert);
+                            echo "</div>";
+                        }
+						else if($action=='add'){
+                            echo "<br/><br/><br/><br/><br/><br/><br/><div class='alert alert-info'>";
+                            $alert = "Product was Added to your Cart.";
+                            echo $alert;
+                            $log->addRecord(1,$alert);
+                            echo "</div>";
+							$id=$_GET['id'];
+                        }
+						else{
+                            echo "<div class='col-md-12'>";
+                            echo "<br/><br/><br/><br/><br/><br/><br/><div class='alert alert-danger'>";
+                            $alert =  "No products found in your cart!";
+                            echo $alert;
+                            $log->addRecord(1,$alert);
+                            echo "</div>";
                             echo "</div>";
                         }
                         echo "</div>";
 
-                        $cart_count=$_REQUEST['cartcount'];
-                        // $cart_count variable is initialized in navigation.php
-                        if($cart_count>0){
-
-                            $cart_item->user_id="1";
-                            $stmt=$cart_item->read();
-
-                            $total=0;
-                            $item_count=0;
-
-                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                                extract($row);
-
-                                $sub_total=$price*$quantity;
-
-                                echo "<div class='cart-row'>";
-                                echo "<div class='col-md-8'>";
-                                // product name
-                                echo "<div class='product-name m-b-10px'>";
-                                echo "<h4>{$name}</h4>";
-                                echo "</div>";
-
-                                // update quantity
-                                echo "<form class='update-quantity-form'>";
-                                echo "<div class='product-id' style='display:none;'>{$id}</div>";
-                                echo "<div class='input-group'>";
-                                echo "<input type='number' name='quantity' value='{$quantity}' class='form-control cart-quantity' min='1' />";
-                                echo "<span class='input-group-btn'>";
-                                echo "<button class='btn btn-default update-quantity' type='submit'>Update</button>";
-                                echo "</span>";
-                                echo "</div>";
-                                echo "</form>";
-
-                                // delete from cart
-                                echo "<a href='remove_from_cart.php?id={$id}' class='btn btn-default'>";
-                                echo "Delete";
-                                echo "</a>";
-                                echo "</div>";
-
-                                echo "<div class='col-md-4'>";
-                                echo "<h4>$" . number_format($price, 2, '.', ',') . "</h4>";
-                                echo "</div>";
-                                echo "</div>";
-
-                                $item_count += $quantity;
-                                $total+=$sub_total;
-                            }
-
-                            echo "<div class='col-md-8'></div>";
-                            echo "<div class='col-md-4'>";
-                            echo "<div class='cart-row'>";
-                            echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
-                            echo "<h4>$" . number_format($total, 2, '.', ',') . "</h4>";
-                            echo "<a href='checkout.php' class='btn btn-success m-b-10px'>";
-                            echo "<span class='glyphicon glyphicon-shopping-cart'></span> Proceed to Checkout";
-                            echo "</a>";
-                            echo "</div>";
-                            echo "</div>";
-
-                        }
-
-                        else{
-                            echo "<div class='col-md-12'>";
-                            echo "<div class='alert alert-danger'>";
-                            echo "No products found in your cart!";
-                            echo "</div>";
-                            echo "</div>";
-                        }
-
-                        if(isset($_POST["cart"]))
-                        {
-                            if(isset($_SESSION["cart"]))
-                            {
-                                $item_array_id = array_column($_SESSION["cart"], "Product_ID");
-                                if(!in_array($_GET["id"], $item_array_id))
-                                {
-                                    $count = count($_SESSION["shopping_cart"]);
-                                    $item_array = array(
-                                        'Product_ID'		=>	$_GET["Product_ID"],
-                                        'Product_Name'		=>	$_POST["Product_Name"],
-                                        'Product_Price'		=>	$_POST["Product_Price"],
-                                        'Product_Qty'		=>	$_POST["Product_Qty"]
-                                    );
-                                    $_SESSION["shopping_cart"][$count] = $item_array;
-                                }
-                                else
-                                {
-                                    echo '<script>alert("Item Already Added")</script>';
-                                }
-                            }
-                            else
-                            {
-                                $item_array = array(
-                                    'Product_ID'		=>	$_GET["Product_ID"],
-                                    'Product_Name'		=>	$_POST["Product_Name"],
-                                    'Product_Price'		=>	$_POST["Product_Price"],
-                                    'Product_Qty'		=>	$_POST["Product_Qty"]
-                                );
-                                $_SESSION["shopping_cart"][0] = $item_array;
-                            }
-                        }
 
                         if(isset($_GET["action"]))
                         {
@@ -246,85 +127,52 @@ Cart Creation and Manipulation Page
                         <body>
                         <br />
                         <div class="container">
-                            <br />
-                            <br />
-                            <br />
-                            <h3 align="center">Shoping Cart</h3><br />
-                            <br /><br />
-                            <?php
-                            $db = new Database();
-                            $conn = $db->dbConnect();
-                            $query = "SELECT * FROM products ORDER BY id ASC";
-                            $result = mysqli_query($conn, $query);
-                            if(mysqli_num_rows($result) > 0)
-                            {
-                                while($row = mysqli_fetch_array($result))
-                                {
-                                    ?>
-                                    <div class="col-md-4">
-                                        <form method="post" action="add.php?action=add&id=<?php echo $row["id"]; ?>">
-                                            <div style="border:3px solid #5eb95d; background-color:grey; border-radius:5px; padding:16px;" align="center">
-                                                <img src="images/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
-
-                                                <h4 class="text-info"><?php echo $row["Product_Name"]; ?></h4>
-
-                                                <h4 class="text-danger">$ <?php echo $row["Product_Price"]; ?></h4>
-
-                                                <input type="text" name="quantity" value="1" class="form-control" />
-
-                                                <input type="hidden" name="hidden_name" value="<?php echo $row["Product_Name"]; ?>" />
-
-                                                <input type="hidden" name="hidden_price" value="<?php echo $row["Product_Price"]; ?>" />
-
-                                                <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
-
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <?php
-                                }
-                            }
-                            ?>
+                            <h3> Shopping Cart </h3>
                             <div style="clear:both"></div>
-                            <br />
                             <h3>Order Details</h3>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th width="40%">Item Name</th>
-                                        <th width="10%">Quantity</th>
-                                        <th width="20%">Price</th>
-                                        <th width="15%">Total</th>
-                                        <th width="5%">Action</th>
+                                        <th>Item Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
                                     </tr>
                                     <?php
-                                    if(!empty($_SESSION["cart"]))
-                                    {
-                                        $total = 0;
-                                        foreach($_SESSION["cart"] as $keys => $values)
-                                        {
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $values["Product_Name"]; ?></td>
-                                                <td><?php echo $values["Product_Qty"]; ?></td>
-                                                <td>$ <?php echo $values["Product_Price"]; ?></td>
-                                                <td>$ <?php echo number_format($values["Product_Qty"] * $values["Product_Price"], 2);?></td>
-                                                <td><a href="delete.php?action=delete&id=<?php echo $values["Product_ID"]; ?>"><span class="text-danger">Remove</span></a></td>
-                                            </tr>
-                                            <?php
-                                            $total = $total + ($values["Product_Qty"] * $values["Product_Price"]);
-                                        }
-                                        ?>
-                                        <tr>
-                                            <td colspan="3" align="right">Total</td>
-                                            <td align="right">$ <?php echo number_format($total, 2); ?></td>
-                                            <td></td>
-                                        </tr>
-                                        <?php
-                                    }
-                                    ?>
-
+                                    if($action=='add'){
+                                        $db=new Database();
+										$conn=$db->dbConnect();
+										$query = "SELECT * FROM products WHERE Product_ID LIKE '".$id ."'";
+										$result = mysqli_query($conn, $query);
+										
+										$index = 0;	
+										while($row = mysqli_fetch_array($result)){
+											$products[$index] = array(
+												$row["Product_ID"], $row["Product_Name"], $row["Product_Description"], $row["Product_Price"], $row["Product_Picture"]
+											);
+										++$index;
+										}
+										for($x=0; $x < count($products);$x++){
+											echo "<tr>";
+												echo "<td>" . $products[$x][1] . "</td>";
+                                                $cartqty = $_REQUEST['cart-quantity'];
+												echo "<td>" . $cartqty. "</td>";
+												echo "<td>$ " . number_format($products[$x][3],2). "</td>";
+												echo "<td>$ " . number_format($_REQUEST['cart-quantity'] * $products[$x][3], 2). "</td>";
+												echo "<td><a href='../views/cart.php?action=delete&id=". $products[$x][0] ."'><span class='text-danger'>Remove</span></a></td>";
+											echo "</tr>";
+												$total =  number_format($cartqty * $products[$x][3], 2);
+											echo "</tr>";
+												echo" <td colspan='3' style='text-align='right''>Total</td>";
+												echo "<td>$ ". number_format($total, 2) . "</td>";
+												echo "<td></td>";
+											echo "</tr>";
+										}
+									}
+									?>
                                 </table>
+                                <a href = "logout.php" class = "boxed-btn"> Logout </a>
                             </div>
                         </div>
                     </div>
@@ -335,26 +183,10 @@ Cart Creation and Manipulation Page
 </div>
 <!-- end hero area -->
 
-<!-- jquery -->
-<script src="../css/assets/js/jquery-1.11.3.min.js"></script>
-<!-- bootstrap -->
-<script src="../css/assets/bootstrap/js/bootstrap.min.js"></script>
-<!-- count down -->
-<script src="../css/assets/js/jquery.countdown.js"></script>
-<!-- isotope -->
-<script src="../css/assets/js/jquery.isotope-3.0.6.min.js"></script>
-<!-- waypoints -->
-<script src="../css/assets/js/waypoints.js"></script>
-<!-- owl carousel -->
-<script src="../css/assets/js/owl.carousel.min.js"></script>
-<!-- magnific popup -->
-<script src="../css/assets/js/jquery.magnific-popup.min.js"></script>
-<!-- mean menu -->
-<script src="../css/assets/js/jquery.meanmenu.min.js"></script>
-<!-- sticker js -->
-<script src="../css/assets/js/sticker.js"></script>
-<!-- main js -->
-<script src="../css/assets/js/main.js"></script>
+<!-- cart banner section -->
+	<section class="cart-banner pt-100 pb-100">
+    </section>
+<!-- end cart banner section -->
 
-<?php include '../views/layout_foot.php'; ?>
-</html>
+<?php include 'layout_foot.php'; ?>
+

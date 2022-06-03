@@ -5,7 +5,10 @@ Capstone Project
 02 May 2022
 css Based on code by: Imran Hossain from https://imransdesign.com/
 -->
-
+<?php
+header("Location: https://cst451-capstone.herokuapp.com/Presentation/views/index.php");
+die();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

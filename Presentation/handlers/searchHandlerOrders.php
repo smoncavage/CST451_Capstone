@@ -15,7 +15,7 @@ if($_SESSION["valid"] != 1){
 	header("Location: ./login.php");
 } */
 ?>
-<?php include('./../../autoloader.php');; ?>
+<?php include('./../../autoloader.php'); ?>
 <body class = "body">
 
 <form class = "form3" method = "post" >  
@@ -27,7 +27,7 @@ function getAllOrders(){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         exit();
     }
-    $query = " SELECT * FROM ecommerce.orders ";
+    $query = " SELECT * FROM orders ";
     $result = mysqli_query($conn, $query);
     if(!$result){
         die("Could not retrieve data: " . mysqli_error($conn));
@@ -45,12 +45,13 @@ function getAllOrders(){
 }
 
 function getOrdersbyDate($date){
-    $conn = getConnection();
+    $db=new Database();
+    $conn = $db->dbConnect();
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         exit();
     }
-    $query = " SELECT * FROM ecommerce.orders WHERE Date LIKE ".$date;
+    $query = " SELECT * FROM orders WHERE Date LIKE ".$date;
     $result = mysqli_query($conn, $query);
     if(!$result){
         die("Could not retrieve data: " . mysqli_error($conn));
@@ -90,4 +91,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 </form>
 </body>
 <?php include '../views/layout_foot.php'; ?>
-</html>
+

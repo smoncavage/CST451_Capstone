@@ -9,6 +9,7 @@ Milestone 1
 <?php
 require_once 'myfuncs.php';
 include_once '../../autoloader.php';
+/*
 function getAllUsers(){
 	$conn = dbConnect(); 
 	try{
@@ -48,18 +49,18 @@ function getAllUsers(){
 		);
 		++$index;	
 	}
-	/*
+
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		$users[$index] = array(
 			$row["ID"], $row["FIRSTNAME"], $row["LASTNAME"]
 		);
 		++$index;
-		*/
+
 	//mysqli_free_result($result);
 	mysqli_close($conn);
 	return $users;
 }
-
+*/
 function insertUsers(){
 	$conn = dbConnect();
 	//Multi-Dimentional Array for Users

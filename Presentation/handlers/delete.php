@@ -7,14 +7,14 @@ Milestone 1
 Some portions based on code found on: https://codeofaninja.com/2015/08/simple-php-mysql-shopping-cart-tutorial.html
 -->
 <?php
-session_start();
 
 include('./../../autoloader.php');
 include('./../../Database/db.php');
 
 function deleteUser(){
+    $db=new Database();
     $rowId = $_SESSION['rowID'];
-    $conn = getConnection();
+    $conn = $db->dbConnect();
     $query = "DELETE FROM users WHERE id = '$rowId' ";
     $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
     header("Location: ./Store.php");
@@ -22,9 +22,10 @@ function deleteUser(){
 }
 
 function deleteProduct(){
+    $db=new Database();
     $rowId = $_SESSION['rowID'];
-    $conn = getConnection();
-    $query = "DELETE FROM products WHERE id = '$rowId' ";
+    $conn = $db->dbConnect();
+    $query = "DELETE FROM products WHERE Product_ID = '$rowId' ";
     $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
     header("Location: ./Store.php");
     return $result;
@@ -38,10 +39,11 @@ function deleteProductFromCart(){
     include_once "objects/cart_item.php";
     
     // get database connection
-    $db = getConnection();
+    $db = new Database();
+    $conn=$db->dbConnect();
     
     // initialize objects
-    $cart_item = new CartItem($db);
+    $cart_item = new CartItem($conn);
     
     // remove cart item from database
     $cart_item->user_id=1; // we default to '1' because we do not have logged-in user

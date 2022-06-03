@@ -2,12 +2,10 @@
 Stephan Moncavage
 CST-451
 Capstone Project
-Milestone 3
 02 May 2022
 Header Update to separate file
 Some portions based on code by: Imran Hossain from https://imransdesign.com/
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +13,7 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title><?php echo $page_title ?? "Garden Watering"; ?></title>
+<title><?php echo $page_title ?? "Garden Watering";?></title>
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="../css/assets/img/favicon.png">
@@ -56,8 +54,8 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
                 <div class="main-menu-wrap">
                     <!-- logo -->
                     <div class="site-logo">
-                        <a href="index.php">
-                            <img src="/Presentation/css/assets/img/logo.png" alt="">
+                        <a href="./index.php">
+                            <img src="../css/assets/img/logo.png" alt="">
                         </a>
                     </div>
                     <!-- logo -->
@@ -67,24 +65,12 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li><a href="About.php">About</a></li>
-                            <!--<li><a href="#">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="../css/404.html">404 page</a></li>
-                                    <li><a href="About.php">About</a></li>
-                                    <li><a href="cart.php">Cart</a></li>
-                                    <li><a href="checkout.php">Check Out</a></li>
-                                    <li><a href="Contact.php">Contact</a></li>
-                                    <li><a href="Store.php">Shop</a></li>
-                                </ul>
-                            </li>
-                            -->
-                            <li><a href="../css/news.html">News</a></li>
+                            <li><a href="sensor.php">Sensor</a></li>
                             <li><a href="Contact.php">Contact</a></li>
                             <li><a href="Store.php">Shop</a>
                                 <ul class="sub-menu">
                                     <li><a href="Store.php">Shop</a></li>
                                     <li><a href="checkout.php">Check Out</a></li>
-                                    <li><a href="cart_item.php">Single Product</a></li>
                                     <li><a href="cart.php">Cart</a></li>
                                 </ul>
                             </li>
@@ -115,7 +101,7 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords"/>
+                        <label><input type="text" id="search" placeholder="Keywords"/></label>
                         <button type="submit">Search <i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -125,25 +111,4 @@ Some portions based on code by: Imran Hossain from https://imransdesign.com/
 </div>
 <!-- end search area -->
 
-<body class = "body">
-<?php //include 'navigation.php'; ?>
-<!-- jquery -->
-<script src="/Presentation/css/assets/js/jquery-1.11.3.min.js"></script>
-<!-- bootstrap -->
-<script src="/Presentation/css/assets/bootstrap/js/bootstrap.min.js"></script>
-<!-- count down -->
-<script src="/Presentation/css/assets/js/jquery.countdown.js"></script>
-<!-- isotope -->
-<script src="/Presentation/css/assets/js/jquery.isotope-3.0.6.min.js"></script>
-<!-- waypoints -->
-<script src="/Presentation/css/assets/js/waypoints.js"></script>
-<!-- owl carousel -->
-<script src="/Presentation/css/assets/js/owl.carousel.min.js"></script>
-<!-- magnific popup -->
-<script src="/Presentation/css/assets/js/jquery.magnific-popup.min.js"></script>
-<!-- mean menu -->
-<script src="/Presentation/css/assets/js/jquery.meanmenu.min.js"></script>
-<!-- sticker js -->
-<script src="/Presentation/css/assets/js/sticker.js"></script>
-<!-- main js -->
-<script src="/Presentation/css/assets/js/main.js"></script>
+

@@ -1,26 +1,36 @@
-!--
+<!--
 Stephan Moncavage
-CST-236
-Milestone 2
-06 March 2021
+CST-451
+Capstone
+06 May 2022
 -->
 
 <?php
-include('../../autoloader.php');
+include '../../Database/ProductDataService.php';
 class ProductBusinessService{
+    private $service;
+    private $products;
+    function searchAllProducts(){
+        $this->service = new ProductDataService();
+        $this->products = $this->service->findAllProducts();
+        return $this->products;
+    }
     function searchByName($pattern){
-        $service = new ProductDataService();
-        return $service->findByProductName($pattern);
+        $this->service = new ProductDataService();
+        $this->products = $this->service->findByProductName($pattern);
+        return $this->products;
     }
 
     function searchByPrice($pattern){
-        $service = new ProductDataService();
-        return $service->findByPrice($pattern);
+        $this->service = new ProductDataService();
+        $this->products = $this->service->findByProductPrice($pattern);
+        return $this->products;
     }
 
     function searchByID($pattern){
-        $service = new ProductDataService();
-        return $service->findByProductID($pattern);
+        $this->service = new ProductDataService();
+        $this->products = $this->service->findByProductID($pattern);
+        return $this->products;
     }
 
 }
